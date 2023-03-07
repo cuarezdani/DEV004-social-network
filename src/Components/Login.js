@@ -1,3 +1,5 @@
+import { onNavigate } from '../router/navigate';
+
 export const Login = () => {
     const HomeDiv = document.createElement('div');
     HomeDiv.textContent = 'Welcome';
