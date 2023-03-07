@@ -1,17 +1,20 @@
 import { onNavigate } from '../router/navigate';
 
 export const Login = () => {
-    const HomeDiv = document.createElement('div');
-    HomeDiv.textContent = 'Welcome';
-    HomeDiv.textContent = 'Log in to Coffee Hour';
-    const buttonHome = document.createElement('button');
+  const homeDiv = document.createElement('div');
+  homeDiv.textContent = 'Log in to Coffee Hour';
 
-    buttonHome.textContent = 'Sign Up';
+  const buttonContinue = document.createElement('button');
+  buttonContinue.textContent = 'Continue';
 
-    buttonHome.addEventListener('click', () => onNavigate('/'));
+  const buttonHome = document.createElement('button');
+  buttonHome.textContent = 'Sign Up';
 
-    HomeDiv.appendChild(buttonHome);
+  buttonContinue.addEventListener('click', () => onNavigate('/'));
+  buttonHome.addEventListener('click', () => onNavigate('/register'));
 
-    return HomeDiv;
+  homeDiv.appendChild(buttonContinue);
+  homeDiv.appendChild(buttonHome);
 
+  return homeDiv;
 };
