@@ -1,0 +1,67 @@
+
+
+body{
+background-image: url(https://images.unsplash.com/photo-1509042239860-f550ce710b93?crop=entropy&cs=tinysrgb&fm=jpg&ixid=Mnw3MjAxN3wwfDF8c2VhcmNofDF8fGNhZmV8ZW58MHx8fHwxNjc4MTk2ODI4&ixlib=rb-4.0.3&q=80&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450);
+background-repeat: no-repeat; 
+background-position: center center;
+background-attachment: fixed; 
+background-size: cover;
+}
+
+.homeDiv {
+    position: absolute;
+    width: 187px;
+    height: 61px;
+    left: 102px;
+    top: 280px;    
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: -0.015em;
+    text-transform: uppercase;
+    color: white;
+}
+
+.buttonLogin{
+box-sizing: border-box;
+font-family: 'Comfortaa';
+font-size: 13px;
+font-weight: bold;
+position: absolute;
+background: #FFFFFF;
+border: 2px solid #000000;
+border-radius: 6px;
+position: absolute;
+width: 167px;
+height: 52px;
+left: -84px;
+top: 460px;
+border-radius: 10px;
+text-transform: uppercase;
+}
+
+.buttonRegister{
+font-family: 'Comfortaa';
+box-sizing: border-box;
+font-family: 'Comfortaa';
+font-size: 13px;
+font-weight: bold;
+position: absolute;
+color: white;
+background: black;
+border: 2px solid #000000;
+border-radius: 6px;
+position: absolute;
+width: 167px;
+height: 52px;
+left: 100px;
+top: 460px;
+border-radius: 10px;
+text-transform: uppercase;
+}
+

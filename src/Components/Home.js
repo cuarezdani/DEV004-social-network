@@ -3,8 +3,12 @@ import { onNavigate } from '../router/navigate';
 export const Home = () => {
   const homeDiv = document.createElement('div');
   homeDiv.textContent = 'Welcome To Coffee Hour';
+  homeDiv.className = 'homeDiv';
+
   const buttonLogin = document.createElement('button');
+  buttonLogin.className = 'buttonLogin';
   const buttonRegister = document.createElement('button');
+  buttonRegister.className = 'buttonRegister';
 
   buttonLogin.textContent = 'Login';
   buttonRegister.textContent = 'Sign up';
