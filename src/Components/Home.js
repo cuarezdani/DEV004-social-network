@@ -1,6 +1,9 @@
 import { onNavigate } from '../router/navigate';
 
 export const Home = () => {
+  const container = document.createElement('div');
+  container.className = 'container';
+
   const homeDiv = document.createElement('div');
   homeDiv.textContent = 'Welcome To Coffee Hour';
   homeDiv.className = 'homeDiv';
@@ -18,6 +21,7 @@ export const Home = () => {
 
   homeDiv.appendChild(buttonLogin);
   homeDiv.appendChild(buttonRegister);
+  container.appendChild(homeDiv);
 
-  return homeDiv;
+  return container;
 };
