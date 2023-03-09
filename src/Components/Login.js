@@ -4,11 +4,7 @@ import { onNavigate } from '../router/navigate';
 export const Login = () => {
   const containerLogin = document.createElement('div'); // creación de container para sostener nuestra página
   containerLogin.className = 'containerLogin';
-<<<<<<< HEAD
-  // const image = document.createElement('img');//
-=======
   // const image = document.createElement('img');
->>>>>>> 6113983308ae760fe686539c4e9c85d3edcf79a3
   // image.className = 'img';//
 
   // const formLogin = document.createElement('form');
@@ -18,13 +14,6 @@ export const Login = () => {
   homeDiv.textContent = 'WELCOME';
   homeDiv.className = 'homeDivLogin';
 
-<<<<<<< HEAD
-  // const homeLogin = document.createElement('div');//
-  // homeLogin.textContent = 'Login to Coffee Hour';//
-  homeDiv.innerHTML = 'Login to Coffee Hour <input id = "correo">';
-  const myInput = homeDiv.querySelector('#correo');
-  console.log(myInput);
-=======
   const homeDivH2 = document.createElement('h2');
   homeDivH2.textContent = 'Login to Coffee Hour';
   homeDivH2.className = 'homeDivH2';
@@ -52,7 +41,6 @@ export const Login = () => {
   forgotP.textContent = 'Forgot password?';
   forgotP.className = 'forgotP';
 
->>>>>>> 6113983308ae760fe686539c4e9c85d3edcf79a3
   const buttonContinue = document.createElement('button');
   buttonContinue.textContent = 'Continue';
   buttonContinue.className = 'buttonContinue';
@@ -73,12 +61,5 @@ export const Login = () => {
   buttonContinue.addEventListener('click', () => onNavigate('/'));
   buttonHome.addEventListener('click', () => onNavigate('/register'));
 
-<<<<<<< HEAD
-  containerLogin.appendChild(homeDiv);
-  homeDiv.appendChild(buttonContinue);
-  homeDiv.appendChild(buttonHome);
-
-=======
->>>>>>> 6113983308ae760fe686539c4e9c85d3edcf79a3
   return containerLogin;
 };
