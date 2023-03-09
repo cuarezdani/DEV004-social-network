@@ -19,9 +19,9 @@ export const Home = () => {
   buttonRegister.addEventListener('click', () => onNavigate('/register'));
   buttonLogin.addEventListener('click', () => onNavigate('/login'));
 
+  container.appendChild(homeDiv);
   homeDiv.appendChild(buttonLogin);
   homeDiv.appendChild(buttonRegister);
-  container.appendChild(homeDiv);
 
   return container;
 };

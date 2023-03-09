@@ -1,9 +1,21 @@
+/* eslint-disable import/no-cycle */
 import { onNavigate } from '../router/navigate';
 
 export const Login = () => {
-  const homeDiv = document.createElement('div');
-  homeDiv.textContent = 'Log in to Coffee Hour';
+  const containerLogin = document.createElement('div');
+  containerLogin.className = 'containerLogin';
+  // const image = document.createElement('img');//
+  // image.className = 'img';//
 
+  const homeDiv = document.createElement('div');
+  homeDiv.textContent = 'WELCOME';
+  homeDiv.className = 'homeDivLogin';
+
+  // const homeLogin = document.createElement('div');//
+  // homeLogin.textContent = 'Login to Coffee Hour';//
+  homeDiv.innerHTML = 'Login to Coffee Hour <input id = "correo">';
+  const myInput = homeDiv.querySelector('#correo');
+  console.log(myInput);
   const buttonContinue = document.createElement('button');
   buttonContinue.textContent = 'Continue';
 
@@ -13,8 +25,9 @@ export const Login = () => {
   buttonContinue.addEventListener('click', () => onNavigate('/'));
   buttonHome.addEventListener('click', () => onNavigate('/register'));
 
+  containerLogin.appendChild(homeDiv);
   homeDiv.appendChild(buttonContinue);
   homeDiv.appendChild(buttonHome);
 
-  return homeDiv;
+  return containerLogin;
 };
