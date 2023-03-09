@@ -1,32 +1,29 @@
-body {
-  /*
-background-image: url(https://images.unsplash.com/photo-1509042239860-f550ce710b93?crop=entropy&cs=tinysrgb&fm=jpg&ixid=Mnw3MjAxN3wwfDF8c2VhcmNofDF8fGNhZmV8ZW58MHx8fHwxNjc4MTk2ODI4&ixlib=rb-4.0.3&q=80&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450);
-background-repeat: no-repeat; 
-background-position: center center;
-background-attachment: fixed; 
-background-size: cover;*/
-  font-family: "Comfortaa";
- 
-}
+*{
+    margin: 0; 
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: "Comfortaa";
+    }
 
+/*Pagina Home*/
 
 .container{
+  display: flex;
   background-image: url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?crop=entropy&cs=tinysrgb&fm=jpg&ixid=Mnw3MjAxN3wwfDF8c2VhcmNofDF8fGNhZmV8ZW58MHx8fHwxNjc4MTk2ODI4&ixlib=rb-4.0.3&q=80&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450");
   width: 390px;
   height: 844px;
   left: 0px;
   right: 0px;
   background-repeat: no-repeat;
-  background-position: bottom;
   background-attachment: fixed;
   background-size: cover;
   position: absolute;
   opacity:90%;
   max-width: 100%;
- 
+  align-items: center;
+  object-fit: contain;
+  
 }
-
-
 
 .homeDiv {
   position: absolute;
@@ -84,6 +81,45 @@ background-size: cover;*/
   border-radius: 10px;
   text-transform: uppercase;
 }
+
+
+/* Página Login*/
+
+.containerLogin{
+  display: flex;
+  background-image: url("https://images.pexels.com/photos/15586572/pexels-photo-15586572.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  width: 390px;
+  height: 844px;
+  left: 0px;
+  right: 0px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  position: absolute;
+  opacity:90%;
+  max-width: 100%;
+  align-items: center;
+  object-fit: contain;
+}
+
+.homeDivLogin {
+  position: absolute;
+  width: 234px;
+  height: 37px;
+  left: 64px;
+  top: 244px;
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 27px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: -0.015em;
+  color: #FFFFFF;
+  }
+  
 
 /*codigos nos servirán para que sean responsives en diferentes equipos
 tablet*/
@@ -146,5 +182,5 @@ tablet*/
 
 /*codigos nos servirán para que sean responsives en diferentes equipos :)
 computador*/
-@media (min-width: 1200px) {
-}
+/*@media (min-width: 1200px) {
+}*/
