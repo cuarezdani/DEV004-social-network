@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import { onNavigate } from '../router/navigate';
 
 export const Register = () => {
