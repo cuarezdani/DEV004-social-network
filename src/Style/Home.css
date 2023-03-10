@@ -106,7 +106,7 @@
   position: absolute;
   width: 234px;
   height: 37px;
-  left: 64px;
+  left: 128px;
   top: 244px;
   font-family: "Comfortaa";
   font-style: normal;
@@ -191,14 +191,15 @@
 
 .forgotP {
   position: absolute;
-  left: 23.65%;
+  left: 8%;
   right: -23.65%;
-  top: -19%;
+  top: 18%;
   bottom: 22.5%;
   font-family: "Comfortaa";
   font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 15px;
   line-height: 22px;
   display: flex;
   align-items: center;
@@ -219,7 +220,7 @@
   position: absolute;
   width: 343px;
   height: 52px;
-  left: -40px;
+  left: -105px;
   top: 280px; 
   border-radius: 5px;
 }

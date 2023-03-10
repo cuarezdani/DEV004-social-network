@@ -20,8 +20,8 @@ export const Login = () => {
 
   // const homeLogin = document.createElement('div');
   // homeLogin.textContent = 'Login to Coffee Hour';
- /* homeDiv.innerHTML = 'Login to Coffee Hour <input id = "correo">';
-  const myInput = homeDiv.querySelector('#correo');
+  // homeDiv.innerHTML = 'Login to Coffee Hour <input id = "correo">';
+  /*  const myInput = homeDiv.querySelector('#correo');
   console.log(myInput); */
   const formLogin = document.createElement('form');
   formLogin.className = 'formLogin';
@@ -38,7 +38,7 @@ export const Login = () => {
   emailPassword.placeholder = 'Enter your password';
 
   const forgotP = document.createElement('h4');
-  forgotP.textContent = 'Forgot password?';
+  forgotP.textContent = 'Forgot your password?';
   forgotP.className = 'forgotP';
 
   const buttonContinue = document.createElement('button');
