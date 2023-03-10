@@ -45,9 +45,13 @@ export const Login = () => {
   buttonContinue.textContent = 'Continue';
   buttonContinue.className = 'buttonContinue';
 
-  const buttonHome = document.createElement('button');
-  buttonHome.textContent = 'Do not have an account? Sign Up';
-  buttonHome.className = 'buttonHome';
+  const dontAccount = document.createElement('h5');
+  dontAccount.textContent = 'Don`t have an account?';
+  dontAccount.className = 'dontAccount';
+
+  const buttonSign = document.createElement('h6');
+  buttonSign.textContent = 'Sign Up';
+  buttonSign.className = 'buttonSign';
 
   formLogin.appendChild(homeDiv);
   containerLogin.appendChild(homeDiv);
@@ -56,10 +60,11 @@ export const Login = () => {
   containerLogin.appendChild(emailPassword);
   containerLogin.appendChild(forgotP);
   homeDiv.appendChild(buttonContinue);
-  homeDiv.appendChild(buttonHome);
+  containerLogin.appendChild(dontAccount);
+  homeDiv.appendChild(buttonSign);
 
   buttonContinue.addEventListener('click', () => onNavigate('/'));
-  buttonHome.addEventListener('click', () => onNavigate('/register'));
+  buttonSign.addEventListener('click', () => onNavigate('/register'));
 
   return containerLogin;
 };
