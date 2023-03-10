@@ -221,29 +221,56 @@
   width: 343px;
   height: 52px;
   left: -105px;
-  top: 280px; 
+  top: 280px;
   border-radius: 5px;
 }
 
 .buttonSign {
-position: absolute;
-width: 231px;
-height: 42px;
-left: 25px;
-top: 571px;
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 700;
-font-size: 18px;
-line-height: 21px;
-display: flex;
-align-items: center;
-text-decoration-line: underline;
-color: #760B0B;
-
+  position: absolute;
+  width: 231px;
+  height: 42px;
+  left: 25px;
+  top: 590px;
+  font-family: "Comfortaa";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 21px;
+  align-items: center;
+  text-decoration-line: underline;
+  color: #760b0b;
+  text-align: center;
 }
 
-/*.buttonHome {
+.lineaOr {
+  display: inline-block;
+  position: absolute;
+  vertical-align: middle;
+  width: 30%;
+  /* border: 1px solid #1bb286;*/
+  left: 170px;
+  font-size: 20px;
+  margin-top: 300px;
+}
+
+/*lineaOr::after, lineaOr::before { // lineas de diseño
+content: '';
+mask-position: absolute;
+width: 120px;
+height: 3px;
+background-color: black;
+}
+
+.lineaOr::before {
+left: -140px;
+}
+
+.lineaOr::after{
+  right: -140px;
+  }
+*/
+
+/*.buttonHome { //boton google?
   box-sizing: border-box;
   font-family: "Comfortaa";
   font-size: 13px;
@@ -260,6 +287,184 @@ color: #760B0B;
   border-radius: 10px;
   text-transform: uppercase;
 }/*
+
+/* Pagina REGISTER */
+.containerRegister {
+  margin: 0 auto;
+  display: flex;
+  background-image: url("https://images.unsplash.com/photo-1582298538104-fe2e74c27f59?crop=entropy&cs=tinysrgb&fm=jpg&ixid=Mnw3MjAxN3wwfDF8c2VhcmNofDF8fGZyaWVuZHMlMjBkcmlua2luZyUyMGNvZmZlZXxlbnwwfHx8fDE2NzgzMDY3MzA&ixlib=rb-4.0.3&q=80&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450");
+  width: auto;
+  height: 1030px;
+  left: 0px;
+  right: 0px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  position: fixed;
+  opacity: 90%;
+  align-items: center;
+  object-fit: cover;
+}
+
+.homeDivRegister {
+  /*subtitulo */
+  position: absolute;
+  left: 23.65%;
+  right: -23.65%;
+  top: -35%;
+  bottom: 22.5%;
+  font-family: "Comfortaa";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 25px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: -0.015em;
+  color: black;
+}
+
+#correoRegister {
+  box-sizing: border-box;
+  position: absolute;
+  width: 343px;
+  height: 52px;
+  left: 22px;
+  top: 290px;
+  border-radius: 5px;
+  background: #ffffff;
+  border: 2px solid #000000;
+}
+
+#correoRegister::placeholder {
+  position: relative;
+  left: 3%;
+  right: 75.51%;
+  top: 0%;
+  bottom: 32.69%;
+  font-family: "Comfortaa";
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  align-items: center;
+  text-align: justify;
+}
+
+#nombre {
+  box-sizing: border-box;
+  position: absolute;
+  height: 52px;
+  width: 343px;
+  left: 22px;
+  top: 350px;
+  border-radius: 5px;
+  background: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 5px;
+}
+
+#nombre::placeholder {
+  position: relative;
+  left: 3%;
+  right: 75.51%;
+  top: 0%;
+  bottom: 32.69%;
+  font-family: "Comfortaa";
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  align-items: center;
+  text-align: justify;
+}
+
+#claveRegister {
+  box-sizing: border-box;
+  position: absolute;
+  height: 52px;
+  width: 343px;
+  left: 22px;
+  top: 410px;
+  border-radius: 5px;
+  background: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 5px;
+}
+
+#claveRegister::placeholder {
+  position: relative;
+  left: 3%;
+  right: 75.51%;
+  top: 0%;
+  bottom: 32.69%;
+  font-family: "Comfortaa";
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  align-items: center;
+  text-align: justify;
+}
+
+#confirmPassword {
+  box-sizing: border-box;
+  position: absolute;
+  height: 52px;
+  width: 343px;
+  left: 22px;
+  top: 470px;
+  border-radius: 5px;
+  background: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 5px;
+}
+
+#confirmPassword::placeholder {
+  position: relative;
+  left: 3%;
+  right: 75.51%;
+  top: 0%;
+  bottom: 32.69%;
+  font-family: "Comfortaa";
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  align-items: center;
+  text-align: justify;
+}
+
+.buttonSignUp {
+  font-family: "Comfortaa";
+  box-sizing: border-box;
+  position: fixed;
+  font-size: 17px;
+  font-weight: bold;
+  color: white;
+  background: black;
+  border: 2px solid #000000;
+  width: 343px;
+  height: 52px;
+  left: 20px;
+  top: 540px;
+  border-radius: 6px;
+}
+
+.frase {
+position: absolute;
+width: 299px;
+height: 42px;
+left: -67px;
+top: 950px;
+font-family: 'Comfortaa';
+font-style: normal;
+font-weight: bolder;
+font-size: 15px;
+line-height: 17px;
+display: flex;
+align-items: center;
+text-align: justify;
+color: white;
+text-decoration: underline;
+}
 
 
 /*codigos nos servirán para que sean responsives en diferentes equipos
