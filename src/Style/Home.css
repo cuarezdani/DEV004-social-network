@@ -224,7 +224,25 @@
   border-radius: 5px;
 }
 
-.buttonHome {
+.buttonSign {
+position: absolute;
+width: 231px;
+height: 42px;
+left: 25px;
+top: 571px;
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 21px;
+display: flex;
+align-items: center;
+text-decoration-line: underline;
+color: #760B0B;
+
+}
+
+/*.buttonHome {
   box-sizing: border-box;
   font-family: "Comfortaa";
   font-size: 13px;
@@ -240,7 +258,8 @@
   top: 460px;
   border-radius: 10px;
   text-transform: uppercase;
-}
+}/*
+
 
 /*codigos nos servirán para que sean responsives en diferentes equipos
 tablet*/
