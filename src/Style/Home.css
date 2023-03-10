@@ -105,7 +105,7 @@
   position: absolute;
   width: 234px;
   height: 37px;
-  left: 64px;
+  left: 128px;
   top: 244px;
   font-family: "Comfortaa";
   font-style: normal;
@@ -150,63 +150,120 @@
   border: 2px solid #000000;
 }
 
+#correo::placeholder {
+  position: relative;
+  left: 3%;
+  right: 75.51%;
+  top: 0%;
+  bottom: 32.69%;
+  font-family: "Comfortaa";
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  align-items: center;
+  text-align: justify;
+}
+
+#clave {
+  position: absolute;
+  width: 343px;
+  height: 52px;
+  left: 22px;
+  top: 417px;
+  border-radius: 5px;
+  border: 2px solid #000000;
+}
+
+#clave::placeholder {
+  position: relative;
+  left: 3%;
+  right: 75.51%;
+  top: 0%;
+  bottom: 32.69%;
+  font-family: "Comfortaa";
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  align-items: center;
+  text-align: justify;
+}
+
+.forgotP {
+  position: absolute;
+  left: 8%;
+  right: -23.65%;
+  top: 18%;
+  bottom: 22.5%;
+  font-family: "Comfortaa";
+  font-style: normal;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: black;
+}
+
+.buttonContinue {
+  font-family: "Comfortaa";
+  box-sizing: border-box;
+  font-family: "Comfortaa";
+  font-size: 17px;
+  font-weight: bold;
+  color: white;
+  background: black;
+  border: 2px solid #000000;
+  position: absolute;
+  width: 343px;
+  height: 52px;
+  left: -105px;
+  top: 280px; 
+  border-radius: 5px;
+}
+
+.buttonSign {
+position: absolute;
+width: 231px;
+height: 42px;
+left: 25px;
+top: 571px;
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 21px;
+display: flex;
+align-items: center;
+text-decoration-line: underline;
+color: #760B0B;
+
+}
+
+/*.buttonHome {
+  box-sizing: border-box;
+  font-family: "Comfortaa";
+  font-size: 13px;
+  font-weight: bold;
+  position: absolute;
+  background: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 6px;
+  position: absolute;
+  width: 167px;
+  height: 52px;
+  left: -84px;
+  top: 460px;
+  border-radius: 10px;
+  text-transform: uppercase;
+}/*
+
+
 /*codigos nos servirán para que sean responsives en diferentes equipos
 tablet*/
 @media (max-width: 1024px) {
-    .fondohome {
-        background-image: url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?crop=entropy&cs=tinysrgb&fm=jpg&ixid=Mnw3MjAxN3wwfDF8c2VhcmNofDF8fGNhZmV8ZW58MHx8fHwxNjc4MTk2ODI4&ixlib=rb-4.0.3&q=80&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450");
-        width: 768px;
-        height: 1024px;
-        left: 0px;
-        right: 0px;
-        opacity:90%;
-        max-width: 100%;       
-      }
-      
-      .homeDiv {
-        position: absolute;
-        width: 187px;
-        height: 61px;
-        left: 290px;
-        top: 280px;        
-        font-weight: 700;
-        font-size: 38px;
-        line-height: 42px;
-        /* display: flex; */
-        /* justify-content: space-around; */
-        /* align-items: center; */
-        /* text-align: center;  */
-        letter-spacing: -0.015em;    
-     
-      }
-      
-      .buttonLogin {
-        box-sizing: border-box;       
-        font-size: 16px;  
-        font-weight: bold;         
-        border-radius: 6px;
-        position: absolute;
-        width: 190px;
-        height: 60px;
-        left: -150px;
-        top: 600px;
-        border-radius: 10px;       
-      }
-      
-      .buttonRegister {       
-        box-sizing: border-box;       
-        font-size: 16px;
-        font-weight: bold;
-        position: absolute;    
-        border-radius: 6px;
-        position: absolute;
-        width: 190px;
-        height: 60px;
-        left: 150px;
-        top: 600px;
-        border-radius: 10px;     
-      }
-      
 }
 
 /*codigos nos servirán para que sean responsives en diferentes equipos :)

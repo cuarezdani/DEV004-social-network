@@ -20,8 +20,8 @@ export const Login = () => {
 
   // const homeLogin = document.createElement('div');
   // homeLogin.textContent = 'Login to Coffee Hour';
- /* homeDiv.innerHTML = 'Login to Coffee Hour <input id = "correo">';
-  const myInput = homeDiv.querySelector('#correo');
+  // homeDiv.innerHTML = 'Login to Coffee Hour <input id = "correo">';
+  /*  const myInput = homeDiv.querySelector('#correo');
   console.log(myInput); */
   const formLogin = document.createElement('form');
   formLogin.className = 'formLogin';
@@ -38,16 +38,20 @@ export const Login = () => {
   emailPassword.placeholder = 'Enter your password';
 
   const forgotP = document.createElement('h4');
-  forgotP.textContent = 'Forgot password?';
+  forgotP.textContent = 'Forgot your password?';
   forgotP.className = 'forgotP';
 
   const buttonContinue = document.createElement('button');
   buttonContinue.textContent = 'Continue';
   buttonContinue.className = 'buttonContinue';
 
-  const buttonHome = document.createElement('button');
-  buttonHome.textContent = 'Do not have an account? Sign Up';
-  buttonHome.className = 'buttonHome';
+  const dontAccount = document.createElement('h5');
+  dontAccount.textContent = 'Don`t have an account?';
+  dontAccount.className = 'dontAccount';
+
+  const buttonSign = document.createElement('h6');
+  buttonSign.textContent = 'Sign Up';
+  buttonSign.className = 'buttonSign';
 
   formLogin.appendChild(homeDiv);
   containerLogin.appendChild(homeDiv);
@@ -56,10 +60,11 @@ export const Login = () => {
   containerLogin.appendChild(emailPassword);
   containerLogin.appendChild(forgotP);
   homeDiv.appendChild(buttonContinue);
-  homeDiv.appendChild(buttonHome);
+  containerLogin.appendChild(dontAccount);
+  homeDiv.appendChild(buttonSign);
 
   buttonContinue.addEventListener('click', () => onNavigate('/'));
-  buttonHome.addEventListener('click', () => onNavigate('/register'));
+  buttonSign.addEventListener('click', () => onNavigate('/register'));
 
   return containerLogin;
 };
