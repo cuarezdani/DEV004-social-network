@@ -22,7 +22,6 @@ export const Home = () => {
   container.appendChild(homeDiv);
   homeDiv.appendChild(buttonLogin);
   homeDiv.appendChild(buttonRegister);
-  
 
   return container;
 };
