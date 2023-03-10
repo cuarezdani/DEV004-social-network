@@ -4,12 +4,8 @@ import { onNavigate } from '../router/navigate';
 export const Login = () => {
   const containerLogin = document.createElement('div'); // creación de container para sostener nuestra página
   containerLogin.className = 'containerLogin';
-  // const image = document.createElement('img');
-  // image.className = 'img';//
-
-  // const formLogin = document.createElement('form');
-  // formLogin.className = 'formLogin';
-
+  const backgroundLogin = document.createElement('div');
+  backgroundLogin.className = 'backgroundLogin';
   const homeDiv = document.createElement('h1');
   homeDiv.textContent = 'WELCOME';
   homeDiv.className = 'homeDivLogin';
@@ -50,7 +46,7 @@ export const Login = () => {
   // dontAccount.className = 'dontAccount';
 
   const buttonSign = document.createElement('h6'); // boton que dirige a register
-  buttonSign.textContent = 'Do not have an account? Sign Up';
+  buttonSign.textContent = 'Don’t have an account? Sign Up';
   buttonSign.className = 'buttonSign';
 
   const lineaOr = document.createElement('h5'); // linea y or
@@ -58,6 +54,7 @@ export const Login = () => {
   lineaOr.className = 'lineaOr';
 
   formLogin.appendChild(homeDiv);
+  containerLogin.appendChild(backgroundLogin);
   containerLogin.appendChild(homeDiv);
   containerLogin.appendChild(homeDivH2);
   containerLogin.appendChild(emailInput);
