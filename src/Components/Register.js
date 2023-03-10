@@ -5,6 +5,9 @@ export const Register = () => {
   const containerRegister = document.createElement('div');
   containerRegister.className = 'containerRegister';
 
+  const backgroundRegister = document.createElement('div');
+  backgroundRegister.className = 'backgroundRegister';
+
   const homeDiv = document.createElement('h1');
   homeDiv.textContent = 'Create your account';
   homeDiv.className = 'homeDivRegister';
@@ -51,6 +54,7 @@ export const Register = () => {
   // buttonHome.textContent = 'Login Here'; // revisar
 
   formRegister.appendChild(homeDiv);
+  containerRegister.appendChild(backgroundRegister);
   containerRegister.appendChild(emailRegister);
   containerRegister.appendChild(nameRegister);
   containerRegister.appendChild(passwordRegister);
