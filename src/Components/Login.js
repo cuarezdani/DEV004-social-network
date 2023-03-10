@@ -37,7 +37,7 @@ export const Login = () => {
   emailPassword.type = 'password';
   emailPassword.placeholder = 'Enter your password';
 
-  const forgotP = document.createElement('h4');
+  const forgotP = document.createElement('h4'); // debe redirigirte a un formulario para hacer tu clave
   forgotP.textContent = 'Forgot your password?';
   forgotP.className = 'forgotP';
 
@@ -45,13 +45,17 @@ export const Login = () => {
   buttonContinue.textContent = 'Continue';
   buttonContinue.className = 'buttonContinue';
 
-  const dontAccount = document.createElement('h5');
-  dontAccount.textContent = 'Don`t have an account?';
-  dontAccount.className = 'dontAccount';
+  // const dontAccount = document.createElement('h5');
+  // dontAccount.textContent = 'Don`t have an account?';
+  // dontAccount.className = 'dontAccount';
 
-  const buttonSign = document.createElement('h6');
-  buttonSign.textContent = 'Sign Up';
+  const buttonSign = document.createElement('h6'); // boton que dirige a register
+  buttonSign.textContent = 'Do not have an account? Sign Up';
   buttonSign.className = 'buttonSign';
+
+  const lineaOr = document.createElement('h5'); // linea y or
+  lineaOr.textContent = 'or';
+  lineaOr.className = 'lineaOr';
 
   formLogin.appendChild(homeDiv);
   containerLogin.appendChild(homeDiv);
@@ -60,8 +64,9 @@ export const Login = () => {
   containerLogin.appendChild(emailPassword);
   containerLogin.appendChild(forgotP);
   homeDiv.appendChild(buttonContinue);
-  containerLogin.appendChild(dontAccount);
-  homeDiv.appendChild(buttonSign);
+  // containerLogin.appendChild(dontAccount);
+  containerLogin.appendChild(buttonSign);
+  containerLogin.appendChild(lineaOr);
 
   buttonContinue.addEventListener('click', () => onNavigate('/'));
   buttonSign.addEventListener('click', () => onNavigate('/register'));
