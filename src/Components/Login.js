@@ -1,5 +1,6 @@
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../router/navigate';
+import { signInWithGoogle, signInWithPassword } from '../lib/Autenticacion';
 
 export const Login = () => {
   const containerLogin = document.createElement('div'); // creación de container para sostener nuestra página
@@ -60,7 +61,7 @@ export const Login = () => {
   containerLogin.appendChild(emailInput);
   containerLogin.appendChild(emailPassword);
   containerLogin.appendChild(forgotP);
-  homeDiv.appendChild(buttonContinue);
+  containerLogin.appendChild(buttonContinue);
   // containerLogin.appendChild(dontAccount);
   containerLogin.appendChild(buttonSign);
   containerLogin.appendChild(lineaOr);

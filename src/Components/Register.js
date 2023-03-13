@@ -1,5 +1,6 @@
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../router/navigate';
+import { registerWithEmail } from '../lib/Autenticacion';
 
 export const Register = () => {
   const containerRegister = document.createElement('div');

@@ -1,4 +1,8 @@
+import { initFirebase } from './lib/fireBase';
 import { routes } from './router/router';
+
+// Initialize Firebase
+initFirebase();
 
 const rootDiv = document.getElementById('root');
 
