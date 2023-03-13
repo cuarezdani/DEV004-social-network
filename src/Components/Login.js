@@ -60,7 +60,7 @@ export const Login = () => {
   containerLogin.appendChild(emailInput);
   containerLogin.appendChild(emailPassword);
   containerLogin.appendChild(forgotP);
-  homeDiv.appendChild(buttonContinue);
+  containerLogin.appendChild(buttonContinue);
   // containerLogin.appendChild(dontAccount);
   containerLogin.appendChild(buttonSign);
   containerLogin.appendChild(lineaOr);

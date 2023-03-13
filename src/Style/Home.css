@@ -10,6 +10,8 @@
 
 .container {
   display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   background-image: url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?crop=entropy&cs=tinysrgb&fm=jpg&ixid=Mnw3MjAxN3wwfDF8c2VhcmNofDF8fGNhZmV8ZW58MHx8fHwxNjc4MTk2ODI4&ixlib=rb-4.0.3&q=80&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450");
   width: 2437.5%;
   height: 5275%;
@@ -28,9 +30,9 @@
 .homeDiv {
   position: absolute;
   width: 50%;
-  height: 61px;
-  left: 102px;
-  top: 280px;
+  height: 0%;
+  left: 25%;
+  top: 1.4%;
   font-family: "Comfortaa";
   font-style: normal;
   font-weight: 700;
@@ -51,12 +53,12 @@
   font-weight: bold;
   position: absolute;
   background: #ffffff;
-  border: 2px solid #000000;
-  border-radius: 6px;
+  border: 20% solid #000000;
+  border-radius: 0.375%;
   position: absolute;
-  width: 167px;
+  width: 87%;
   height: 52px;
-  left: -84px;
+  left: -40%;
   top: 460px;
   border-radius: 10px;
   text-transform: uppercase;
@@ -71,12 +73,12 @@
   position: absolute;
   color: white;
   background: black;
-  border: 2px solid #000000;
-  border-radius: 6px;
+  border: 20% solid #000000;
+  border-radius: 10%;
   position: absolute;
-  width: 167px;
+  width: 87%;
   height: 52px;
-  left: 100px;
+  left: 55%;
   top: 460px;
   border-radius: 10px;
   text-transform: uppercase;
@@ -152,7 +154,7 @@
   position: absolute;
   width: 343px;
   height: 52px;
-  left: 22px;
+  left: 5.5%;
   top: 341px;
   border-radius: 5px;
   background: #ffffff;
@@ -177,7 +179,7 @@
   position: absolute;
   width: 343px;
   height: 52px;
-  left: 22px;
+  left: 5.5%;
   top: 417px;
   border-radius: 5px;
   border: 2px solid #000000;
@@ -228,8 +230,8 @@
   position: absolute;
   width: 343px;
   height: 52px;
-  left: -105px;
-  top: 280px;
+  left: 5.5%;
+  top: 51%;
   border-radius: 5px;
 }
 
@@ -237,7 +239,7 @@
   position: absolute;
   width: 231px;
   height: 42px;
-  left: 25px;
+  left: 5.5%;
   top: 590px;
   font-family: "Comfortaa";
   font-style: normal;
@@ -478,19 +480,35 @@ left: 0px;
   display: flex;
   align-items: center;
   text-align: justify;
-  color:  #760b0b;
+  color: #760b0b;
   text-decoration: underline;
 }
 
 /*codigos nos servirán para que sean responsives en diferentes equipos
 tablet*/
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .backgroundLogin {
+    width: 100%;
+    height: 100%;
+    opacity: 0.75;
+  }
 
-    }
+  .containerLogin {
+    margin: 0 auto;
+    display: flex;
+    width: auto;
+    height: 1024px;
+    left: 0px;
+    right: 0px;
+    position: relative;
+    align-items: center;
+    object-fit: cover; 
+    flex-direction: column;
+    width: 100%;
+  }
+}
 
 /*codigos nos servirán para que sean responsives en diferentes equipos :)
 computador*/
-@media only screen  and (min-width : 1224px)  { 
-
-  }
-
+@media only screen and (min-width: 1224px) {
+}
