@@ -22,21 +22,34 @@ export const Register = () => {
   emailRegister.id = 'correoRegister';
   emailRegister.type = 'email';
   emailRegister.placeholder = 'Email Address';
+  emailRegister.addEventListener('input', (e) => {
+    // se agregan values para llamar a cada input
+    const emailValue = e.target.value;
+  });
 
   const nameRegister = document.createElement('input');
   nameRegister.id = 'nombre';
   nameRegister.type = 'Name';
   nameRegister.placeholder = 'Name';
+  nameRegister.addEventListener('input', (e) => {
+    const nameValue = e.target.value;
+  });
 
   const passwordRegister = document.createElement('input');
   passwordRegister.id = 'claveRegister';
   passwordRegister.type = 'password';
   passwordRegister.placeholder = 'Enter your password';
+  passwordRegister.addEventListener('input', (e) => {
+    const passwordValue = e.target.value;
+  });
 
   const confirmPassword = document.createElement('input'); // debe redirigirte a un formulario para hacer tu clave
   confirmPassword.id = 'confirmPassword';
   confirmPassword.type = 'password';
   confirmPassword.placeholder = 'Confirm your password';
+  confirmPassword.addEventListener('input', (e) => {
+    const confirmPasswordValue = e.target.value;
+  });
 
   const buttonSign = document.createElement('button');
   buttonSign.textContent = 'SIGN UP';
@@ -72,8 +85,33 @@ export const Register = () => {
   containerRegister.appendChild(homeDiv);
   homeDiv.appendChild(buttonGoogle);
 
-  buttonSign.addEventListener('click', () => onNavigate('/'));
-  buttonSign.addEventListener('click', () => registerWithEmail()); // entrar al perfil
+  // buttonSign.addEventListener('click', () => onNavigate('/'));
+  buttonSign.addEventListener('click', () => registerWithEmail); // entrar al perfil
+  buttonSign.addEventListener('click', () => {
+    const emailValue = emailRegister.value;
+    const nameValue = nameRegister.value;
+    const passwordValue = passwordRegister.value;
+    const confirmPasswordValue = confirmPassword.value;
+
+    const userInfo = {
+      // lo creamos para que reciba las propiedas del formular
+      email: emailValue,
+      name: nameValue,
+      password: passwordValue,
+      confirmPassword: confirmPasswordValue,
+    };
+
+    // funcion para hacer el import y que nos rederija a la pagina que necesitamos
+    registerWithEmail(userInfo.email, userInfo.password)
+      .then(() => {
+        // Redirigir al usuario a la página de perfil o a la página de inicio de sesión
+        onNavigate('/');
+      })
+      .catch((error) => {
+        console.error(error);
+        // Mostrar un mensaje de error al usuario
+      });
+  });
   frase.addEventListener('click', () => onNavigate('/login'));
   buttonGoogle.addEventListener('click', () => signInWithGoogle());
 
