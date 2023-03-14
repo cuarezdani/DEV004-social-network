@@ -2,7 +2,6 @@
 import { onNavigate } from '../router/navigate';
 import { signInWithGoogle, signInWithPassword } from '../lib/Autenticacion';
 
-
 export const Login = () => {
   const containerLogin = document.createElement('div'); // creación de container para sostener nuestra página
   containerLogin.className = 'containerLogin';
@@ -29,11 +28,19 @@ export const Login = () => {
   emailInput.id = 'correo';
   emailInput.type = 'email';
   emailInput.placeholder = 'Email Address';
+  emailInput.addEventListener('input', (e) => {
+    // se agregan values para llamar a cada input y a la informacion que se guarda
+    const emailValue = e.target.value;
+  });
 
   const emailPassword = document.createElement('input');
   emailPassword.id = 'clave';
   emailPassword.type = 'password';
   emailPassword.placeholder = 'Enter your password';
+  emailPassword.addEventListener('input', (e) => {
+    // se agregan values para llamar a cada input y a la informacion que se guarda
+    const passwordValue = e.target.value;
+  });
 
   const forgotP = document.createElement('h4'); // debe redirigirte a un formulario para hacer tu clave
   forgotP.textContent = 'Forgot your password?';
@@ -56,7 +63,7 @@ export const Login = () => {
   lineaOr.className = 'lineaOr';
 
   const buttonGoogle = document.createElement('button');
-  buttonGoogle.textContent = 'Google';
+  buttonGoogle.textContent = 'Sign in with Google';
   buttonGoogle.className = 'buttonGoogle';
 
   formLogin.appendChild(homeDiv);
@@ -72,8 +79,33 @@ export const Login = () => {
   containerLogin.appendChild(lineaOr);
   containerLogin.appendChild(buttonGoogle);
 
+  buttonContinue.addEventListener('click', () => signInWithPassword);
+  buttonContinue.addEventListener('click', () => {
+    const emailValue = emailInput.value;
+    const passwordValue = emailPassword.value;
 
-  buttonContinue.addEventListener('click', () => onNavigate('/'));
+    const user = {
+      email: emailValue,
+      emailPassword: passwordValue,
+    };
+
+    signInWithPassword(user.email, user.emailPassword)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        // alert('Register Accepted');
+        window.location.href = '/'; // pendiente redirigir al perfil
+        // Redirigir al usuario a la página de perfil o a la página de inicio de sesión
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.error(error);
+        // Mostrar un mensaje de error al usuario
+        alert('email or password incorrect.');
+        window.location.href = '/login'; // si nos marca error nos manda al home
+      });
+  });
+
   buttonSign.addEventListener('click', () => onNavigate('/register'));
   buttonGoogle.addEventListener('click', () => signInWithGoogle());
 

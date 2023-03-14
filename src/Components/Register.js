@@ -23,14 +23,14 @@ export const Register = () => {
   emailRegister.type = 'email';
   emailRegister.placeholder = 'Email Address';
   emailRegister.addEventListener('input', (e) => {
-    // se agregan values para llamar a cada input
+    // se agregan values para llamar a cada input y a la informacion que se guarda
     const emailValue = e.target.value;
   });
 
   const nameRegister = document.createElement('input');
   nameRegister.id = 'nombre';
   nameRegister.type = 'Name';
-  nameRegister.placeholder = 'Name';
+  nameRegister.placeholder = 'Full Name';
   nameRegister.addEventListener('input', (e) => {
     const nameValue = e.target.value;
   });
@@ -38,7 +38,7 @@ export const Register = () => {
   const passwordRegister = document.createElement('input');
   passwordRegister.id = 'claveRegister';
   passwordRegister.type = 'password';
-  passwordRegister.placeholder = 'Enter your password';
+  passwordRegister.placeholder = 'Enter your password, at least 6 digits';
   passwordRegister.addEventListener('input', (e) => {
     const passwordValue = e.target.value;
   });
@@ -64,7 +64,7 @@ export const Register = () => {
   or.className = 'or';
 
   const buttonGoogle = document.createElement('button');
-  buttonGoogle.textContent = 'GOOGLE';
+  buttonGoogle.textContent = 'Sign in with Google';
   buttonGoogle.className = 'buttonGoogle';
 
   // const buttonHome = document.createElement('button');// revis
@@ -103,13 +103,18 @@ export const Register = () => {
 
     // funcion para hacer el import y que nos rederija a la pagina que necesitamos
     registerWithEmail(userInfo.email, userInfo.password)
-      .then(() => {
-        // Redirigir al usuario a la página de perfil o a la página de inicio de sesión
-        onNavigate('/');
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        alert('Register Accepted');
+        window.location.href = '/login'; // pendiente redirigir al perfil
       })
       .catch((error) => {
-        console.error(error);
-        // Mostrar un mensaje de error al usuario
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(error);
+        alert('Please Try Again');
+        window.location.href = '/register'; // pendiente redirigir al Home
       });
   });
   frase.addEventListener('click', () => onNavigate('/login'));
