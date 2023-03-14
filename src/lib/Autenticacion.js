@@ -4,6 +4,25 @@ import {
   signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword,
 } from 'firebase/auth';
 
+// Para crear una cuenta nueva, pasa la dirección de correo electrónico y la contraseña del usuario nuevo
+export const registerWithEmail = (email, password) => {
+  const auth = getAuth();
+  return createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+    // Signed in
+      const user = userCredential.user;
+      alert('Register Accepted');
+      window.location.href = '/login'; // pendiente redirigir al perfil
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(error);
+      alert('Please Try Again');
+      window.location.href = '/register'; // pendiente redirigir al Home
+    });
+};
+
 export const signInWithPassword = (email, password) => {
   const auth = getAuth();
   return signInWithEmailAndPassword(auth, email, password);
@@ -23,7 +42,7 @@ export const signInWithGoogle = () => {
       console.log(token);
       console.log(user);
 
-      alert('auth ok')
+      alert('auth ok');
       window.location.href = '/login';
       // ...
     }).catch((error) => {
@@ -34,13 +53,8 @@ export const signInWithGoogle = () => {
       const email = error.customData.email;
       // The AuthCredential type that was used.
       const credential = GoogleAuthProvider.credentialFromError(error);
-      alert('auth error')
+      alert('auth error');
       window.location.href = '/';
       // ...
     });
-};
-
-export const registerWithEmail = (email, password) => {
-  const auth = getAuth();
-  return createUserWithEmailAndPassword(auth, email, password);
 };

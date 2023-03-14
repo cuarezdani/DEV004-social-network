@@ -55,6 +55,10 @@ export const Login = () => {
   lineaOr.textContent = 'or';
   lineaOr.className = 'lineaOr';
 
+  const buttonGoogle = document.createElement('button');
+  buttonGoogle.textContent = 'Google';
+  buttonGoogle.className = 'buttonGoogle';
+
   formLogin.appendChild(homeDiv);
   containerLogin.appendChild(backgroundLogin);
   containerLogin.appendChild(homeDiv);
@@ -66,9 +70,12 @@ export const Login = () => {
   // containerLogin.appendChild(dontAccount);
   containerLogin.appendChild(buttonSign);
   containerLogin.appendChild(lineaOr);
+  containerLogin.appendChild(buttonGoogle);
+
 
   buttonContinue.addEventListener('click', () => onNavigate('/'));
   buttonSign.addEventListener('click', () => onNavigate('/register'));
+  buttonGoogle.addEventListener('click', () => signInWithGoogle());
 
   return containerLogin;
 };

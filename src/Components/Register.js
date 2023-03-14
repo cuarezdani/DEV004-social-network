@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../router/navigate';
-import { signInWithGoogle } from '../lib/Autenticacion';
+import { signInWithGoogle, registerWithEmail } from '../lib/Autenticacion';
 
 export const Register = () => {
   const containerRegister = document.createElement('div');
@@ -73,7 +73,7 @@ export const Register = () => {
   homeDiv.appendChild(buttonGoogle);
 
   buttonSign.addEventListener('click', () => onNavigate('/'));
-  // buttonSign.addEventListener('click', () => registerWithEmail); // entrar al perfil
+  buttonSign.addEventListener('click', () => registerWithEmail()); // entrar al perfil
   frase.addEventListener('click', () => onNavigate('/login'));
   buttonGoogle.addEventListener('click', () => signInWithGoogle());
 
