@@ -2,6 +2,7 @@
 import { onNavigate } from '../router/navigate';
 import { signInWithGoogle, signInWithPassword } from '../lib/Autenticacion';
 
+
 export const Login = () => {
   const containerLogin = document.createElement('div'); // creación de container para sostener nuestra página
   containerLogin.className = 'containerLogin';

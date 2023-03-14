@@ -1,6 +1,7 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../router/navigate';
-import { registerWithEmail } from '../lib/Autenticacion';
+import { signInWithGoogle } from '../lib/Autenticacion';
 
 export const Register = () => {
   const containerRegister = document.createElement('div');
@@ -49,6 +50,10 @@ export const Register = () => {
   or.textContent = 'or';
   or.className = 'or';
 
+  const buttonGoogle = document.createElement('button');
+  buttonGoogle.textContent = 'GOOGLE';
+  buttonGoogle.className = 'buttonGoogle';
+
   // const buttonHome = document.createElement('button');// revis
 
   buttonSign.textContent = 'Sign Up';
@@ -65,9 +70,12 @@ export const Register = () => {
   homeDiv.appendChild(buttonSign);
   homeDiv.appendChild(frase);
   containerRegister.appendChild(homeDiv);
+  homeDiv.appendChild(buttonGoogle);
 
-  buttonSign.addEventListener('click', () => onNavigate('/')); // entrar al perfil
+  buttonSign.addEventListener('click', () => onNavigate('/'));
+  // buttonSign.addEventListener('click', () => registerWithEmail); // entrar al perfil
   frase.addEventListener('click', () => onNavigate('/login'));
+  buttonGoogle.addEventListener('click', () => signInWithGoogle());
 
   return containerRegister;
 };
