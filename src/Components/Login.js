@@ -5,8 +5,8 @@ import { signInWithGoogle, signInWithPassword } from '../lib/Autenticacion';
 export const Login = () => {
   const containerLogin = document.createElement('div'); // creación de container para sostener nuestra página
   containerLogin.className = 'containerLogin';
-  const backgroundLogin = document.createElement('div');
-  backgroundLogin.className = 'backgroundLogin';
+  /* const backgroundLogin = document.createElement('div');
+  backgroundLogin.className = 'backgroundLogin'; */
   const homeDiv = document.createElement('h1');
   homeDiv.textContent = 'WELCOME';
   homeDiv.className = 'homeDivLogin';
@@ -71,7 +71,7 @@ export const Login = () => {
   googleText.className = 'googleText';
 
   formLogin.appendChild(homeDiv);
-  containerLogin.appendChild(backgroundLogin);
+  // containerLogin.appendChild(backgroundLogin);
   containerLogin.appendChild(homeDiv);
   containerLogin.appendChild(homeDivH2);
   containerLogin.appendChild(emailInput);
@@ -81,7 +81,7 @@ export const Login = () => {
   // containerLogin.appendChild(dontAccount);
   containerLogin.appendChild(buttonSign);
   containerLogin.appendChild(lineaOr);
-  homeDivH2.appendChild(buttonGoogle);
+  containerLogin.appendChild(buttonGoogle);
 
   buttonContinue.addEventListener('click', () => signInWithPassword);
   buttonContinue.addEventListener('click', () => {

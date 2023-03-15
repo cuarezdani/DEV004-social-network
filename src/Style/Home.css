@@ -1,89 +1,70 @@
 * {
-  margin: 0;
-  padding: 0%;
-  box-sizing: border-box;
+  margin: 0%;
+  border-style: solid;
+  border-color: black;
+  /* box-sizing: border-box; */
   font-family: "Comfortaa";
   border: 1px;
 }
 
 /*Pagina Home*/
+
 .container {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  background-image: url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?crop=entropy&cs=tinysrgb&fm=jpg&ixid=Mnw3MjAxN3wwfDF8c2VhcmNofDF8fGNhZmV8ZW58MHx8fHwxNjc4MTk2ODI4&ixlib=rb-4.0.3&q=80&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450");
-  height: 100%;
-  left: 0%;
-  right: 0%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  position: relative;
+  background: url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?crop=entropy&cs=tinysrgb&fm=jpg&ixid=Mnw3MjAxN3wwfDF8c2VhcmNofDF8fGNhZmV8ZW58MHx8fHwxNjc4MTk2ODI4&ixlib=rb-4.0.3&q=80&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  position: absolute;
+  height: 100vh;
+  width: 100%;
   opacity: 90%;
-  max-width: 100%;
-  align-items: center;
-  object-fit: contain;
 }
 
 .homeDiv {
   position: absolute;
-  width: 50%;
-  height: 0%;
-  left: 25%;
-  top: 32%;
-  font-family: "Comfortaa";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 150%;
-  line-height: 120%;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  letter-spacing: -0.015em;
-  text-transform: uppercase;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.7em;
   color: white;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .buttonLogin {
-  box-sizing: border-box;
-  font-family: "Comfortaa";
-  font-size: 58%;
+  position: absolute;
+  bottom: 40px;
+  left: 20px;
+  width: 40%;
+  padding: 1em;
   font-weight: bold;
-  position: absolute;
-  background: #ffffff;
-  border: 20% solid #000000;
-  border-radius: 0.375%;
-  position: absolute;
-  width: 87%;
-  height: 52px;
-  left: -40%;
-  top: 460px;
   border-radius: 10px;
   text-transform: uppercase;
+  background: #ffffff;
+  border: 20% solid #000000;
+  font-weight: bold;
+
+  /* 
+  font-size: 58%;
+  font-weight: bold; */
 }
 
 .buttonRegister {
-  font-family: "Comfortaa";
-  box-sizing: border-box;
-  font-family: "Comfortaa";
-  font-size: 58%;
-  font-weight: bold;
   position: absolute;
+  bottom: 40px;
+  right: 20px;
+  width: 40%;
+  padding: 1em;
   color: white;
-  background: black;
-  border: 20% solid #000000;
-  border-radius: 10%;
-  position: absolute;
-  width: 87%;
-  height: 52px;
-  left: 55%;
-  top: 460px;
+  background-color: black;
+  font-weight: bold;
   border-radius: 10px;
   text-transform: uppercase;
 }
 
 /* Página Login*/
-.backgroundLogin {
+/* .backgroundLogin {
   background-image: url("https://images.pexels.com/photos/15586572/pexels-photo-15586572.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
   content: "";
   background-repeat: no-repeat;
@@ -95,10 +76,20 @@
   bottom: 0%;
   left: 0%;
   opacity: 0.75;
-}
+} */
 
 .containerLogin {
-  margin: 0 auto;
+  position: relative;
+  background-image: url("https://images.pexels.com/photos/15586572/pexels-photo-15586572.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  opacity: 90%;
+
+  /* margin: 0 auto;
   display: flex;
   width: auto;
   height: 1024px;
@@ -106,12 +97,21 @@
   right: 0px;
   position: relative;
   align-items: center;
-  object-fit: cover;
+  object-fit: cover; */
 }
 
 .homeDivLogin {
   /*WELCOME pagina login */
   position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.7em;
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  
+  /* position: absolute;
   width: 234px;
   height: 37px;
   left: 128px;
@@ -125,12 +125,23 @@
   align-items: center;
   text-align: center;
   letter-spacing: -0.015em;
-  color: white;
+  color: white; */
 }
 
 .homeDivH2 {
   /*subtitulo */
   position: absolute;
+  top: 37%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.3em;
+  color: white;
+  text-align: center;
+  
+  
+  
+  
+  /* position: absolute;
   left: 23.65%;
   right: -23.65%;
   top: -19%;
@@ -144,7 +155,7 @@
   align-items: center;
   text-align: center;
   letter-spacing: -0.02em;
-  color: #ffffff;
+  color: #ffffff; */
 }
 
 #correo {
@@ -260,6 +271,7 @@
   font-size: 20px;
   margin-top: 300px;
 }
+
 /* Pagina REGISTER */
 .backgroundRegister {
   background-image: url("https://images.unsplash.com/photo-1582298538104-fe2e74c27f59?crop=entropy&cs=tinysrgb&fm=jpg&ixid=Mnw3MjAxN3wwfDF8c2VhcmNofDF8fGZyaWVuZHMlMjBkcmlua2luZyUyMGNvZmZlZXxlbnwwfHx8fDE2NzgzMDY3MzA&ixlib=rb-4.0.3&q=80&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450");
@@ -495,7 +507,7 @@ tablet*/
     right: 0px;
     position: relative;
     align-items: center;
-    object-fit: cover; 
+    object-fit: cover;
     flex-direction: column;
     width: 100%;
   }
@@ -503,5 +515,4 @@ tablet*/
 
 /*codigos nos servirán para que sean responsives en diferentes equipos :)
 computador*/
-@media only screen and (min-width: 1224px) {
-}
+@media only screen and (min-width: 1224px) {}

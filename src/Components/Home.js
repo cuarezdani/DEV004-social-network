@@ -21,8 +21,8 @@ export const Home = () => {
   buttonLogin.addEventListener('click', () => onNavigate('/login'));
 
   container.appendChild(homeDiv);
-  homeDiv.appendChild(buttonLogin);
-  homeDiv.appendChild(buttonRegister);
+  container.appendChild(buttonLogin);
+  container.appendChild(buttonRegister);
 
   return container;
 };
