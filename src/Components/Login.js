@@ -62,9 +62,13 @@ export const Login = () => {
   lineaOr.textContent = 'or';
   lineaOr.className = 'lineaOr';
 
-  const buttonGoogle = document.createElement('button');
-  buttonGoogle.textContent = 'Sign in with Google';
+  // const buttonGoogle = document.createElement('button');
+  // buttonGoogle.textContent = 'Sign in with Google';
+  // buttonGoogle.className = 'buttonGoogle';
+
+  const buttonGoogle = document.createElement('img');
   buttonGoogle.className = 'buttonGoogle';
+  buttonGoogle.src = '../imagenes/googleblanco.png';
 
   formLogin.appendChild(homeDiv);
   containerLogin.appendChild(backgroundLogin);
@@ -77,7 +81,7 @@ export const Login = () => {
   // containerLogin.appendChild(dontAccount);
   containerLogin.appendChild(buttonSign);
   containerLogin.appendChild(lineaOr);
-  containerLogin.appendChild(buttonGoogle);
+  homeDivH2.appendChild(buttonGoogle);
 
   buttonContinue.addEventListener('click', () => signInWithPassword);
   buttonContinue.addEventListener('click', () => {
@@ -101,7 +105,7 @@ export const Login = () => {
         const errorMessage = error.message;
         console.error(error);
         // Mostrar un mensaje de error al usuario
-        alert('email or password incorrect.');
+        alert('Invalid email or password.');
         window.location.href = '/login'; // si nos marca error nos manda al home
       });
   });

@@ -63,14 +63,11 @@ export const Register = () => {
   or.textContent = 'or';
   or.className = 'or';
 
-  const buttonGoogle = document.createElement('button');
-  buttonGoogle.textContent = 'Sign in with Google';
-  buttonGoogle.className = 'buttonGoogle';
-
-  // const buttonHome = document.createElement('button');// revis
-
   buttonSign.textContent = 'Sign Up';
-  // buttonHome.textContent = 'Login Here'; // revisar
+
+  const buttonGoogle = document.createElement('img');
+  buttonGoogle.className = 'buttonGoogle';
+  buttonGoogle.src = '../imagenes/googleblanco.png';
 
   formRegister.appendChild(homeDiv);
   containerRegister.appendChild(backgroundRegister);
@@ -78,7 +75,6 @@ export const Register = () => {
   containerRegister.appendChild(nameRegister);
   containerRegister.appendChild(passwordRegister);
   containerRegister.appendChild(confirmPassword);
-  // containerRegister.appendChild(frase);
   containerRegister.appendChild(or);
   homeDiv.appendChild(buttonSign);
   homeDiv.appendChild(frase);

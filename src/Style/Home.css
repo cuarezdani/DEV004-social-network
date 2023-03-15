@@ -3,11 +3,10 @@
   padding: 0%;
   box-sizing: border-box;
   font-family: "Comfortaa";
-  border: 6.25%;
+  border: 1px;
 }
 
 /*Pagina Home*/
-
 .container {
   display: flex;
   flex-direction: column;
@@ -261,41 +260,6 @@
   font-size: 20px;
   margin-top: 300px;
 }
-
-/*lineaOr::after, lineaOr::before { 
-content: '';
-mask-position: absolute;
-width: 120px;
-height: 3px;
-background-color: black;
-}
-
-.lineaOr::before {
-left: 0px;
-}
-
-.lineaOr::after{
-  right: 0px;
-} */
-
-/*.buttonHome { //boton google?
-  box-sizing: border-box;
-  font-family: "Comfortaa";
-  font-size: 13px;
-  font-weight: bold;
-  position: absolute;
-  background: #ffffff;
-  border: 2px solid #000000;
-  border-radius: 6px;
-  position: absolute;
-  width: 167px;
-  height: 52px;
-  left: -84px;
-  top: 460px;
-  border-radius: 10px;
-  text-transform: uppercase;
-}/*
-
 /* Pagina REGISTER */
 .backgroundRegister {
   background-image: url("https://images.unsplash.com/photo-1582298538104-fe2e74c27f59?crop=entropy&cs=tinysrgb&fm=jpg&ixid=Mnw3MjAxN3wwfDF8c2VhcmNofDF8fGZyaWVuZHMlMjBkcmlua2luZyUyMGNvZmZlZXxlbnwwfHx8fDE2NzgzMDY3MzA&ixlib=rb-4.0.3&q=80&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450");
@@ -449,6 +413,17 @@ left: 0px;
   text-align: justify;
 }
 
+.or {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  width: 30%;
+  /* border: 1px solid #1bb286;*/
+  left: 170px;
+  font-size: 20px;
+  margin-top: 300px;
+}
+
 .buttonSignUp {
   font-family: "Comfortaa";
   box-sizing: border-box;
@@ -466,12 +441,8 @@ left: 0px;
 }
 
 .buttonGoogle {
-  font-family: "Roboto";
-  box-sizing: border-box;
-  position: fixed;
-  font-size: 17px;
+  /* font-size: 17px;
   font-weight: bold;
-  color: black;
   background: white;
   border: 2px solid #000000;
   width: 343px;
@@ -479,8 +450,13 @@ left: 0px;
   left: 20px;
   top: 700px;
   border-radius: 6px;
-  padding-left: 8dp;
-  padding-right: 8dp;  
+  box-sizing: border-box; */
+  display: flex;
+  position: absolute;
+  width: 362px;
+  padding: 10px 15px 10px 15px;
+  margin-left: -14%;
+  margin-top: 960px;
 }
 
 .frase {
