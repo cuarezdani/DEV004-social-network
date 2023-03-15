@@ -11,7 +11,7 @@ import {
 // electrónico y la contraseña del usuario nuevo REGISTER
 export const registerWithEmail = (email, password) => {
   const auth = getAuth();
-  return createUserWithEmailAndPassword(auth, email, password)
+  return createUserWithEmailAndPassword(auth, email, password);
   /* .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
@@ -26,7 +26,7 @@ export const registerWithEmail = (email, password) => {
 // para hacer ingreso de la app mediante email y contraseña LOGIN
 export const signInWithPassword = (email, password) => {
   const auth = getAuth();
-  return signInWithEmailAndPassword(auth, email, password)
+  return signInWithEmailAndPassword(auth, email, password);
   /* .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
@@ -38,7 +38,7 @@ export const signInWithPassword = (email, password) => {
     }); */
 };
 
-// para ingresar a google en ambas paginas 
+// para ingresar a google en ambas paginas
 export const signInWithGoogle = () => {
   const auth = getAuth();
   const provider = new GoogleAuthProvider();
