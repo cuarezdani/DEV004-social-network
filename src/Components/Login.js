@@ -58,16 +58,7 @@ export const Login = () => {
   lineaOr.textContent = 'or';
   lineaOr.className = 'lineaOr';
 
-<<<<<<< HEAD
-  // const buttonGoogle = document.createElement('button');
-  // buttonGoogle.textContent = 'Sign in with Google';
-  // buttonGoogle.className = 'buttonGoogle';
-
   const buttonGoogle = document.createElement('img');
-=======
-  const buttonGoogle = document.createElement('a');
-  // buttonGoogle.textContent = 'Sign in with Google';
->>>>>>> 86589291f6740bcfa99e5f542f16133e7bb90f0f
   buttonGoogle.className = 'buttonGoogle';
   buttonGoogle.src = '../imagenes/googleblanco.png';
 
@@ -90,13 +81,7 @@ export const Login = () => {
   // containerLogin.appendChild(dontAccount);
   containerLogin.appendChild(buttonSign);
   containerLogin.appendChild(lineaOr);
-<<<<<<< HEAD
   homeDivH2.appendChild(buttonGoogle);
-=======
-  containerLogin.appendChild(buttonGoogle);
-  buttonGoogle.appendChild(iconGoogle);
-  buttonGoogle.appendChild(googleText);
->>>>>>> 86589291f6740bcfa99e5f542f16133e7bb90f0f
 
   buttonContinue.addEventListener('click', () => signInWithPassword);
   buttonContinue.addEventListener('click', () => {

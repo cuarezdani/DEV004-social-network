@@ -257,9 +257,8 @@
   width: 30%;
   /* border: 1px solid #1bb286;*/
   left: 170px;
-  font-size: 18px;
+  font-size: 20px;
   margin-top: 300px;
-  left: 47%;
 }
 /* Pagina REGISTER */
 .backgroundRegister {
@@ -442,28 +441,15 @@
 }
 
 .buttonGoogle {
-<<<<<<< HEAD
   /* font-size: 17px;
   font-weight: bold;
   background: white;
-=======
-  display: flex;
-  align-items: center;
-  font-family: "Roboto";
-  box-sizing: border-box;
-  position: fixed;
-  font-size: 17px;
-  font-weight: bold;
-  color: black;
-  background-color: white;
->>>>>>> 86589291f6740bcfa99e5f542f16133e7bb90f0f
   border: 2px solid #000000;
   width: 343px;
   height: 52px;
   left: 20px;
   top: 700px;
   border-radius: 6px;
-<<<<<<< HEAD
   box-sizing: border-box; */
   display: flex;
   position: absolute;
@@ -471,22 +457,8 @@
   padding: 10px 15px 10px 15px;
   margin-left: -14%;
   margin-top: 960px;
-=======
-  
->>>>>>> 86589291f6740bcfa99e5f542f16133e7bb90f0f
 }
 
-.iconGoogle {
-  height: 100%;
-  padding: 2%;
-}
-
-.googleText {
-  display: inline-flex;
-  height: 100%;
-  align-items: center;
-  margin-left: 2.5em;
-}
 .frase {
   position: absolute;
   width: 299px;

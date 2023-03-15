@@ -63,23 +63,6 @@ export const Register = () => {
   or.textContent = 'or';
   or.className = 'or';
 
-<<<<<<< HEAD
-=======
-  const buttonGoogle = document.createElement('a');
-  // buttonGoogle.textContent = 'Sign in with Google';
-  buttonGoogle.className = 'buttonGoogle';
-
-  const iconGoogle = document.createElement('img');
-  iconGoogle.src = '../imagenes/google.png';
-  iconGoogle.className = 'iconGoogle';
-
-  const googleText = document.createElement('span');
-  googleText.textContent = 'Sign in with Google';
-  googleText.className = 'googleText';
-
-  // const buttonHome = document.createElement('button');// revis
-
->>>>>>> 86589291f6740bcfa99e5f542f16133e7bb90f0f
   buttonSign.textContent = 'Sign Up';
 
   const buttonGoogle = document.createElement('img');
@@ -97,8 +80,6 @@ export const Register = () => {
   homeDiv.appendChild(frase);
   containerRegister.appendChild(homeDiv);
   homeDiv.appendChild(buttonGoogle);
-  buttonGoogle.appendChild(iconGoogle);
-  buttonGoogle.appendChild(googleText);
 
   // buttonSign.addEventListener('click', () => onNavigate('/'));
   buttonSign.addEventListener('click', () => registerWithEmail); // entrar al perfil
