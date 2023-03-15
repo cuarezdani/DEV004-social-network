@@ -31,7 +31,7 @@ export const Login = () => {
   emailInput.addEventListener('input', (e) => {
     // se agregan values para llamar a cada input y a la informacion que se guarda
     const emailValue = e.target.value;
-  });
+  }); 
 
   const emailPassword = document.createElement('input');
   emailPassword.id = 'clave';
@@ -50,10 +50,6 @@ export const Login = () => {
   buttonContinue.textContent = 'Continue';
   buttonContinue.className = 'buttonContinue';
 
-  // const dontAccount = document.createElement('h5');
-  // dontAccount.textContent = 'Don`t have an account?';
-  // dontAccount.className = 'dontAccount';
-
   const buttonSign = document.createElement('h6'); // boton que dirige a register
   buttonSign.textContent = 'Don’t have an account? Sign Up';
   buttonSign.className = 'buttonSign';
@@ -62,9 +58,17 @@ export const Login = () => {
   lineaOr.textContent = 'or';
   lineaOr.className = 'lineaOr';
 
-  const buttonGoogle = document.createElement('button');
-  buttonGoogle.textContent = 'Sign in with Google';
+  const buttonGoogle = document.createElement('a');
+  // buttonGoogle.textContent = 'Sign in with Google';
   buttonGoogle.className = 'buttonGoogle';
+
+  const iconGoogle = document.createElement('img');
+  iconGoogle.src = '../imagenes/google.png';
+  iconGoogle.className = 'iconGoogle';
+
+  const googleText = document.createElement('span');
+  googleText.textContent = 'Sign in with Google';
+  googleText.className = 'googleText';
 
   formLogin.appendChild(homeDiv);
   containerLogin.appendChild(backgroundLogin);
@@ -78,6 +82,8 @@ export const Login = () => {
   containerLogin.appendChild(buttonSign);
   containerLogin.appendChild(lineaOr);
   containerLogin.appendChild(buttonGoogle);
+  buttonGoogle.appendChild(iconGoogle);
+  buttonGoogle.appendChild(googleText);
 
   buttonContinue.addEventListener('click', () => signInWithPassword);
   buttonContinue.addEventListener('click', () => {

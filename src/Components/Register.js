@@ -25,14 +25,14 @@ export const Register = () => {
   emailRegister.addEventListener('input', (e) => {
     // se agregan values para llamar a cada input y a la informacion que se guarda
     const emailValue = e.target.value;
-  });
+  }); 
 
   const nameRegister = document.createElement('input');
   nameRegister.id = 'nombre';
   nameRegister.type = 'Name';
   nameRegister.placeholder = 'Full Name';
   nameRegister.addEventListener('input', (e) => {
-    const nameValue = e.target.value;
+    // const nameValue = e.target.value; //
   });
 
   const passwordRegister = document.createElement('input');
@@ -40,7 +40,7 @@ export const Register = () => {
   passwordRegister.type = 'password';
   passwordRegister.placeholder = 'Enter your password, at least 6 digits';
   passwordRegister.addEventListener('input', (e) => {
-    const passwordValue = e.target.value;
+    // const passwordValue = e.target.value; //
   });
 
   const confirmPassword = document.createElement('input'); // debe redirigirte a un formulario para hacer tu clave
@@ -48,7 +48,7 @@ export const Register = () => {
   confirmPassword.type = 'password';
   confirmPassword.placeholder = 'Confirm your password';
   confirmPassword.addEventListener('input', (e) => {
-    const confirmPasswordValue = e.target.value;
+    // const confirmPasswordValue = e.target.value;//
   });
 
   const buttonSign = document.createElement('button');
@@ -63,9 +63,17 @@ export const Register = () => {
   or.textContent = 'or';
   or.className = 'or';
 
-  const buttonGoogle = document.createElement('button');
-  buttonGoogle.textContent = 'Sign in with Google';
+  const buttonGoogle = document.createElement('a');
+  // buttonGoogle.textContent = 'Sign in with Google';
   buttonGoogle.className = 'buttonGoogle';
+
+  const iconGoogle = document.createElement('img');
+  iconGoogle.src = '../imagenes/google.png';
+  iconGoogle.className = 'iconGoogle';
+
+  const googleText = document.createElement('span');
+  googleText.textContent = 'Sign in with Google';
+  googleText.className = 'googleText';
 
   // const buttonHome = document.createElement('button');// revis
 
@@ -84,6 +92,8 @@ export const Register = () => {
   homeDiv.appendChild(frase);
   containerRegister.appendChild(homeDiv);
   homeDiv.appendChild(buttonGoogle);
+  buttonGoogle.appendChild(iconGoogle);
+  buttonGoogle.appendChild(googleText);
 
   // buttonSign.addEventListener('click', () => onNavigate('/'));
   buttonSign.addEventListener('click', () => registerWithEmail); // entrar al perfil
@@ -112,7 +122,7 @@ export const Register = () => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(error);
+
         alert('Please Try Again');
         window.location.href = '/register'; // pendiente redirigir al Home
       });
