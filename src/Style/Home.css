@@ -11,7 +11,8 @@
 
 .container {
   position: relative;
-  background: url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?crop=entropy&cs=tinysrgb&fm=jpg&ixid=Mnw3MjAxN3wwfDF8c2VhcmNofDF8fGNhZmV8ZW58MHx8fHwxNjc4MTk2ODI4&ixlib=rb-4.0.3&q=80&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450") no-repeat center center fixed;
+  background: url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?crop=entropy&cs=tinysrgb&fm=jpg&ixid=Mnw3MjAxN3wwfDF8c2VhcmNofDF8fGNhZmV8ZW58MHx8fHwxNjc4MTk2ODI4&ixlib=rb-4.0.3&q=80&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450")
+    no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -64,6 +65,7 @@
 }
 
 /* Página Login*/
+
 /* .backgroundLogin {
   background-image: url("https://images.pexels.com/photos/15586572/pexels-photo-15586572.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
   content: "";
@@ -88,9 +90,8 @@
   height: 100vh;
   width: 100%;
   opacity: 90%;
-
-  /* margin: 0 auto;
-  display: flex;
+  margin: 0 auto;
+  /* display: flex;
   width: auto;
   height: 1024px;
   left: 0px;
@@ -110,59 +111,27 @@
   color: white;
   text-align: center;
   text-transform: uppercase;
-  
-  /* position: absolute;
-  width: 234px;
-  height: 37px;
-  left: 128px;
-  top: 244px;
-  font-family: "Comfortaa";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 27px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  letter-spacing: -0.015em;
-  color: white; */
 }
 
 .homeDivH2 {
   /*subtitulo */
   position: absolute;
-  top: 37%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 34%;
+  left: 41.9%;
+  transform: translate(
+    -50%,
+    -50%
+  ); /* This transformation is characterized by a two-dimensional vector. Its coordinates define how much the element moves in each direction. */
   font-size: 1.3em;
   color: white;
   text-align: center;
-  
-  
-  
-  
-  /* position: absolute;
-  left: 23.65%;
-  right: -23.65%;
-  top: -19%;
-  bottom: 22.5%;
-  font-family: "Comfortaa";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 22px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  letter-spacing: -0.02em;
-  color: #ffffff; */
 }
 
 #correo {
   box-sizing: border-box;
-  position: absolute;
-  width: 343px;
-  height: 52px;
+  position: relative;
+  width: 350px;
+  height: 55px;
   left: 5.5%;
   top: 341px;
   border-radius: 5px;
@@ -185,11 +154,11 @@
 }
 
 #clave {
-  position: absolute;
+  position: relative;
   width: 343px;
   height: 52px;
   left: 5.5%;
-  top: 417px;
+  top: 360px;
   border-radius: 5px;
   border: 2px solid #000000;
 }
@@ -200,7 +169,6 @@
   right: 75.51%;
   top: 0%;
   bottom: 32.69%;
-  font-family: "Comfortaa";
   font-weight: 400;
   font-size: 13px;
   line-height: 18px;
@@ -209,18 +177,15 @@
 }
 
 .forgotP {
-  position: absolute;
-  left: 8%;
+  position: relative;
+  left: -20%;
   right: -23.65%;
-  top: 18%;
+  top: 44%;
   bottom: 22.5%;
-  font-family: "Comfortaa";
   font-style: normal;
   text-decoration: underline;
   font-weight: bold;
   font-size: 15px;
-  line-height: 22px;
-  display: flex;
   align-items: center;
   text-align: center;
   letter-spacing: -0.02em;
@@ -228,29 +193,26 @@
 }
 
 .buttonContinue {
-  font-family: "Comfortaa";
   box-sizing: border-box;
-  font-family: "Comfortaa";
   font-size: 17px;
   font-weight: bold;
   color: white;
   background: black;
   border: 2px solid #000000;
-  position: absolute;
+  position: relative;
   width: 343px;
   height: 52px;
   left: 5.5%;
-  top: 51%;
+  top: 47%;
   border-radius: 5px;
 }
 
-.buttonSign {
+.buttonSign { /* dont have an account, sing up */
   position: absolute;
   width: 231px;
   height: 42px;
   left: 5.5%;
   top: 590px;
-  font-family: "Comfortaa";
   font-style: normal;
   font-weight: 700;
   font-size: 13px;
@@ -262,14 +224,12 @@
 }
 
 .lineaOr {
-  display: inline-block;
-  position: relative;
+  position: absolute;
   vertical-align: middle;
   width: 30%;
-  /* border: 1px solid #1bb286;*/
   left: 170px;
   font-size: 20px;
-  margin-top: 300px;
+  margin-top: 120%;
 }
 
 /* Pagina REGISTER */
@@ -463,7 +423,6 @@
   top: 700px;
   border-radius: 6px;
   box-sizing: border-box; */
-  display: flex;
   position: absolute;
   width: 362px;
   padding: 10px 15px 10px 15px;
@@ -515,4 +474,5 @@ tablet*/
 
 /*codigos nos servirán para que sean responsives en diferentes equipos :)
 computador*/
-@media only screen and (min-width: 1224px) {}
+@media only screen and (min-width: 1224px) {
+}
