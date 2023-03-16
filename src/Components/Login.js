@@ -28,19 +28,19 @@ export const Login = () => {
   emailInput.id = 'correo';
   emailInput.type = 'email';
   emailInput.placeholder = 'Email Address';
-  emailInput.addEventListener('input', (e) => {
+  /* emailInput.addEventListener('input', (e) => {
     // se agregan values para llamar a cada input y a la informacion que se guarda
     const emailValue = e.target.value;
-  }); 
+  }); */
 
   const emailPassword = document.createElement('input');
   emailPassword.id = 'clave';
   emailPassword.type = 'password';
   emailPassword.placeholder = 'Enter your password';
-  emailPassword.addEventListener('input', (e) => {
+  /* emailPassword.addEventListener('input', (e) => {
     // se agregan values para llamar a cada input y a la informacion que se guarda
     const passwordValue = e.target.value;
-  });
+  }); */
 
   const forgotP = document.createElement('h4'); // debe redirigirte a un formulario para hacer tu clave
   forgotP.textContent = 'Forgot your password?';

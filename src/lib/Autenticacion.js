@@ -12,30 +12,12 @@ import {
 export const registerWithEmail = (email, password) => {
   const auth = getAuth();
   return createUserWithEmailAndPassword(auth, email, password);
-  /* .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(error);
-    }); */
 };
 
 // para hacer ingreso de la app mediante email y contraseña LOGIN
 export const signInWithPassword = (email, password) => {
   const auth = getAuth();
   return signInWithEmailAndPassword(auth, email, password);
-  /* .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-    }); */
 };
 
 // para ingresar a google en ambas paginas
@@ -46,13 +28,13 @@ export const signInWithGoogle = () => {
     .then((result) => {
       // nos da acceso al Google Access Token. lo podemos usar para acceder al google API.
       const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
+      // const token = credential.accessToken;
       // agregamos el signed-in en la informacion del usuario
       const user = result.user;
       // data IdP data disponible usando getAdditionalUserInfo(result)
       // console.log(token);
       // console.log(user);
-      alert('auth ok');
+      // alert('auth ok');
       window.location.href = '/login';
       // ...
     })
@@ -64,7 +46,7 @@ export const signInWithGoogle = () => {
       const email = error.customData.email;
       // la credencial Auth que fue usada.
       const credential = GoogleAuthProvider.credentialFromError(error);
-      alert('auth error');
+      // alert('auth error');
       window.location.href = '/'; // si nos marca error nos manda al home
       // ...
     });

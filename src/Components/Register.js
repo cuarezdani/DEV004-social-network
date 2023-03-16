@@ -22,34 +22,34 @@ export const Register = () => {
   emailRegister.id = 'correoRegister';
   emailRegister.type = 'email';
   emailRegister.placeholder = 'Email Address';
-  emailRegister.addEventListener('input', (e) => {
+  /* emailRegister.addEventListener('input', (e) => {
     // se agregan values para llamar a cada input y a la informacion que se guarda
     const emailValue = e.target.value;
-  }); 
+  }); */
 
   const nameRegister = document.createElement('input');
   nameRegister.id = 'nombre';
   nameRegister.type = 'Name';
   nameRegister.placeholder = 'Full Name';
-  nameRegister.addEventListener('input', (e) => {
+  /* nameRegister.addEventListener('input', (e) => {
     // const nameValue = e.target.value; //
-  });
+  }); */
 
   const passwordRegister = document.createElement('input');
   passwordRegister.id = 'claveRegister';
   passwordRegister.type = 'password';
   passwordRegister.placeholder = 'Enter your password, at least 6 digits';
-  passwordRegister.addEventListener('input', (e) => {
+  /* passwordRegister.addEventListener('input', (e) => {
     // const passwordValue = e.target.value; //
-  });
+  }); */
 
   const confirmPassword = document.createElement('input'); // debe redirigirte a un formulario para hacer tu clave
   confirmPassword.id = 'confirmPassword';
   confirmPassword.type = 'password';
   confirmPassword.placeholder = 'Confirm your password';
-  confirmPassword.addEventListener('input', (e) => {
+  /* confirmPassword.addEventListener('input', (e) => {
     // const confirmPasswordValue = e.target.value;//
-  });
+  }); */
 
   const buttonSign = document.createElement('button');
   buttonSign.textContent = 'SIGN UP';
