@@ -58,30 +58,26 @@ export const Login = () => {
   lineaOr.textContent = 'or';
   lineaOr.className = 'lineaOr';
 
-  const buttonGoogle = document.createElement('img');
+  const imgGoogle = document.createElement('img');
+  imgGoogle.className = 'imgGoogle';
+  imgGoogle.src = '../imagenes/iconogoogle.svg';
+  const buttonGoogle = document.createElement('button');
   buttonGoogle.className = 'buttonGoogle';
-  buttonGoogle.src = '../imagenes/googleblanco.png';
-
-  const iconGoogle = document.createElement('img');
-  iconGoogle.src = '../imagenes/google.png';
-  iconGoogle.className = 'iconGoogle';
-
-  const googleText = document.createElement('span');
-  googleText.textContent = 'Sign in with Google';
-  googleText.className = 'googleText';
+  const strong = document.createElement('strong');
+  strong.textContent = 'Sign up with Google';
+  strong.className = 'textGoogle';
 
   formLogin.appendChild(homeDiv);
-  // containerLogin.appendChild(backgroundLogin);
   containerLogin.appendChild(homeDiv);
   containerLogin.appendChild(homeDivH2);
   containerLogin.appendChild(emailInput);
   containerLogin.appendChild(emailPassword);
   containerLogin.appendChild(forgotP);
   containerLogin.appendChild(buttonContinue);
-  // containerLogin.appendChild(dontAccount);
   containerLogin.appendChild(buttonSign);
   containerLogin.appendChild(lineaOr);
   containerLogin.appendChild(buttonGoogle);
+  buttonGoogle.append(imgGoogle, strong);
 
   buttonContinue.addEventListener('click', () => signInWithPassword);
   buttonContinue.addEventListener('click', () => {

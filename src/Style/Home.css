@@ -1,18 +1,19 @@
 * {
-  margin: 0%;
-  border-style: solid;
-  border-color: black;
   /* box-sizing: border-box; */
   font-family: "Comfortaa";
-  border: 1px;
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
 }
 
 /*Pagina Home*/
 
 .container {
   position: relative;
-  background: url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?crop=entropy&cs=tinysrgb&fm=jpg&ixid=Mnw3MjAxN3wwfDF8c2VhcmNofDF8fGNhZmV8ZW58MHx8fHwxNjc4MTk2ODI4&ixlib=rb-4.0.3&q=80&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450")
-    no-repeat center center fixed;
+  background: url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?crop=entropy&cs=tinysrgb&fm=jpg&ixid=Mnw3MjAxN3wwfDF8c2VhcmNofDF8fGNhZmV8ZW58MHx8fHwxNjc4MTk2ODI4&ixlib=rb-4.0.3&q=80&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -66,20 +67,6 @@
 
 /* Página Login*/
 
-/* .backgroundLogin {
-  background-image: url("https://images.pexels.com/photos/15586572/pexels-photo-15586572.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
-  content: "";
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  position: absolute;
-  top: 0%;
-  right: 0%;
-  bottom: 0%;
-  left: 0%;
-  opacity: 0.75;
-} */
-
 .containerLogin {
   position: relative;
   background-image: url("https://images.pexels.com/photos/15586572/pexels-photo-15586572.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
@@ -91,22 +78,16 @@
   width: 100%;
   opacity: 90%;
   margin: 0 auto;
-  /* display: flex;
-  width: auto;
-  height: 1024px;
-  left: 0px;
-  right: 0px;
-  position: relative;
-  align-items: center;
-  object-fit: cover; */
+  padding: 1em;
+
 }
 
 .homeDivLogin {
   /*WELCOME pagina login */
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin-top: 40%;
+  display: block;
+  width: 100%;
+  height: 1em;
   font-size: 1.7em;
   color: white;
   text-align: center;
@@ -115,38 +96,27 @@
 
 .homeDivH2 {
   /*subtitulo */
-  position: absolute;
-  top: 34%;
-  left: 41.9%;
-  transform: translate(
-    -50%,
-    -50%
-  ); /* This transformation is characterized by a two-dimensional vector. Its coordinates define how much the element moves in each direction. */
+  display: block;
+  /* margin-block-start: -2%; */
+  width: 100%;
+  height: 1em;
   font-size: 1.3em;
   color: white;
   text-align: center;
 }
 
 #correo {
-  box-sizing: border-box;
-  position: relative;
-  width: 350px;
-  height: 55px;
-  left: 5.5%;
-  top: 341px;
+  width: 100%;
+  height: 4em;
   border-radius: 5px;
   background: #ffffff;
   border: 2px solid #000000;
+  margin-block-end: 6%;
 }
 
 #correo::placeholder {
-  position: relative;
-  left: 3%;
-  right: 75.51%;
-  top: 0%;
-  bottom: 32.69%;
-  font-family: "Comfortaa";
-  font-weight: 400;
+  width: 100%;
+  padding: 1em;
   font-size: 13px;
   line-height: 18px;
   align-items: center;
@@ -154,22 +124,16 @@
 }
 
 #clave {
-  position: relative;
-  width: 343px;
-  height: 52px;
-  left: 5.5%;
-  top: 360px;
+  width: 100%;
+  height: 4em;
   border-radius: 5px;
+  background: #ffffff;
   border: 2px solid #000000;
 }
 
 #clave::placeholder {
-  position: relative;
-  left: 3%;
-  right: 75.51%;
-  top: 0%;
-  bottom: 32.69%;
-  font-weight: 400;
+  width: 100%;
+  padding: 1em;
   font-size: 13px;
   line-height: 18px;
   align-items: center;
@@ -177,39 +141,37 @@
 }
 
 .forgotP {
-  position: relative;
-  left: -20%;
-  right: -23.65%;
-  top: 44%;
-  bottom: 22.5%;
-  font-style: normal;
+  width: 100%;
+  height: 1em;
   text-decoration: underline;
-  font-weight: bold;
+  font-weight: bolder;
   font-size: 15px;
-  align-items: center;
-  text-align: center;
-  letter-spacing: -0.02em;
+  margin-block-start: 2%;
   color: black;
 }
 
 .buttonContinue {
-  box-sizing: border-box;
+  width: 100%;
+  height: 52px;
   font-size: 17px;
   font-weight: bold;
   color: white;
   background: black;
-  border: 2px solid #000000;
-  position: relative;
-  width: 343px;
-  height: 52px;
-  left: 5.5%;
-  top: 47%;
+  border: solid #000000;
   border-radius: 5px;
 }
 
-.buttonSign { /* dont have an account, sing up */
-  position: absolute;
-  width: 231px;
+.buttonSign {
+  /* dont have an account, sing up */
+  width: 100%;
+  text-decoration: underline;
+  font-weight: bolder;
+  font-size: 13px;
+  color: #760b0b;
+  margin-block-start: 3%;
+
+
+  /* width: 231px;
   height: 42px;
   left: 5.5%;
   top: 590px;
@@ -220,16 +182,24 @@
   align-items: center;
   text-decoration-line: underline;
   color: #760b0b;
-  text-align: center;
+  text-align: center; */
 }
 
 .lineaOr {
-  position: absolute;
+  width: 100%;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  color: black;
+
+
+
+  /* position: absolute;
   vertical-align: middle;
   width: 30%;
   left: 170px;
   font-size: 20px;
-  margin-top: 120%;
+  margin-top: 120%; */
 }
 
 /* Pagina REGISTER */
@@ -377,7 +347,6 @@
   right: 75.51%;
   top: 0%;
   bottom: 32.69%;
-  font-family: "Comfortaa";
   font-weight: 400;
   font-size: 13px;
   line-height: 18px;
@@ -413,21 +382,23 @@
 }
 
 .buttonGoogle {
-  /* font-size: 17px;
-  font-weight: bold;
-  background: white;
-  border: 2px solid #000000;
-  width: 343px;
-  height: 52px;
-  left: 20px;
-  top: 700px;
-  border-radius: 6px;
-  box-sizing: border-box; */
+  background-color: #FFFFFF;
+  position: relative;
+  width: 100%;
+  height: 4em;
+  bottom: 0%;
+}
+
+.imgGoogle {
   position: absolute;
-  width: 362px;
-  padding: 10px 15px 10px 15px;
-  margin-left: -14%;
-  margin-top: 960px;
+  left: 4%;
+  top: 1%;
+  width: 16%;
+}
+
+.textGoogle {
+  font-family: 'Roboto-Medium';
+  font-weight: lighter;
 }
 
 .frase {
@@ -450,7 +421,7 @@
 
 /*codigos nos servirán para que sean responsives en diferentes equipos
 tablet*/
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+/* @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
   .backgroundLogin {
     width: 100%;
     height: 100%;
@@ -470,9 +441,8 @@ tablet*/
     flex-direction: column;
     width: 100%;
   }
-}
+} */
 
 /*codigos nos servirán para que sean responsives en diferentes equipos :)
 computador*/
-@media only screen and (min-width: 1224px) {
-}
+@media only screen and (min-width: 1224px) {}
