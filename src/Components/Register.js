@@ -10,6 +10,10 @@ export const Register = () => {
   const backgroundRegister = document.createElement('div');
   backgroundRegister.className = 'backgroundRegister';
 
+  const logoCaffee = document.createElement('img');
+  logoCaffee.src = '../imagenes/logo1.png';
+  logoCaffee.className = 'logoCaffee';
+
   const homeDiv = document.createElement('h1');
   homeDiv.textContent = 'Create your account';
   homeDiv.className = 'homeDivRegister';
@@ -71,6 +75,7 @@ export const Register = () => {
 
   formRegister.appendChild(homeDiv);
   containerRegister.appendChild(backgroundRegister);
+  containerRegister.appendChild(logoCaffee);
   containerRegister.appendChild(emailRegister);
   containerRegister.appendChild(nameRegister);
   containerRegister.appendChild(passwordRegister);

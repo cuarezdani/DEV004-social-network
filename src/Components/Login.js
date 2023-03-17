@@ -5,8 +5,11 @@ import { signInWithGoogle, signInWithPassword } from '../lib/Autenticacion';
 export const Login = () => {
   const containerLogin = document.createElement('div'); // creación de container para sostener nuestra página
   containerLogin.className = 'containerLogin';
-  /* const backgroundLogin = document.createElement('div');
-  backgroundLogin.className = 'backgroundLogin'; */
+
+  // const logoCaffee = document.createElement('img');
+  // logoCaffee.src = '../imagenes/logo1.png';
+  // logoCaffee.className = 'logoCaffee';
+
   const homeDiv = document.createElement('h1');
   homeDiv.textContent = 'WELCOME';
   homeDiv.className = 'homeDivLogin';
@@ -68,6 +71,7 @@ export const Login = () => {
   strong.className = 'textGoogle';
 
   formLogin.appendChild(homeDiv);
+  // containerLogin.appendChild(logoCaffee);
   containerLogin.appendChild(homeDiv);
   containerLogin.appendChild(homeDivH2);
   containerLogin.appendChild(emailInput);

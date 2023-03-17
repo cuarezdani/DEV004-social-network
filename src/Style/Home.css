@@ -13,7 +13,8 @@ body {
 
 .container {
   position: relative;
-  background: url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?crop=entropy&cs=tinysrgb&fm=jpg&ixid=Mnw3MjAxN3wwfDF8c2VhcmNofDF8fGNhZmV8ZW58MHx8fHwxNjc4MTk2ODI4&ixlib=rb-4.0.3&q=80&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450") no-repeat center center fixed;
+  background: url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?crop=entropy&cs=tinysrgb&fm=jpg&ixid=Mnw3MjAxN3wwfDF8c2VhcmNofDF8fGNhZmV8ZW58MHx8fHwxNjc4MTk2ODI4&ixlib=rb-4.0.3&q=80&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450")
+    no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -68,19 +69,37 @@ body {
 /* Página Login*/
 
 .containerLogin {
-  position: relative;
-  background-image: url("https://images.pexels.com/photos/15586572/pexels-photo-15586572.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-image: url("https://images.unsplash.com/photo-1582298538104-fe2e74c27f59?crop=entropy&cs=tinysrgb&fm=jpg&ixid=Mnw3MjAxN3wwfDF8c2VhcmNofDF8fGZyaWVuZHMlMjBkcmlua2luZyUyMGNvZmZlZXxlbnwwfHx8fDE2NzgzMDY3MzA&ixlib=rb-4.0.3&q=80&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450");
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1em;
+  opacity: 90%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 100vh;
-  width: 100%;
-  opacity: 90%;
-  margin: 0 auto;
-  padding: 1em;
-
 }
+
+/* Pendiente ajustarlo*/
+.logoCaffee {
+   position: absolute;
+  /*margin-left: 25%;
+  align-items: center;
+  justify-content: center;
+  padding: px ;
+  flex: 0 0 auto;
+  width: 173px;
+  height: 166px; */
+
+  top: 0%;
+  display: block;
+  width: 15%;
+  height: 15%;
+  
+  } 
+
 
 .homeDivLogin {
   /*WELCOME pagina login */
@@ -89,7 +108,8 @@ body {
   width: 100%;
   height: 1em;
   font-size: 1.7em;
-  color: white;
+  font-weight: bold;
+  color: black;
   text-align: center;
   text-transform: uppercase;
 }
@@ -101,7 +121,7 @@ body {
   width: 100%;
   height: 1em;
   font-size: 1.3em;
-  color: white;
+  color: black;
   text-align: center;
 }
 
@@ -112,6 +132,7 @@ body {
   background: #ffffff;
   border: 2px solid #000000;
   margin-block-end: 6%;
+  margin-block-start: 3%;
 }
 
 #correo::placeholder {
@@ -144,10 +165,10 @@ body {
   width: 100%;
   height: 1em;
   text-decoration: underline;
-  font-weight: bolder;
+  font-weight: bold;
   font-size: 15px;
-  margin-block-start: 2%;
-  color: black;
+  margin-block-start: 2.1%;
+  color: white;
 }
 
 .buttonContinue {
@@ -159,30 +180,17 @@ body {
   background: black;
   border: solid #000000;
   border-radius: 5px;
+  margin-block-start: 4%;
 }
 
 .buttonSign {
   /* dont have an account, sing up */
   width: 100%;
   text-decoration: underline;
-  font-weight: bolder;
+  font-weight: bold;
   font-size: 13px;
-  color: #760b0b;
+  color: white;
   margin-block-start: 3%;
-
-
-  /* width: 231px;
-  height: 42px;
-  left: 5.5%;
-  top: 590px;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 13px;
-  line-height: 21px;
-  align-items: center;
-  text-decoration-line: underline;
-  color: #760b0b;
-  text-align: center; */
 }
 
 .lineaOr {
@@ -196,28 +204,22 @@ body {
 /* Pagina REGISTER */
 .backgroundRegister {
   background-image: url("https://images.unsplash.com/photo-1582298538104-fe2e74c27f59?crop=entropy&cs=tinysrgb&fm=jpg&ixid=Mnw3MjAxN3wwfDF8c2VhcmNofDF8fGZyaWVuZHMlMjBkcmlua2luZyUyMGNvZmZlZXxlbnwwfHx8fDE2NzgzMDY3MzA&ixlib=rb-4.0.3&q=80&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450");
-  content: "";
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  position: relative;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  opacity: 0.75;
+  height: 100vh;
+  width: 100%;
+  opacity: 90%;
+  margin: 0 auto;
+  padding: 1em;
 }
 
 .containerRegister {
-  margin: 0 auto;
-  display: flex;
-  width: auto;
-  height: 1030px;
-  left: 0px;
-  right: 0px;
-  position: relative;
-  align-items: center;
-  object-fit: cover;
+ position: relative;
+ height: 100vh;
+  width: 100%;
 }
 
 .homeDivRegister {
@@ -373,7 +375,7 @@ body {
 }
 
 .buttonGoogle {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   position: relative;
   width: 100%;
   height: 4em;
@@ -388,12 +390,11 @@ body {
 }
 
 .textGoogle {
-  font-family: 'Roboto-Medium';
+  font-family: "Roboto-Medium";
   font-weight: lighter;
   font-size: 17px;
   color: rgb(57, 57, 58);
   cursor: pointer;
-
 }
 
 .frase {
@@ -440,4 +441,5 @@ tablet*/
 
 /*codigos nos servirán para que sean responsives en diferentes equipos :)
 computador*/
-@media only screen and (min-width: 1224px) {}
+/*@media only screen and (min-width: 1224px) {
+} */
