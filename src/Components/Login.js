@@ -6,9 +6,9 @@ export const Login = () => {
   const containerLogin = document.createElement('div'); // creación de container para sostener nuestra página
   containerLogin.className = 'containerLogin';
 
-  // const logoCaffee = document.createElement('img');
-  // logoCaffee.src = '../imagenes/logo1.png';
-  // logoCaffee.className = 'logoCaffee';
+  const logoCaffee = document.createElement('img');
+  logoCaffee.src = '../imagenes/logo1.png';
+  logoCaffee.className = 'logoCaffee';
 
   const homeDiv = document.createElement('h1');
   homeDiv.textContent = 'WELCOME';
@@ -23,7 +23,7 @@ export const Login = () => {
   // homeDiv.innerHTML = 'Login to Coffee Hour <input id = "correo">';
   /*  const myInput = homeDiv.querySelector('#correo');
   console.log(myInput); */
-  const formLogin = document.createElement('form');
+  const formLogin = document.createElement('section');
   formLogin.className = 'formLogin';
   formLogin.id = 'formLogin';
 
@@ -31,19 +31,11 @@ export const Login = () => {
   emailInput.id = 'correo';
   emailInput.type = 'email';
   emailInput.placeholder = 'Email Address';
-  /* emailInput.addEventListener('input', (e) => {
-    // se agregan values para llamar a cada input y a la informacion que se guarda
-    const emailValue = e.target.value;
-  }); */
 
   const emailPassword = document.createElement('input');
   emailPassword.id = 'clave';
   emailPassword.type = 'password';
   emailPassword.placeholder = 'Enter your password';
-  /* emailPassword.addEventListener('input', (e) => {
-    // se agregan values para llamar a cada input y a la informacion que se guarda
-    const passwordValue = e.target.value;
-  }); */
 
   const forgotP = document.createElement('h4'); // debe redirigirte a un formulario para hacer tu clave
   forgotP.textContent = 'Forgot your password?';
@@ -71,7 +63,7 @@ export const Login = () => {
   strong.className = 'textGoogle';
 
   formLogin.appendChild(homeDiv);
-  // containerLogin.appendChild(logoCaffee);
+  containerLogin.appendChild(logoCaffee);
   containerLogin.appendChild(homeDiv);
   containerLogin.appendChild(homeDivH2);
   containerLogin.appendChild(emailInput);
@@ -96,14 +88,13 @@ export const Login = () => {
     signInWithPassword(user.email, user.emailPassword)
       .then((userCredential) => {
         const user = userCredential.user;
-        // alert('Register Accepted');
+        alert('Register Accepted');
         window.location.href = '/'; // pendiente redirigir al perfil
         // Redirigir al usuario a la página de perfil o a la página de inicio de sesión
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.error(error);
         // Mostrar un mensaje de error al usuario
         alert('Invalid email or password.');
         window.location.href = '/login'; // si nos marca error nos manda al home

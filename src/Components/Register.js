@@ -7,8 +7,8 @@ export const Register = () => {
   const containerRegister = document.createElement('div');
   containerRegister.className = 'containerRegister';
 
-  const backgroundRegister = document.createElement('div');
-  backgroundRegister.className = 'backgroundRegister';
+  // const backgroundRegister = document.createElement('div');
+  // backgroundRegister.className = 'backgroundRegister';
 
   const logoCaffee = document.createElement('img');
   logoCaffee.src = '../imagenes/logo1.png';
@@ -26,34 +26,21 @@ export const Register = () => {
   emailRegister.id = 'correoRegister';
   emailRegister.type = 'email';
   emailRegister.placeholder = 'Email Address';
-  /* emailRegister.addEventListener('input', (e) => {
-    // se agregan values para llamar a cada input y a la informacion que se guarda
-    const emailValue = e.target.value;
-  }); */
 
   const nameRegister = document.createElement('input');
   nameRegister.id = 'nombre';
   nameRegister.type = 'Name';
   nameRegister.placeholder = 'Full Name';
-  /* nameRegister.addEventListener('input', (e) => {
-    // const nameValue = e.target.value; //
-  }); */
 
   const passwordRegister = document.createElement('input');
   passwordRegister.id = 'claveRegister';
   passwordRegister.type = 'password';
   passwordRegister.placeholder = 'Enter your password, at least 6 digits';
-  /* passwordRegister.addEventListener('input', (e) => {
-    // const passwordValue = e.target.value; //
-  }); */
 
   const confirmPassword = document.createElement('input'); // debe redirigirte a un formulario para hacer tu clave
   confirmPassword.id = 'confirmPassword';
   confirmPassword.type = 'password';
   confirmPassword.placeholder = 'Confirm your password';
-  /* confirmPassword.addEventListener('input', (e) => {
-    // const confirmPasswordValue = e.target.value;//
-  }); */
 
   const buttonSign = document.createElement('button');
   buttonSign.textContent = 'SIGN UP';
@@ -69,22 +56,27 @@ export const Register = () => {
 
   buttonSign.textContent = 'Sign Up';
 
-  const buttonGoogle = document.createElement('img');
+  const imgGoogle = document.createElement('img');
+  imgGoogle.className = 'imgGoogle';
+  imgGoogle.src = '../imagenes/iconogoogle.svg';
+  const buttonGoogle = document.createElement('button');
   buttonGoogle.className = 'buttonGoogle';
-  buttonGoogle.src = '../imagenes/googleblanco.png';
+  const strong = document.createElement('strong');
+  strong.textContent = 'Sign up with Google';
+  strong.className = 'textGoogle';
 
   formRegister.appendChild(homeDiv);
-  containerRegister.appendChild(backgroundRegister);
   containerRegister.appendChild(logoCaffee);
+  containerRegister.appendChild(homeDiv);
   containerRegister.appendChild(emailRegister);
   containerRegister.appendChild(nameRegister);
   containerRegister.appendChild(passwordRegister);
   containerRegister.appendChild(confirmPassword);
+  containerRegister.appendChild(buttonSign);
+  containerRegister.appendChild(frase);
   containerRegister.appendChild(or);
-  homeDiv.appendChild(buttonSign);
-  homeDiv.appendChild(frase);
-  containerRegister.appendChild(homeDiv);
-  homeDiv.appendChild(buttonGoogle);
+  containerRegister.appendChild(buttonGoogle);
+  buttonGoogle.append(imgGoogle, strong);
 
   // buttonSign.addEventListener('click', () => onNavigate('/'));
   buttonSign.addEventListener('click', () => registerWithEmail); // entrar al perfil
