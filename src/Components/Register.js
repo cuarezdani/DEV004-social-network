@@ -1,6 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable import/no-cycle */
-import { onNavigate } from '../router/navigate';
+import { onNavigate } from '../router';
 import { signInWithGoogle, registerWithEmail } from '../lib/Autenticacion';
 
 export const Register = () => {

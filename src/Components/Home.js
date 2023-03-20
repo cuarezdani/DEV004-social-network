@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-cycle
-import { onNavigate } from '../router/navigate';
+import { onNavigate } from '../router';
 
 export const Home = () => {
   const container = document.createElement('div');

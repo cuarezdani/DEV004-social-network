@@ -1,5 +1,5 @@
 /* eslint-disable import/no-cycle */
-import { onNavigate } from '../router/navigate';
+import { onNavigate } from '../router';
 import { signInWithGoogle, signInWithPassword } from '../lib/Autenticacion';
 
 export const Login = () => {
