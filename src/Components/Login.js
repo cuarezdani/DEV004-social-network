@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-shadow */
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../router';
 import { signInWithGoogle, signInWithPassword } from '../lib/Autenticacion';
@@ -88,7 +90,7 @@ export const Login = () => {
     signInWithPassword(user.email, user.emailPassword)
       .then((userCredential) => {
         const user = userCredential.user;
-        alert('Register Accepted');
+        // alert('Register Accepted');
         window.location.href = '/'; // pendiente redirigir al perfil
         // Redirigir al usuario a la página de perfil o a la página de inicio de sesión
       })
@@ -96,7 +98,7 @@ export const Login = () => {
         const errorCode = error.code;
         const errorMessage = error.message;
         // Mostrar un mensaje de error al usuario
-        alert('Invalid email or password.');
+        // alert('Invalid email or password.');
         window.location.href = '/login'; // si nos marca error nos manda al home
       });
   });

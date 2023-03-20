@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { onNavigate } from '../router';
 import { signInWithGoogle, registerWithEmail } from '../lib/Autenticacion';
 
@@ -76,7 +77,7 @@ export const Register = () => {
   containerRegister.appendChild(buttonGoogle);
   buttonGoogle.append(imgGoogle, strong);
 
-  // buttonSign.addEventListener('click', () => onNavigate('/'));
+  buttonSign.addEventListener('click', () => onNavigate('/'));
   buttonSign.addEventListener('click', () => registerWithEmail); // entrar al perfil
   buttonSign.addEventListener('click', () => {
     const emailValue = emailRegister.value;
@@ -97,14 +98,14 @@ export const Register = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        alert('Register Accepted');
+        // alert('Register Accepted');
         window.location.href = '/login'; // pendiente redirigir al perfil
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
 
-        alert('Please Try Again');
+        // alert('Please Try Again');
         window.location.href = '/register'; // pendiente redirigir al Home
       });
   });
