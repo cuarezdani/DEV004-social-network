@@ -44,6 +44,7 @@ export const Register = () => {
   const buttonSign = document.createElement('button');
   buttonSign.textContent = 'SIGN UP';
   buttonSign.className = 'buttonSignUp';
+  buttonSign.id = 'buttonSign';
 
   const frase = document.createElement('h6'); // boton que dirige a register
   frase.textContent = 'Already have an account? Login here ';
@@ -77,8 +78,8 @@ export const Register = () => {
   containerRegister.appendChild(buttonGoogle);
   buttonGoogle.append(imgGoogle, strong);
 
-  buttonSign.addEventListener('click', () => onNavigate('/'));
-  buttonSign.addEventListener('click', () => registerWithEmail); // entrar al perfil
+  // buttonSign.addEventListener('click', () => onNavigate('/'));
+  // buttonSign.addEventListener('click', () => registerWithEmail); // entrar al perfil
   buttonSign.addEventListener('click', () => {
     const emailValue = emailRegister.value;
     const nameValue = nameRegister.value;

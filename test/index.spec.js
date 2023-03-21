@@ -1,12 +1,13 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { JSDOM } from 'jsdom';
+// import { JSDOM } from 'jsdom';
 // importamos la funcion que vamos a testear
 import { Register } from '../src/Components/Register.js';
 
-// import { onNavigate } from '../src/router';
+// eslint-disable-next-line no-unused-vars
+import { onNavigate } from '../src/router';
 
-const { document } = new JSDOM('').window;
-global.document = document;
+// const { document } = new JSDOM('').window;
+// global.document = document;
 
 // describe('myFunction', () => {
 //   it('debería ser una función', () => {
@@ -18,13 +19,17 @@ jest.mock('../src/router/index.js', () => ({
   onNavigate: jest.fn(),
 }));
 
+jest.mock('../src/lib/Autenticacion', () => ({
+  registerWithEmail: jest.fn(() => Promise.resolve()),
+}));
+
 // si el usuario se registro correctamente o no
 describe('Register', () => {
   it('si el usuario NO se registra correctamente debe redirigir al home', () => {
     document.body.appendChild(Register()); // en el test me dice que document no está definido
     document.getElementById('buttonSign').click();
-    // console.log('Hola', window.location.href);
-    expect(typeof onNavigate).toBe('/');
+    console.log('Hola', window.location.href);
+    expect(window.location.href).toBe('/login');
   });
 });
 

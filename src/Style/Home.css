@@ -1,5 +1,5 @@
 * {
-  font-family: "Comfortaa";
+  font-family: 'Comfortaa', 'Times New Roman', Times, serif;
   border: 1px solid black;
   box-sizing: border-box;
 }
@@ -343,7 +343,7 @@ body {
 }
 
 .textGoogle {
-  font-family: "Roboto-Medium";
+  font-family: 'Roboto-Medium', 'Times New Roman', Times, serif;
   font-weight: lighter;
   font-size: 17px;
   color: rgb(57, 57, 58);
