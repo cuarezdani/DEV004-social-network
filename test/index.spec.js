@@ -2,9 +2,10 @@
 // import { JSDOM } from 'jsdom';
 // importamos la funcion que vamos a testear
 import { Register } from '../src/Components/Register.js';
+import { Login } from '../src/Components/Login.js';
 
 // eslint-disable-next-line no-unused-vars
-import { onNavigate } from '../src/router';
+import { onNavigate } from '../src/router/index.js';
 
 // const { document } = new JSDOM('').window;
 // global.document = document;
@@ -16,7 +17,7 @@ import { onNavigate } from '../src/router';
 // });
 
 jest.mock('../src/router/index.js', () => ({
-  onNavigate: jest.fn(),
+  onNavigate: jest.fn(() => Promise.resolve()),
 }));
 
 jest.mock('../src/lib/Autenticacion', () => ({
@@ -24,14 +25,39 @@ jest.mock('../src/lib/Autenticacion', () => ({
 }));
 
 // si el usuario se registro correctamente o no
-describe('Register', () => {
-  it('si el usuario NO se registra correctamente debe redirigir al home', () => {
-    document.body.appendChild(Register()); // en el test me dice que document no está definido
+describe('Register', (done) => {
+  it('si el usuario se registrò correctamente debe mandar llamar la funcion navigateTo con el parametro login', () => {
+    document.body.appendChild(Register());
     document.getElementById('buttonSign').click();
-    console.log('Hola', window.location.href);
-    expect(window.location.href).toBe('/login');
+    setTimeout(() => {
+      expect(onNavigate).toHaveBeenCalledWith('/login');
+      // eslint-disable-next-line no-undef
+      done();
+    }, 0);
   });
 });
+
+jest.mock('../src/lib/Autenticacion', () => ({
+  signInWithPassword: jest.fn(() => Promise.resolve()),
+}));
+
+// si el usuario se Logueo correctamente o no
+describe('Login', (done) => {
+  it('si el usuario ingreso correctamente debe mandar redirigirse al Home', () => {
+    document.body.appendChild(Login());
+    document.getElementById('buttonContinue').click();
+    setTimeout(() => {
+      expect(window.location.href).toHaveBeenCalledWith('/');
+      // eslint-disable-next-line no-undef
+      done();
+    }, 0);
+  });
+});
+/* it('si el usuario NO se registra correctamente debe redirigir al home', () => {
+  document.body.appendChild(Register()); // en el test me dice que document no está definido
+  document.getElementById('buttonSign').click();
+  console.log('Hola', window.location.href);
+  expect(window.location.href).toBe('/login'); */
 
 /*
 describe('registerWithEmail', () => {

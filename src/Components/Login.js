@@ -46,6 +46,7 @@ export const Login = () => {
   const buttonContinue = document.createElement('button');
   buttonContinue.textContent = 'Continue';
   buttonContinue.className = 'buttonContinue';
+  buttonContinue.id = 'buttonContinue';
 
   const buttonSign = document.createElement('h6'); // boton que dirige a register
   buttonSign.textContent = 'Don’t have an account? Sign Up';

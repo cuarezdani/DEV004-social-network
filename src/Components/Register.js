@@ -79,7 +79,7 @@ export const Register = () => {
   buttonGoogle.append(imgGoogle, strong);
 
   // buttonSign.addEventListener('click', () => onNavigate('/'));
-  // buttonSign.addEventListener('click', () => registerWithEmail); // entrar al perfil
+  buttonSign.addEventListener('click', () => registerWithEmail); // entrar al perfil
   buttonSign.addEventListener('click', () => {
     const emailValue = emailRegister.value;
     const nameValue = nameRegister.value;
@@ -98,7 +98,7 @@ export const Register = () => {
     registerWithEmail(userInfo.email, userInfo.password)
       .then((userCredential) => {
         // Signed in
-        const user = userCredential.user;
+        // const user = userCredential.user;
         // alert('Register Accepted');
         window.location.href = '/login'; // pendiente redirigir al perfil
       })
