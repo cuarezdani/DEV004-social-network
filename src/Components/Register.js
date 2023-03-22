@@ -103,8 +103,8 @@ export const Register = () => {
         window.location.href = '/login'; // pendiente redirigir al perfil
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
+        // const errorCode = error.code;
+        // const errorMessage = error.message;
 
         // alert('Please Try Again');
         window.location.href = '/register'; // pendiente redirigir al Home

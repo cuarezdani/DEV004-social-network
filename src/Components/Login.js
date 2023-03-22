@@ -96,8 +96,8 @@ export const Login = () => {
         // Redirigir al usuario a la página de perfil o a la página de inicio de sesión
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
+        // const errorCode = error.code;
+        // const errorMessage = error.message;
         // Mostrar un mensaje de error al usuario
         // alert('Invalid email or password.');
         window.location.href = '/login'; // si nos marca error nos manda al home

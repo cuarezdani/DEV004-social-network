@@ -16,43 +16,46 @@ import { onNavigate } from '../src/router/index.js';
 //   });
 // });
 
+delete window.location;
+window.location = { href: null };
+
 jest.mock('../src/router/index.js', () => ({
   onNavigate: jest.fn(() => Promise.resolve()),
 }));
 
 jest.mock('../src/lib/Autenticacion', () => ({
+  signInWithPassword: jest.fn(() => Promise.resolve({})),
   registerWithEmail: jest.fn(() => Promise.resolve()),
 }));
 
+/* jest.mock('../src/lib/Autenticacion', () => ({
+  signInWithPassword: jest.fn(() => Promise.reject()),
+})); */
+
 // si el usuario se registro correctamente o no
-describe('Register', (done) => {
+describe('Register', () => {
   it('si el usuario se registrò correctamente debe mandar llamar la funcion navigateTo con el parametro login', () => {
     document.body.appendChild(Register());
     document.getElementById('buttonSign').click();
-    setTimeout(() => {
-      expect(onNavigate).toHaveBeenCalledWith('/login');
-      // eslint-disable-next-line no-undef
-      done();
-    }, 0);
+
+    return Promise.resolve().then(() => {
+      expect(window.location.href).toBe('/login');
+    });
   });
 });
 
-jest.mock('../src/lib/Autenticacion', () => ({
-  signInWithPassword: jest.fn(() => Promise.resolve()),
-}));
-
 // si el usuario se Logueo correctamente o no
-describe('Login', (done) => {
+describe('Login', () => {
   it('si el usuario ingreso correctamente debe mandar redirigirse al Home', () => {
     document.body.appendChild(Login());
     document.getElementById('buttonContinue').click();
-    setTimeout(() => {
-      expect(window.location.href).toHaveBeenCalledWith('/');
-      // eslint-disable-next-line no-undef
-      done();
-    }, 0);
+
+    return Promise.resolve().then(() => {
+      expect(window.location.href).toBe('/');
+    });
   });
 });
+
 /* it('si el usuario NO se registra correctamente debe redirigir al home', () => {
   document.body.appendChild(Register()); // en el test me dice que document no está definido
   document.getElementById('buttonSign').click();
