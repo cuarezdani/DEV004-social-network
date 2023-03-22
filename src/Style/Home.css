@@ -92,7 +92,7 @@ body {
   height: 7em;
   text-align: center;
   object-fit: contain;
-  margin-top: 20%;
+  margin-top: 10%;
 }
 
 .homeDivLogin {
@@ -370,7 +370,7 @@ cel-tablet*/
 
   @media only screen and (min-device-width: 390px) {
     .logoCaffee {
-      margin-top: 25%;
+      margin-top: 15%;
     }
   }
 }
@@ -405,7 +405,7 @@ computador*/
   }
 
   .logoCaffee {
-    margin-top: 10%;
+    margin-top: 5%;
   }
 }
 

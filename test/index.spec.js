@@ -25,7 +25,7 @@ jest.mock('../src/router/index.js', () => ({
 
 jest.mock('../src/lib/Autenticacion', () => ({
   signInWithPassword: jest.fn(() => Promise.resolve({})),
-  registerWithEmail: jest.fn(() => Promise.resolve()),
+  registerWithEmail: jest.fn(() => Promise.resolve({})),
 }));
 
 /* jest.mock('../src/lib/Autenticacion', () => ({

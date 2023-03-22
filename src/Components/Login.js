@@ -20,6 +20,11 @@ export const Login = () => {
   homeDivH2.textContent = 'Login to Coffee Hour';
   homeDivH2.className = 'homeDivH2';
 
+  const errorMessageL = document.createElement('h4');
+  errorMessageL.className = 'errorMessage';
+  errorMessageL.id = 'errorMessage';
+  errorMessageL.style.display = 'none';
+
   // const homeLogin = document.createElement('div');
   // homeLogin.textContent = 'Login to Coffee Hour';
   // homeDiv.innerHTML = 'Login to Coffee Hour <input id = "correo">';
@@ -69,6 +74,7 @@ export const Login = () => {
   containerLogin.appendChild(logoCaffee);
   containerLogin.appendChild(homeDiv);
   containerLogin.appendChild(homeDivH2);
+  containerLogin.appendChild(errorMessageL);
   containerLogin.appendChild(emailInput);
   containerLogin.appendChild(emailPassword);
   containerLogin.appendChild(forgotP);
@@ -96,11 +102,23 @@ export const Login = () => {
         // Redirigir al usuario a la página de perfil o a la página de inicio de sesión
       })
       .catch((error) => {
-        // const errorCode = error.code;
+        const errorCode = error.code;
+        if (errorCode === 'auth/network-request-failed.') {
+          errorMessageL.style.display = 'block';
+          errorMessageL.textContent = 'Fields cannot be empty.';
+        } else if (errorCode === 'auth/invalid-email') {
+          errorMessageL.style.display = 'block';
+          errorMessageL.textContent = 'Invalid email.';
+        } if (errorCode === 'auth/invalid-password') {
+          errorMessageL.style.display = 'block';
+          errorMessageL.textContent = 'Invalid password.';
+        }
+        return error;
+
         // const errorMessage = error.message;
         // Mostrar un mensaje de error al usuario
         // alert('Invalid email or password.');
-        window.location.href = '/login'; // si nos marca error nos manda al home
+        // window.location.href = '/login'; //
       });
   });
 

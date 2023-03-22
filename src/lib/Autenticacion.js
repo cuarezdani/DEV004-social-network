@@ -10,9 +10,13 @@ import {
 
 // Para crear una cuenta nueva, pasa la dirección de correo
 // electrónico y la contraseña del usuario nuevo REGISTER
-export const registerWithEmail = (email, password) => {
+export const registerWithEmail = (email, password, displayName) => {
   const auth = getAuth();
-  return createUserWithEmailAndPassword(auth, email, password);
+  return createUserWithEmailAndPassword(auth, email, password)
+    .then((usercredentials) => {
+      const user = usercredentials.user;
+      return user;
+    });
 };
 
 // para hacer ingreso de la app mediante email y contraseña LOGIN

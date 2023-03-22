@@ -17,6 +17,11 @@ export const Register = () => {
   homeDiv.textContent = 'Create your account';
   homeDiv.className = 'homeDivRegister';
 
+  const errorRegister = document.createElement('h4');
+  errorRegister.className = 'errorMessage';
+  errorRegister.textContent = 'errorMessage';
+  errorRegister.style.display = 'none';
+
   const formRegister = document.createElement('form');
   formRegister.className = 'formRegister';
   formRegister.id = 'formRegister';
@@ -68,6 +73,7 @@ export const Register = () => {
   formRegister.appendChild(homeDiv);
   containerRegister.appendChild(logoCaffee);
   containerRegister.appendChild(homeDiv);
+  containerRegister.appendChild(errorRegister);
   containerRegister.appendChild(emailRegister);
   containerRegister.appendChild(nameRegister);
   containerRegister.appendChild(passwordRegister);
@@ -95,21 +101,43 @@ export const Register = () => {
     };
 
     // funcion para hacer el import y que nos rederija a la pagina que necesitamos
-    registerWithEmail(userInfo.email, userInfo.password)
+    registerWithEmail(userInfo.email, userInfo.name, userInfo.password, userInfo.confirmPassword)
       .then((userCredential) => {
         // Signed in
-        // const user = userCredential.user;
+        const user = userCredential.user;
         // alert('Register Accepted');
         window.location.href = '/login'; // pendiente redirigir al perfil
       })
       .catch((error) => {
-        // const errorCode = error.code;
+        const errorCode = error.code;
+        if (errorCode === 'auth/network-request-failed.') {
+          errorRegister.style.display = 'block';
+          errorRegister.textContent = 'Fields cannot be empty.';
+        } else if (errorCode === 'auth/weak-password') {
+          errorRegister.style.display = 'block';
+          errorRegister.textContent = 'The password must be at least 6 characters.';
+        } else if (errorCode === 'auth/invalid-email') {
+          errorRegister.style.display = 'block';
+          errorRegister.textContent = 'Invalid email.';
+        } else if (errorCode === 'auth/missing-email') {
+          errorRegister.style.display = 'block';
+          errorRegister.textContent = 'Email field cannot be empty.';
+        } else if (errorCode === 'auth/email-already-in-use') {
+          errorRegister.style.display = 'block';
+          errorRegister.textContent = 'Email already in use.';
+        } if (errorCode === 'auth/internal-error') {
+          errorRegister.style.display = 'block';
+          errorRegister.textContent = 'Password field cannot be empty.';
+        }
+        return error;
+
         // const errorMessage = error.message;
 
         // alert('Please Try Again');
-        window.location.href = '/register'; // pendiente redirigir al Home
+        // window.location.href = '/register'; // pendiente redirigir al Home
       });
   });
+
   frase.addEventListener('click', () => onNavigate('/login'));
   buttonGoogle.addEventListener('click', () => signInWithGoogle());
 
