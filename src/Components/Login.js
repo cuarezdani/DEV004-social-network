@@ -30,7 +30,7 @@ export const Login = () => {
   // homeDiv.innerHTML = 'Login to Coffee Hour <input id = "correo">';
   /*  const myInput = homeDiv.querySelector('#correo');
   console.log(myInput); */
-  const formLogin = document.createElement('section');
+  const formLogin = document.createElement('form');
   formLogin.className = 'formLogin';
   formLogin.id = 'formLogin';
 
@@ -70,7 +70,7 @@ export const Login = () => {
   strong.textContent = 'Sign up with Google';
   strong.className = 'textGoogle';
 
-  formLogin.appendChild(homeDiv);
+  formLogin.appendChild(containerLogin);
   containerLogin.appendChild(logoCaffee);
   containerLogin.appendChild(homeDiv);
   containerLogin.appendChild(homeDivH2);
@@ -84,42 +84,53 @@ export const Login = () => {
   containerLogin.appendChild(buttonGoogle);
   buttonGoogle.append(imgGoogle, strong);
 
-  buttonContinue.addEventListener('click', () => signInWithPassword);
+  // buttonContinue.addEventListener('click', () => signInWithPassword);
   buttonContinue.addEventListener('click', () => {
     const emailValue = emailInput.value;
     const passwordValue = emailPassword.value;
 
-    const user = {
-      email: emailValue,
-      emailPassword: passwordValue,
-    };
+    // si el value es extrictamentee vacio nos da verdadero el mensaje
+    if (emailValue === '' || passwordValue === '') { 
+      errorMessageL.textContent = 'Fields cannot be empty';
+    } else {
+      const user = {
+        email: emailValue,
+        emailPassword: passwordValue,
+      };
 
-    signInWithPassword(user.email, user.emailPassword)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        // alert('Register Accepted');
-        window.location.href = '/'; // pendiente redirigir al perfil
-        // Redirigir al usuario a la página de perfil o a la página de inicio de sesión
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        if (errorCode === 'auth/network-request-failed.') {
-          errorMessageL.style.display = 'block';
-          errorMessageL.textContent = 'Fields cannot be empty.';
-        } else if (errorCode === 'auth/invalid-email') {
-          errorMessageL.style.display = 'block';
-          errorMessageL.textContent = 'Invalid email.';
-        } if (errorCode === 'auth/invalid-password') {
-          errorMessageL.style.display = 'block';
-          errorMessageL.textContent = 'Invalid password.';
-        }
-        return error;
+      signInWithPassword(user.email, user.emailPassword)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          // alert('Register Accepted');
+          window.location.href = '/'; // pendiente redirigir al perfil
+          // Redirigir al usuario a la página de perfil o a la página de inicio de sesión
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          console.log(errorCode);
+          if (errorCode === 'auth/network-request-failed.') {
+            errorMessageL.style.display = 'block';
+            errorMessageL.textContent = 'Fields cannot be empty.';
+          } else if (errorCode === 'auth/invalid-email') {
+            console.log(errorMessageL);
+            errorMessageL.style.display = 'block';
+            errorMessageL.textContent = 'Invalid email.';
+          } else if (
+            errorCode === 'auth/invalid-password' ||
+            errorCode === 'auth/wrong-password'
+          ) {
+            errorMessageL.textContent = '';
+            errorMessageL.style.display = 'block';
+            errorMessageL.textContent = 'Invalid password.';
+          }
+          return error;
 
-        // const errorMessage = error.message;
-        // Mostrar un mensaje de error al usuario
-        // alert('Invalid email or password.');
-        // window.location.href = '/login'; //
-      });
+          // const errorMessage = error.message;
+          // Mostrar un mensaje de error al usuario
+          // alert('Invalid email or password.');
+          // window.location.href = '/login'; //
+        });
+    }
   });
 
   buttonSign.addEventListener('click', () => onNavigate('/register'));
