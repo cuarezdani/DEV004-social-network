@@ -33,13 +33,13 @@ export const Register = () => {
 
   const nameRegister = document.createElement('input');
   nameRegister.id = 'nombre';
-  nameRegister.type = 'Name';
+  nameRegister.type = 'text';
   nameRegister.placeholder = 'Full Name';
 
-  const passwordRegister = document.createElement('input');
-  passwordRegister.id = 'claveRegister';
-  passwordRegister.type = 'password';
-  passwordRegister.placeholder = 'Enter your password, at least 6 digits';
+  const claveRegister = document.createElement('input');
+  claveRegister.id = 'claveRegister';
+  claveRegister.type = 'password';
+  claveRegister.placeholder = 'Enter your password, at least 6 digits';
 
   const confirmPassword = document.createElement('input'); // debe redirigirte a un formulario para hacer tu clave
   confirmPassword.id = 'confirmPassword';
@@ -70,13 +70,13 @@ export const Register = () => {
   strong.textContent = 'Sign up with Google';
   strong.className = 'textGoogle';
 
-  formRegister.appendChild(homeDiv);
+  formRegister.appendChild(containerRegister);
   containerRegister.appendChild(logoCaffee);
   containerRegister.appendChild(homeDiv);
   containerRegister.appendChild(errorRegister);
   containerRegister.appendChild(emailRegister);
   containerRegister.appendChild(nameRegister);
-  containerRegister.appendChild(passwordRegister);
+  containerRegister.appendChild(claveRegister);
   containerRegister.appendChild(confirmPassword);
   containerRegister.appendChild(buttonSign);
   containerRegister.appendChild(frase);
@@ -85,12 +85,13 @@ export const Register = () => {
   buttonGoogle.append(imgGoogle, strong);
 
   // buttonSign.addEventListener('click', () => onNavigate('/'));
-  buttonSign.addEventListener('click', () => registerWithEmail); // entrar al perfil
+  // buttonSign.addEventListener("click", () => registerWithEmail); // entrar al perfil
   buttonSign.addEventListener('click', () => {
     const emailValue = emailRegister.value;
     const nameValue = nameRegister.value;
-    const passwordValue = passwordRegister.value;
+    const passwordValue = claveRegister.value;
     const confirmPasswordValue = confirmPassword.value;
+    console.log(passwordValue);
 
     const userInfo = {
       // lo creamos para que reciba las propiedas del formular
@@ -100,8 +101,14 @@ export const Register = () => {
       confirmPassword: confirmPasswordValue,
     };
 
+    console.log(userInfo);
+
     // funcion para hacer el import y que nos rederija a la pagina que necesitamos
-    registerWithEmail(userInfo.email, userInfo.name, userInfo.password, userInfo.confirmPassword)
+    registerWithEmail(
+      userInfo.email,
+      userInfo.password,
+      userInfo.name, // se guardara la inf en el campo display name
+    )
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
@@ -110,6 +117,7 @@ export const Register = () => {
       })
       .catch((error) => {
         const errorCode = error.code;
+        console.log(errorCode);
         if (errorCode === 'auth/network-request-failed.') {
           errorRegister.style.display = 'block';
           errorRegister.textContent = 'Fields cannot be empty.';
@@ -125,7 +133,7 @@ export const Register = () => {
         } else if (errorCode === 'auth/email-already-in-use') {
           errorRegister.style.display = 'block';
           errorRegister.textContent = 'Email already in use.';
-        } if (errorCode === 'auth/internal-error') {
+        } else if (errorCode === 'auth/internal-error') {
           errorRegister.style.display = 'block';
           errorRegister.textContent = 'Password field cannot be empty.';
         }
