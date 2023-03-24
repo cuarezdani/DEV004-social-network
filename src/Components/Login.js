@@ -90,7 +90,7 @@ export const Login = () => {
     const passwordValue = emailPassword.value;
 
     // si el value es extrictamentee vacio nos da verdadero el mensaje
-    if (emailValue === '' || passwordValue === '') { 
+    if (emailValue === '' || passwordValue === '') {
       errorMessageL.textContent = 'Fields cannot be empty';
     } else {
       const user = {
@@ -116,8 +116,8 @@ export const Login = () => {
             errorMessageL.style.display = 'block';
             errorMessageL.textContent = 'Invalid email.';
           } else if (
-            errorCode === 'auth/invalid-password' ||
-            errorCode === 'auth/wrong-password'
+            errorCode === 'auth/invalid-password' 
+            || errorCode === 'auth/wrong-password'
           ) {
             errorMessageL.textContent = '';
             errorMessageL.style.display = 'block';

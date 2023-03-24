@@ -4,150 +4,62 @@ export const Feed = () => {
   const containerFeed = document.createElement('div');
   containerFeed.className = 'containerFeed';
 
-  const tituloFeed = document.createElement('h3');
-  tituloFeed.textContent = 'COFFEE HOUR';
-  tituloFeed.className = 'tituloFeed';
+  const logoFeed = document.createElement('img');
+  logoFeed.src = '../imagenes/logo1.png';
+  logoFeed.className = 'logoFeed';
 
   // linea dorada por hacer
-
+  const section = document.createElement('div');
+  section.className = 'sectionWonderland';
   const imgWonderland = document.createElement('img');
   imgWonderland.className = 'imgWonderland';
   imgWonderland.src = '../imagenes/wonderland.png';
+  const strong = document.createElement('p');
+  strong.textContent = 'Wonderlandcafechile';
+  strong.className = 'textWonderland';
 
-  const wonderland = document.createElement('h1');
-  wonderland.textContent = 'Wonderlandcafechile';
-  wonderland.className = 'homeDivRegister';
+  const fotoMuro = document.createElement('img');
+  fotoMuro.className = 'fotoMuro';
+  fotoMuro.src = '../imagenes/muro1.png';
 
-  const errorRegister = document.createElement('h4');
-  errorRegister.className = 'errorMessage';
-  errorRegister.textContent = 'errorMessage';
-  errorRegister.style.display = 'none';
+  // section general, span corazon+button, span favorito estrella+button,
+  // span comentarios+button, span guardar+
+  const sectionIconos = document.createElement('section');
+  sectionIconos.className = 'sectionIconos';
+  const like = document.createElement('img');
+  like.className = 'like';
+  like.src = '../imagenes/like.png';
+  const favorite = document.createElement('img');
+  favorite.className = 'favorite';
+  favorite.src = '../imagenes/favorite.png';
+  const comment = document.createElement('img');
+  comment.className = 'comment';
+  comment.src = '../imagenes/comment.png';
+  const save = document.createElement('img');
+  save.className = 'save';
+  save.src = '../imagenes/guardar.png';
 
-  const formRegister = document.createElement('form');
-  formRegister.className = 'formRegister';
-  formRegister.id = 'formRegister';
+  // comentarios me gusta + contador
+  const texto = document.createElement('h3');
+  texto.textContent = 'Me gusta';
+  texto.className = 'textoMeGusta';
 
-  const emailRegister = document.createElement('input');
-  emailRegister.id = 'correoRegister';
-  emailRegister.type = 'email';
-  emailRegister.placeholder = 'Email Address';
+  /* const commentImg = document.createElement('section');
+  commentImg.className = 'commentImg';
+  const usuario = document.createElement('h3');
+  usuario.className = 'usuario';
+  usuario.textContent = 'cony_2';
+  const comentario = document.createElement('h3');
+  comentario.className = 'comentario;
+  comentario.textContent = ' */
 
-  const nameRegister = document.createElement('input');
-  nameRegister.id = 'nombre';
-  nameRegister.type = 'text';
-  nameRegister.placeholder = 'Full Name';
-
-  const claveRegister = document.createElement('input');
-  claveRegister.id = 'claveRegister';
-  claveRegister.type = 'password';
-  claveRegister.placeholder = 'Enter your password, at least 6 digits';
-
-  const confirmPassword = document.createElement('input'); // debe redirigirte a un formulario para hacer tu clave
-  confirmPassword.id = 'confirmPassword';
-  confirmPassword.type = 'password';
-  confirmPassword.placeholder = 'Confirm your password';
-
-  const buttonSign = document.createElement('button');
-  buttonSign.textContent = 'SIGN UP';
-  buttonSign.className = 'buttonSignUp';
-  buttonSign.id = 'buttonSign';
-
-  const frase = document.createElement('h6'); // boton que dirige a register
-  frase.textContent = 'Already have an account? Login here ';
-  frase.className = 'frase';
-
-  const or = document.createElement('h5'); // linea y or
-  or.textContent = 'or';
-  or.className = 'or';
-
-  buttonSign.textContent = 'Sign Up';
-
-  const imgGoogle = document.createElement('img');
-  imgGoogle.className = 'imgGoogle';
-  imgGoogle.src = '../imagenes/iconogoogle.svg';
-  const buttonGoogle = document.createElement('button');
-  buttonGoogle.className = 'buttonGoogle';
-  const strong = document.createElement('strong');
-  strong.textContent = 'Sign up with Google';
-  strong.className = 'textGoogle';
-
-  formRegister.appendChild(containerFeed);
-  containerFeed.appendChild(tituloFeed);
-  containerFeed.appendChild(wonderland);
-  containerRegister.appendChild(errorRegister);
-  containerRegister.appendChild(emailRegister);
-  containerRegister.appendChild(nameRegister);
-  containerRegister.appendChild(claveRegister);
-  containerRegister.appendChild(confirmPassword);
-  containerRegister.appendChild(buttonSign);
-  containerRegister.appendChild(frase);
-  containerRegister.appendChild(or);
-  containerRegister.appendChild(buttonGoogle);
-
-
-  // buttonSign.addEventListener('click', () => onNavigate('/'));
-  // buttonSign.addEventListener("click", () => registerWithEmail); // entrar al perfil
-  buttonSign.addEventListener('click', () => {
-    /* const emailValue = emailRegister.value;
-    const nameValue = nameRegister.value;
-    const passwordValue = claveRegister.value;
-    const confirmPasswordValue = confirmPassword.value;
-    console.log(passwordValue);
-
-    const userInfo = {
-      // lo creamos para que reciba las propiedas del formular
-      email: emailValue,
-      name: nameValue,
-      password: passwordValue,
-      confirmPassword: confirmPasswordValue,
-    };
-
-    console.log(userInfo);
-
-    // funcion para hacer el import y que nos rederija a la pagina que necesitamos
-    registerWithEmail(
-      userInfo.email,
-      userInfo.password,
-      userInfo.name, // se guardara la inf en el campo display name
-    )
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        // alert('Register Accepted');
-        window.location.href = '/login'; // pendiente redirigir al perfil
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        console.log(errorCode);
-        if (errorCode === 'auth/network-request-failed.') {
-          errorRegister.style.display = 'block';
-          errorRegister.textContent = 'Fields cannot be empty.';
-        } else if (errorCode === 'auth/weak-password') {
-          errorRegister.style.display = 'block';
-          errorRegister.textContent = 'The password must be at least 6 characters.';
-        } else if (errorCode === 'auth/invalid-email') {
-          errorRegister.style.display = 'block';
-          errorRegister.textContent = 'Invalid email.';
-        } else if (errorCode === 'auth/missing-email') {
-          errorRegister.style.display = 'block';
-          errorRegister.textContent = 'Email field cannot be empty.';
-        } else if (errorCode === 'auth/email-already-in-use') {
-          errorRegister.style.display = 'block';
-          errorRegister.textContent = 'Email already in use.';
-        } else if (errorCode === 'auth/internal-error') {
-          errorRegister.style.display = 'block';
-          errorRegister.textContent = 'Password field cannot be empty.';
-        }
-        return error;
-
-        // const errorMessage = error.message;
-
-        // alert('Please Try Again');
-        // window.location.href = '/register'; // pendiente redirigir al Home
-      }); */
-  });
-
-  frase.addEventListener('click', () => onNavigate('/login'));
+  containerFeed.appendChild(logoFeed);
+  containerFeed.appendChild(imgWonderland);
+  containerFeed.appendChild(section);
+  section.append(imgWonderland, strong);
+  containerFeed.appendChild(fotoMuro);
+  containerFeed.appendChild(sectionIconos);
+  sectionIconos.append(like, favorite, comment, save);
 
   return containerFeed;
 };
