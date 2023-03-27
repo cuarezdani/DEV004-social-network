@@ -57,9 +57,15 @@ export const Login = () => {
   buttonSign.textContent = 'Don’t have an account? Sign Up';
   buttonSign.className = 'buttonSign';
 
-  const lineaOr = document.createElement('h5'); // linea y or
-  lineaOr.textContent = 'or';
+  const lineaOr = document.createElement('div');
   lineaOr.className = 'lineaOr';
+  const linea = document.createElement('hr'); // linea y or
+  linea.className = 'linea';
+  const or = document.createElement('strong'); // linea y or
+  or.textContent = 'or';
+  or.className = 'or';
+  const linea1 = document.createElement('hr'); // linea y or
+  linea1.className = 'linea1';
 
   const imgGoogle = document.createElement('img');
   imgGoogle.className = 'imgGoogle';
@@ -81,6 +87,7 @@ export const Login = () => {
   containerLogin.appendChild(buttonContinue);
   containerLogin.appendChild(buttonSign);
   containerLogin.appendChild(lineaOr);
+  lineaOr.append(linea, or, linea1);
   containerLogin.appendChild(buttonGoogle);
   buttonGoogle.append(imgGoogle, strong);
 
@@ -116,7 +123,7 @@ export const Login = () => {
             errorMessageL.style.display = 'block';
             errorMessageL.textContent = 'Invalid email.';
           } else if (
-            errorCode === 'auth/invalid-password' 
+            errorCode === 'auth/invalid-password'
             || errorCode === 'auth/wrong-password'
           ) {
             errorMessageL.textContent = '';

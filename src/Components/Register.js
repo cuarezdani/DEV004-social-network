@@ -55,9 +55,15 @@ export const Register = () => {
   frase.textContent = 'Already have an account? Login here ';
   frase.className = 'frase';
 
-  const or = document.createElement('h5'); // linea y or
+  const lineaOr = document.createElement('div');
+  lineaOr.className = 'lineaOr';
+  const linea = document.createElement('hr'); // linea y or
+  linea.className = 'linea';
+  const or = document.createElement('strong'); // linea y or
   or.textContent = 'or';
   or.className = 'or';
+  const linea1 = document.createElement('hr'); // linea y or
+  linea1.className = 'linea1';
 
   buttonSign.textContent = 'Sign Up';
 
@@ -80,7 +86,8 @@ export const Register = () => {
   containerRegister.appendChild(confirmPassword);
   containerRegister.appendChild(buttonSign);
   containerRegister.appendChild(frase);
-  containerRegister.appendChild(or);
+  containerRegister.appendChild(lineaOr);
+  lineaOr.append(linea, or, linea1);
   containerRegister.appendChild(buttonGoogle);
   buttonGoogle.append(imgGoogle, strong);
 
