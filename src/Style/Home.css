@@ -189,13 +189,6 @@ body {
   cursor: pointer;
 }
 
-.lineaOr {
-  width: 100%;
-  font-weight: bold;
-  font-size: 20px;
-  text-align: center;
-  color: black;
-}
 
 /* Pagina REGISTER */
 .containerRegister {
@@ -309,13 +302,13 @@ body {
   position: relative;
   width: 100%;
   height: 3em;
+  color:#000000;
 }
 
 .linea {
   position: absolute;
   width: 40%;
   margin-left: 0%;
-  color: #000000;
 }
 
 .or {
@@ -333,7 +326,6 @@ body {
   width: 40%;
   margin-left: 60%;
   margin-top: 2,3%;
-  color: #000000;
 }
 
 .buttonSignUp {
