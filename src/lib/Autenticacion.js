@@ -40,7 +40,7 @@ export const signInWithGoogle = () => {
       // console.log(token);
       // console.log(user);
       // alert('auth ok');
-      window.location.href = '/login';
+      window.location.href = '/feed';
       // ...
     })
     .catch((error) => {

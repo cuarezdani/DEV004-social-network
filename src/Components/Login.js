@@ -109,7 +109,7 @@ export const Login = () => {
         .then((userCredential) => {
           const user = userCredential.user;
           // alert('Register Accepted');
-          window.location.href = '/'; // pendiente redirigir al perfil
+          window.location.href = '/feed'; // pendiente redirigir al perfil
           // Redirigir al usuario a la página de perfil o a la página de inicio de sesión
         })
         .catch((error) => {

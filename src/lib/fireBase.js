@@ -35,4 +35,6 @@ export const initFirebase = () => {
     provider,
   };
 };
+
+
 // const analytics = getAnalytics(app);

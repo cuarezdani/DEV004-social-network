@@ -12,8 +12,7 @@ body {
 
 .container {
   position: relative;
-  background: url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?crop=entropy&cs=tinysrgb&fm=jpg&ixid=Mnw3MjAxN3wwfDF8c2VhcmNofDF8fGNhZmV8ZW58MHx8fHwxNjc4MTk2ODI4&ixlib=rb-4.0.3&q=80&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450")
-    no-repeat center center fixed;
+  background: url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?crop=entropy&cs=tinysrgb&fm=jpg&ixid=Mnw3MjAxN3wwfDF8c2VhcmNofDF8fGNhZmV8ZW58MHx8fHwxNjc4MTk2ODI4&ixlib=rb-4.0.3&q=80&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -302,7 +301,7 @@ body {
   position: relative;
   width: 100%;
   height: 3em;
-  color:#000000;
+  color: #000000;
 }
 
 .linea {
@@ -325,7 +324,7 @@ body {
   position: absolute;
   width: 40%;
   margin-left: 60%;
-  margin-top: 2,3%;
+  margin-top: 2, 3%;
 }
 
 .buttonSignUp {
@@ -383,11 +382,10 @@ body {
 /* Pagina feed muro */
 .containerFeed {
   position: relative;
-  height: 100vh;
   width: 100%;
   margin: 0 auto;
-  padding: 0em;
 }
+
 .logoFeed {
   display: block;
   width: 100%;
@@ -396,31 +394,33 @@ body {
   object-fit: contain;
   margin-top: 0%;
 }
+
 .sectionWonderland {
   display: block;
   position: relative;
   width: 100%;
-  height: 4em;
+  margin-bottom: 2%;
+
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  height: 3em;
+  margin-bottom: 1%;
+  padding: 1%;
 }
 
 .imgWonderland {
   /*logo */
-  position: absolute;
-  display: block;
-  left: 3%;
-  top: 15%;
-  height: 65%;
-  float: left;
+  height: 3em;
 }
 
 .textWonderland {
   font-weight: bold;
-  display: block;
   font-size: 17px;
   color: black;
-  height: 40%;
-  margin-left: 15%;
-  margin-top: 5%;
+  margin-left: 1em;
 }
 
 .fotoMuro {
@@ -430,39 +430,42 @@ body {
   border-radius: 10px;
 }
 
-.sectionIconos{
-  position: relative;
+.sectionIconos {
+  display: flex;
   width: 100%;
   height: 3em;
+
 }
 
 .like {
- display: inline;
- height: 2em;
- margin-left: 1.5%;
- margin-top: 1.5%;
+  display: inline;
+  height: 2em;
+  margin-left: 1.5%;
+  margin-top: 1.5%;
 }
 
-.favorite{
- display: inline;
- height: 2em;
- margin-left: 3%;
- margin-top: 1.5%;
-}
-
-.comment {
+.favorite {
   display: inline;
   height: 2em;
   margin-left: 3%;
   margin-top: 1.5%;
 }
 
+.iconComment {
+  
+  display: inline;
+  height: 3em;
+  width: 100%;
+  margin-left: 3%;
+  margin-top: 1%;
+}
+
 .save {
   display: inline;
   height: 2em;
-  margin-left: 57%;
+ margin-left: 52%;
   margin-top: 1.5%;
-  
+
 }
 
 /*codigos nos servirán para que sean responsives en diferentes equipos
@@ -509,6 +512,7 @@ computador*/
   .homeDivLogin {
     margin-top: 5%;
   }
+
   .containerRegister {
     padding: 0% 30% 0% 30%;
   }

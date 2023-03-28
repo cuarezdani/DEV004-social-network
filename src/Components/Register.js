@@ -120,7 +120,7 @@ export const Register = () => {
         // Signed in
         const user = userCredential.user;
         // alert('Register Accepted');
-        window.location.href = '/login'; // pendiente redirigir al perfil
+        window.location.href = '/profile'; // pendiente redirigir al perfil
       })
       .catch((error) => {
         const errorCode = error.code;
