@@ -110,7 +110,6 @@ export const Feed = () => {
         }
       });
 
-
       // Like
       const likeContador = document.createElement('span');
       likeContador.className = 'likes';

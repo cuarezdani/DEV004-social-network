@@ -467,6 +467,90 @@ body {
 
 }
 
+/*pagina PROFILE*/
+.containerProfile{
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0em;
+}
+
+.profilePicture{
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 6em;
+  object-fit: contain;
+  margin-top: 10%;
+  margin-left: -35%;
+}
+.buttonFavorite {
+  background-color: rgb(207, 130, 66);
+  position: absolute;
+  width: 90%;
+  margin-left: 5%;
+  height: 4em;
+  border-radius: 7px;
+  margin-block-start: 47%;
+}
+.imgFavorite {
+  position: absolute;
+  left: 4%;
+  top: 10%;
+  height: 85%;
+}
+.favorite {
+  font-weight: lighter;
+  font-size: 17px;
+  color: black;
+  cursor: pointer;
+}
+.buttonSave {
+  background-color: rgb(207, 130, 66);
+  position: absolute;
+  width: 90%;
+  margin-left: 5%;
+  height: 4em;
+  border-radius: 7px;
+  margin-block-start: 70%; 
+}
+
+.imgSave {
+  position: absolute;
+  left: 4%;
+  top: 10%;
+  height: 85%;
+}
+.save{
+  font-weight: bold;
+  font-size: 17px;
+  color: black;
+  cursor: pointer;
+  margin-left: 0%;
+}
+.buttonMap {
+  background-color: rgb(207, 130, 66);
+  position: absolute;
+  width: 90%;
+  margin-left: 5%;
+  height: 4em;
+  border-radius: 7px;
+  margin-block-start: 93%;
+}
+.imgMap {
+  position: absolute;
+  left: 4%;
+  top: 10%;
+  height: 85%;
+}
+
+.map{
+  font-weight: lighter;
+  font-size: 17px;
+  color: black;
+  cursor: pointer;
+}
 
 /*codigos nos servirán para que sean responsives en diferentes equipos
 cel-tablet*/
