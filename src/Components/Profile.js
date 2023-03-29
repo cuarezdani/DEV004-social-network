@@ -25,7 +25,7 @@ export const Profile = () => {
   buttonSave.className = 'buttonSave';
   const strongSave = document.createElement('strong');
   strongSave.textContent = 'Saved';
-  strongSave.className = 'save';
+  strongSave.className = 'savedProfile';
 
   const imgMap = document.createElement('img');
   imgMap.className = 'imgMap';
@@ -46,3 +46,8 @@ export const Profile = () => {
 
   return containerProfile;
 };
+
+/* const homeIcono = document.createElement('img');
+      homeIcono.className = 'homeIcono';
+      homeIcono.src = '../imagenes/casa-silueta-negra-sin-puerta.png';
+      */
