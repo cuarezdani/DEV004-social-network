@@ -12,6 +12,8 @@ import { collection, getFirestore, onSnapshot, addDoc } from 'firebase/firestore
 export const onPostsChange = (callback) => onSnapshot(collection(getFirestore(), 'Posts'), callback); // onSnapshot es la función para estar escuchando los cambios de la colección, y el callback es la función que se va a ejecutar cuando hay un cambio en la colección
 
 export const addCommentToPost = (postRef, comment) => addDoc(collection(postRef, 'Comments'), { comment });
+
+export const addCommentPost = (postRef, textPost) => addDoc(collection(postRef, 'comments'), { textPost });
 // Create a root reference
 /* const storage = getStorage();
 
