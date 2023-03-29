@@ -1,6 +1,6 @@
 // import { onNavigate } from '../router';
 
-import { onPostsChange } from '../lib/Collecction';
+import { onPostsChange, addCommentToPost } from '../lib/Collecction';
 
 export const Feed = () => {
   const containerFeed = document.createElement('div');
@@ -50,7 +50,7 @@ export const Feed = () => {
       const fotoMuro = document.createElement('img');
       fotoMuro.className = 'fotoMuro';
       fotoMuro.textContent = doc.data().image;
-      // fotoMuro.src = '../imagenes/muro1.png';
+      fotoMuro.src = '../imagenes/muro1.png';
 
       /* const sectionComments = document.createElement('section');
       sectionComments.className = 'sectionComments';
@@ -84,13 +84,32 @@ export const Feed = () => {
       // comentario y boton
       const inputComments = document.createElement('div');
       inputComments.className = 'inputComments';
+      inputComments.style.display = 'none';
       const comment = document.createElement('input');
       comment.type = 'text';
       comment.placeholder = 'write a comment';
       comment.id = 'comment';
+
+      iconComment.addEventListener('click', () => {
+        if (inputComments.style.display === 'none') {
+          inputComments.style.display = 'block';
+        } else {
+          inputComments.style.display = 'none';
+        }
+      });
+
       const buttonComment = document.createElement('button');
       buttonComment.className = 'btnComment';
       buttonComment.textContent = 'send';
+
+      buttonComment.addEventListener('click', async () => {
+        if (comment.value) {
+          console.log(doc.ref);
+          console.log(comment.value);
+          await addCommentToPost(doc.ref, comment.value);
+        }
+      });
+
 
       // Like
       const likeContador = document.createElement('span');

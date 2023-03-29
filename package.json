@@ -29,7 +29,6 @@
     "eslint-plugin-jest": "^25.3.0",
     "htmlhint": "^1.0.0",
     "jest": "^27.0.1",
-   
     "regenerator-runtime": "^0.13.1",
     "stylelint": "^14.1.0",
     "stylelint-config-recommended": "^6.0.0",
@@ -44,6 +43,7 @@
     "commit": "36bf90dc273bab8ffe9546b09eece6a132f8a669"
   },
   "dependencies": {
+    "-": "^0.0.1",
     "firebase": "^9.17.2",
     "jsdom": "^21.1.1"
   }
