@@ -1,6 +1,6 @@
 // import { onNavigate } from '../router';
 
-import { onPostsChange, addCommentToPost, addCommentPost } from '../lib/Collecction';
+import { onPostsChange, addCommentToPost, addPost } from '../lib/Collecction';
 
 export const Feed = () => {
   const containerFeed = document.createElement('div');
@@ -31,6 +31,9 @@ export const Feed = () => {
   // like.addEventListener('click', printClick);
 
   containerFeed.append(logoFeed);
+
+  const postsSection = document.createElement('section');
+  containerFeed.append(postsSection);
 
   onPostsChange((querySnapshot) => {
     // querySnapshot contiene todos los documentos de nuestra colección
@@ -125,91 +128,89 @@ export const Feed = () => {
       // se llama al like para qeu sea escuchado en el dom
       like.addEventListener('click', handleLikeClick);
 
-      containerFeed.append(section);
+      postsSection.append(section);
       section.append(title, fotoMuro, sectionIconos, inputComments);
       title.append(imgWonderland, strong);
       sectionIconos.append(like, favorite, iconComment, save);
       inputComments.append(comment, buttonComment);
       // containerFeed.appendChild(sectionComments);
       // sectionComments.append(inputComments);
+    }); 
+  });
+  // MENÚ ICONOS PIE DE PAGINA
+  const menuIcono = document.createElement('section');
+  menuIcono.className = 'menuIcono';
+  const profileIcono = document.createElement('img'); // menu perfil
+  profileIcono.className = 'profileIcono';
+  profileIcono.src = '../imagenes/usuario.png';
+  const addIcono = document.createElement('img'); // suma
+  addIcono.className = 'addIcono';
+  addIcono.src = '../imagenes/mas.png';
+  const signOut = document.createElement('img'); // icono puerta
+  signOut.className = 'signOut';
+  signOut.src = '../imagenes/cerrar-sesion.png';
 
-      const menuIcono = document.createElement('section');
-      menuIcono.className = 'menuIcono';
-      const profileIcono = document.createElement('img'); // menu perfil
-      profileIcono.className = 'profileIcono';
-      profileIcono.src = '../imagenes/usuario.png';
-      const addIcono = document.createElement('img'); // suma
-      addIcono.className = 'addIcono';
-      addIcono.src = '../imagenes/mas.png';
-      const signOut = document.createElement('img'); // icono puerta
-      signOut.className = 'signOut';
-      signOut.src = '../imagenes/cerrar-sesion.png';
-      containerFeed.appendChild(menuIcono);
-      menuIcono.append(profileIcono, addIcono, signOut);
-      const modalPost = document.createElement('section');
-      modalPost.id = 'modalPost';
-      modalPost.className = 'modalPost';
-      const createPost = document.createElement('div');
-      createPost.class = 'modal-content';
-      const titlePost = document.createElement('input');
-      titlePost.className = 'titlePost';
-      titlePost.type = 'text';
-      titlePost.placeholder = 'Name Coffee Shop';
-      titlePost.id = 'titlePost';
-      const textPost = document.createElement('input');
-      textPost.className = 'textPost';
-      textPost.type = 'text';
-      textPost.placeholder = 'Write a comment';
-      const buttonPicture = document.createElement('button');
-      buttonPicture.className = 'buttonPicture';
-      buttonPicture.textContent = 'add picture';
-      const savePost = document.createElement('button');
-      savePost.className = 'savePost';
-      savePost.textContent = 'Save';
+  containerFeed.appendChild(menuIcono);
+  menuIcono.append(profileIcono, addIcono, signOut);
 
-      containerFeed.appendChild(modalPost);
-      modalPost.appendChild(createPost);
-      createPost.append(titlePost, textPost, buttonPicture, savePost);
+  // Modal
+  const modalPost = document.createElement('section');
+  modalPost.id = 'modalPost';
+  modalPost.className = 'modalPost';
+  const createPost = document.createElement('div');
+  createPost.class = 'modal-content';
+  const titlePost = document.createElement('input');
+  titlePost.className = 'titlePost';
+  titlePost.type = 'text';
+  titlePost.placeholder = 'Name Coffee Shop';
+  titlePost.id = 'titlePost';
+  const textPost = document.createElement('input');
+  textPost.className = 'textPost';
+  textPost.type = 'text';
+  textPost.placeholder = 'Write a comment';
+  const buttonPicture = document.createElement('button');
+  buttonPicture.className = 'buttonPicture';
+  buttonPicture.textContent = 'add picture';
+  const savePost = document.createElement('button');
+  savePost.className = 'savePost';
+  savePost.textContent = 'Save';
 
-      /* </div>addIcono.addEventListener('click', () => {
-        if (createPost.style.display === 'none') {
-          createPost.style.display = 'block';
-        } else {
-          createPost.style.display = 'none';
-        }
-      }); */
-      const modal = document.getElementById('modalPost');
-      const suma = document.querySelector('.addIcono');
-      addIcono.addEventListener('click', () => {
-        modalPost.style.display = 'block';
-      });
+  containerFeed.appendChild(modalPost);
+  modalPost.appendChild(createPost);
+  createPost.append(titlePost, textPost, buttonPicture, savePost);
 
-      window.addEventListener('click', (event) => {
-        if (event.target === modalPost) {
-          modalPost.style.display = 'none';
-        }
-      });
-
-      savePost.addEventListener('click', async () => {
-        if (textPost.value) {
-          console.log(doc.ref);
-          console.log(textPost.value);
-          await addCommentPost(doc.ref, textPost.value);
-        }
-      });
-    });
-    // MENÚ ICONOS PIE DE PAGINA
-
-    // docRef();
-
-    /* const iconComment = document.getElementsById('iconComment');
-    iconComment.addEventListener('click', (comment) => {
-      const textToComment = comment.value;
-      console.log(textToComment);
-      savePost(textToComment);
-      comment.value = '';
-    }); */
+  /* </div>addIcono.addEventListener('click', () => {
+    if (createPost.style.display === 'none') {
+      createPost.style.display = 'block';
+    } else {
+      createPost.style.display = 'none';
+    }
+  }); */
+  const modal = document.getElementById('modalPost');
+  const suma = document.querySelector('.addIcono');
+  addIcono.addEventListener('click', () => {
+    modalPost.style.display = 'block';
   });
 
+  savePost.addEventListener('click', () => {
+    modalPost.style.display = 'none';
+  });
+
+  /* window.addEventListener('click', (event) => {
+    if (event.target === modalPost) {
+      modalPost.style.display = 'none';
+    }
+  }); */
+
+  savePost.addEventListener('click', async () => {
+    if (textPost.value) {
+      console.log(textPost.value);
+      const post = {
+        Title: titlePost.value,
+        comments: textPost.value,
+      }
+      await addPost(post);
+    }
+  });
   return containerFeed;
 };

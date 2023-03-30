@@ -13,7 +13,8 @@ export const onPostsChange = (callback) => onSnapshot(collection(getFirestore(),
 
 export const addCommentToPost = (postRef, comment) => addDoc(collection(postRef, 'Comments'), { comment });
 
-export const addCommentPost = (postRef, textPost) => addDoc(collection(postRef, 'comments'), { textPost });
+export const addPost = (post) => addDoc(collection(getFirestore(), 'Posts'), post);
+
 // Create a root reference
 /* const storage = getStorage();
 
