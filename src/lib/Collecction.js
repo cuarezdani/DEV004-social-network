@@ -1,4 +1,9 @@
-import { collection, getFirestore, onSnapshot, addDoc } from 'firebase/firestore';
+import {
+  collection,
+  getFirestore,
+  onSnapshot,
+  addDoc,
+} from 'firebase/firestore';
 // import { getStorage, ref } from 'firebase/storage';
 
 /* export const getPosts = async () => {

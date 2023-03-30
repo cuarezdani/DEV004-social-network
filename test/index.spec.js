@@ -1,6 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-// import { JSDOM } from 'jsdom';
-// importamos la funcion que vamos a testear
 import { Register } from '../src/Components/Register.js';
 import { Login } from '../src/Components/Login.js';
 

@@ -394,7 +394,13 @@ body {
   object-fit: contain;
   margin-top: 0%;
 }
-
+.lineaDorada {
+  width: 100%;
+  height: 50%;
+  background-color: gold;
+  margin-top: 0%;
+  /*  border-top: 5px; */
+}
 .sectionWonderland {
   display: block;
   position: relative;
@@ -402,7 +408,6 @@ body {
   margin-bottom: 2%;
 
 }
-
 .title {
   display: flex;
   align-items: center;
@@ -612,7 +617,26 @@ body {
   cursor: pointer;
 }
 
-
+/* PIE DE PAGINA */
+.menuIconoProfile{  
+  position: fixed; 
+  width: 100%;
+  height: 3em;
+  bottom: 0%;
+  background-color: rgb(233, 230, 230);
+}
+.homeIconoProfile {
+  display: inline;
+  height: 2.3em;
+  margin-left: 6%;
+  margin-top: 1.5%;
+}
+.signOutProfile {
+  display: inline;
+  height: 2.3em;
+  margin-left: 67%;
+  margin-top: 1.5%;
+}
 
 
 /*codigos nos servirán para que sean responsives en diferentes equipos

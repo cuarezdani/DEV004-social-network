@@ -10,7 +10,10 @@ export const Feed = () => {
   logoFeed.src = '../imagenes/logo1.png';
   logoFeed.className = 'logoFeed';
 
-  // linea dorada por hacer
+  const lineaDorada = document.createElement('hr');
+  lineaDorada.className = 'lineaDorada';
+  const linea = document.createElement('hr'); // linea y or
+  linea.className = 'linea';
 
   // cree section para que se contengan los comentarios y queden  con el otro section
   /* const commentImg = document.createElement('section');
@@ -31,6 +34,7 @@ export const Feed = () => {
   // like.addEventListener('click', printClick);
 
   containerFeed.append(logoFeed);
+  containerFeed.append(lineaDorada);
 
   const postsSection = document.createElement('section');
   containerFeed.append(postsSection);
@@ -135,7 +139,7 @@ export const Feed = () => {
       inputComments.append(comment, buttonComment);
       // containerFeed.appendChild(sectionComments);
       // sectionComments.append(inputComments);
-    }); 
+    });
   });
   // MENÚ ICONOS PIE DE PAGINA
   const menuIcono = document.createElement('section');
@@ -208,7 +212,7 @@ export const Feed = () => {
       const post = {
         Title: titlePost.value,
         comments: textPost.value,
-      }
+      };
       await addPost(post);
     }
   });

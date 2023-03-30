@@ -44,6 +44,18 @@ export const Profile = () => {
   containerProfile.appendChild(buttonMap);
   buttonMap.append(imgMap, strongMap);
 
+  const menuIconoProfile = document.createElement('section');
+  menuIconoProfile.className = 'menuIconoProfile';
+  const homeIconoProfile = document.createElement('img');
+  homeIconoProfile.className = 'homeIconoProfile';
+  homeIconoProfile.src = '../imagenes/casa-silueta-negra-sin-puerta.png';
+  const signOutProfile = document.createElement('img'); // icono puerta
+  signOutProfile.className = 'signOutProfile';
+  signOutProfile.src = '../imagenes/cerrar-sesion.png';
+
+  containerProfile.appendChild(menuIconoProfile)
+  menuIconoProfile.append(homeIconoProfile, signOutProfile);
+
   return containerProfile;
 };
 
