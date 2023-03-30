@@ -42,6 +42,7 @@ export const Feed = () => {
   onPostsChange((querySnapshot) => {
     // querySnapshot contiene todos los documentos de nuestra colección
     console.log(querySnapshot);
+    const arraySection = [];
     querySnapshot.forEach((doc) => {
       // forEach recorre el array de los documentos
       const section = document.createElement('section');
@@ -132,15 +133,18 @@ export const Feed = () => {
       // se llama al like para qeu sea escuchado en el dom
       like.addEventListener('click', handleLikeClick);
 
-      postsSection.append(section);
+      // postsSection.append(section);
       section.append(title, fotoMuro, sectionIconos, inputComments);
       title.append(imgWonderland, strong);
       sectionIconos.append(like, favorite, iconComment, save);
       inputComments.append(comment, buttonComment);
       // containerFeed.appendChild(sectionComments);
       // sectionComments.append(inputComments);
+      arraySection.push(section);
     });
+    postsSection.replaceChildren(...arraySection);
   });
+
   // MENÚ ICONOS PIE DE PAGINA
   const menuIcono = document.createElement('section');
   menuIcono.className = 'menuIcono';
