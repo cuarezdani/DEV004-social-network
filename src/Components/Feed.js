@@ -90,6 +90,20 @@ export const Feed = () => {
       save.className = 'save';
       save.src = '../imagenes/guardar.png';
 
+      // description post
+      const descPost = document.createElement('div');
+      descPost.className = 'describePost';
+      const commentPost = document.createElement('p');
+      commentPost.textContent = doc.data().comments;
+      commentPost.className = 'commentsPost';
+      const iconDelete = document.createElement('img');
+      iconDelete.className = 'iconDelete';
+      iconDelete.src = '../imagenes/borrar.png';
+      const iconEdit = document.createElement('img');
+      iconEdit.className = 'iconEdit';
+      iconEdit.src = '../imagenes/editar.png';
+
+
       // comentario y boton
       const inputComments = document.createElement('div');
       inputComments.className = 'inputComments';
@@ -119,6 +133,7 @@ export const Feed = () => {
         }
       });
 
+
       // Like
       const likeContador = document.createElement('span');
       likeContador.className = 'likes';
@@ -134,9 +149,11 @@ export const Feed = () => {
       like.addEventListener('click', handleLikeClick);
 
       // postsSection.append(section);
-      section.append(title, fotoMuro, sectionIconos, inputComments);
+      section.append(title, fotoMuro, sectionIconos, inputComments, descPost);
       title.append(imgWonderland, strong);
       sectionIconos.append(like, favorite, iconComment, save);
+      descPost.append(commentPost);
+      commentPost.append(iconEdit, iconDelete);
       inputComments.append(comment, buttonComment);
       // containerFeed.appendChild(sectionComments);
       // sectionComments.append(inputComments);
