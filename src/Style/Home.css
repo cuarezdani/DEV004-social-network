@@ -463,6 +463,11 @@ body {
   margin-top: 1.5%;
 }
 
+.inputComments {
+margin-top: -2%;
+margin-left: 2%;
+}
+
 .save {
   display: inline;
   height: 1.5em;
@@ -472,15 +477,27 @@ body {
 
 .commentsPost {
   padding-left: 2%;
+  margin-top: 0%;
+  width: 100%;
+  display: inline;
 }
 
 .iconEdit,
 .iconDelete {
   display: inline;
   height: 1em;
-  margin-left: 3%;
-  margin-top: 1.5%;
+  margin-top: 0%;
+  
 }
+
+.iconEdit {
+  margin-left: 85%;
+} 
+
+/* .iconDelete {
+  margin-left: 60%;
+} */
+
 
 /* MENU PIE DE PAGINA*/
 .menuIcono {
@@ -517,12 +534,7 @@ body {
   width: 100%;
   height: 100%;
   padding: 10%;
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.5
-  ); /* agrega un fondo oscuro para resaltar la ventana modal */
+  background-color: rgba(0, 0, 0, 0.836); /* agrega un fondo oscuro para resaltar la ventana modal */
 }
 
 .modal-content {

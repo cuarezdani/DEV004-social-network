@@ -151,8 +151,7 @@ export const Feed = () => {
       section.append(title, fotoMuro, sectionIconos, inputComments, descPost);
       title.append(imgWonderland, strong);
       sectionIconos.append(like, favorite, iconComment, save);
-      descPost.append(commentPost);
-      commentPost.append(iconEdit, iconDelete);
+      descPost.append(commentPost, iconEdit, iconDelete);
       inputComments.append(comment, buttonComment);
       // containerFeed.appendChild(sectionComments);
       // sectionComments.append(inputComments);
