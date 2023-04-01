@@ -12,7 +12,8 @@ body {
 
 .container {
   position: relative;
-  background: url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?crop=entropy&cs=tinysrgb&fm=jpg&ixid=Mnw3MjAxN3wwfDF8c2VhcmNofDF8fGNhZmV8ZW58MHx8fHwxNjc4MTk2ODI4&ixlib=rb-4.0.3&q=80&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450") no-repeat center center fixed;
+  background: url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?crop=entropy&cs=tinysrgb&fm=jpg&ixid=Mnw3MjAxN3wwfDF8c2VhcmNofDF8fGNhZmV8ZW58MHx8fHwxNjc4MTk2ODI4&ixlib=rb-4.0.3&q=80&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450")
+    no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -187,7 +188,6 @@ body {
   margin-block-start: 3%;
   cursor: pointer;
 }
-
 
 /* Pagina REGISTER */
 .containerRegister {
@@ -385,14 +385,16 @@ body {
   width: 100%;
   margin: 0 auto;
 }
-
 .logoFeed {
   display: block;
-  width: 100%;
-  height: 7em;
+  color: rgb(112, 97, 11);
   text-align: center;
-  object-fit: contain;
-  margin-top: 0%;
+  /* 
+    width: 100%;
+    height: 7em;
+    text-align: center;
+    object-fit: contain;
+    margin-top: 0%; */
 }
 .lineaDorada {
   width: 100%;
@@ -406,7 +408,6 @@ body {
   position: relative;
   width: 100%;
   margin-bottom: 2%;
-
 }
 .title {
   display: flex;
@@ -439,7 +440,6 @@ body {
   display: flex;
   width: 100%;
   height: 3em;
-
 }
 
 .like {
@@ -457,7 +457,6 @@ body {
 }
 
 .iconComment {
-  
   display: inline;
   height: 1.6em;
   margin-left: 3%;
@@ -475,17 +474,17 @@ body {
   padding-left: 2%;
 }
 
-.iconEdit, .iconDelete {
+.iconEdit,
+.iconDelete {
   display: inline;
   height: 1em;
   margin-left: 3%;
   margin-top: 1.5%;
 }
 
-
 /* MENU PIE DE PAGINA*/
-.menuIcono{  
-  position: fixed; 
+.menuIcono {
+  position: fixed;
   width: 100%;
   height: 3em;
   bottom: 0%;
@@ -518,7 +517,12 @@ body {
   width: 100%;
   height: 100%;
   padding: 10%;
-  background-color: rgba(0,0,0,0.5); /* agrega un fondo oscuro para resaltar la ventana modal */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* agrega un fondo oscuro para resaltar la ventana modal */
 }
 
 .modal-content {
@@ -533,7 +537,7 @@ body {
 /* Agrega estilos para los botones en la ventana modal */
 .buttonPicture,
 .savePost {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 10px;
   border: none;
@@ -546,7 +550,7 @@ body {
   opacity: 0.6;
 }
 /*pagina PROFILE*/
-.containerProfile{
+.containerProfile {
   position: relative;
   height: 100vh;
   width: 100%;
@@ -554,7 +558,7 @@ body {
   padding: 0em;
 }
 
-.profilePicture{
+.profilePicture {
   display: block;
   position: absolute;
   width: 100%;
@@ -591,7 +595,7 @@ body {
   margin-left: 5%;
   height: 4em;
   border-radius: 7px;
-  margin-block-start: 70%; 
+  margin-block-start: 70%;
 }
 
 .imgSave {
@@ -600,7 +604,7 @@ body {
   top: 10%;
   height: 85%;
 }
-.savedProfile{
+.savedProfile {
   font-weight: bold;
   font-size: 17px;
   color: black;
@@ -622,7 +626,7 @@ body {
   top: 10%;
   height: 85%;
 }
-.map{
+.map {
   font-weight: lighter;
   font-size: 17px;
   color: black;
@@ -630,8 +634,8 @@ body {
 }
 
 /* PIE DE PAGINA */
-.menuIconoProfile{  
-  position: fixed; 
+.menuIconoProfile {
+  position: fixed;
   width: 100%;
   height: 3em;
   bottom: 0%;
@@ -649,7 +653,6 @@ body {
   margin-left: 67%;
   margin-top: 1.5%;
 }
-
 
 /*codigos nos servirán para que sean responsives en diferentes equipos
 cel-tablet*/

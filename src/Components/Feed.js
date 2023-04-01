@@ -6,9 +6,10 @@ export const Feed = () => {
   const containerFeed = document.createElement('div');
   containerFeed.className = 'containerFeed';
 
-  const logoFeed = document.createElement('img');
-  logoFeed.src = '../imagenes/logo1.png';
+  const logoFeed = document.createElement('h2');
+  // logoFeed.src = '../imagenes/logo1.png';
   logoFeed.className = 'logoFeed';
+  logoFeed.textContent = 'COFFE HOUR';
 
   const lineaDorada = document.createElement('hr');
   lineaDorada.className = 'lineaDorada';
@@ -103,7 +104,6 @@ export const Feed = () => {
       iconEdit.className = 'iconEdit';
       iconEdit.src = '../imagenes/editar.png';
 
-
       // comentario y boton
       const inputComments = document.createElement('div');
       inputComments.className = 'inputComments';
@@ -132,7 +132,6 @@ export const Feed = () => {
           await addCommentToPost(doc.ref, comment.value);
         }
       });
-
 
       // Like
       const likeContador = document.createElement('span');
@@ -211,7 +210,9 @@ export const Feed = () => {
       createPost.style.display = 'none';
     }
   }); */
+  // eslint-disable-next-line no-unused-vars
   const modal = document.getElementById('modalPost');
+  // eslint-disable-next-line no-unused-vars
   const suma = document.querySelector('.addIcono');
   addIcono.addEventListener('click', () => {
     modalPost.style.display = 'block';
