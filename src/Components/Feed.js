@@ -6,6 +6,7 @@ import {
   addPost,
   deletePost,
   getComments,
+  updatePost,
 } from '../lib/Collecction';
 
 export const Feed = () => {
@@ -114,6 +115,13 @@ export const Feed = () => {
         await deletePost(doc.ref);
       });
 
+      iconEdit.addEventListener('click', async () => {
+        await updatePost(doc.ref, {
+          comments: true,
+          title: true,
+        });
+      });
+
       // comentario y boton
       const inputComments = document.createElement('div');
       inputComments.className = 'inputComments';
@@ -137,6 +145,7 @@ export const Feed = () => {
       buttonComment.addEventListener('click', async () => {
         if (descriptionComment.value) {
           await addCommentToPost(doc.ref, descriptionComment.value);
+          descriptionComment.value = '';
         }
       });
 
@@ -270,6 +279,7 @@ export const Feed = () => {
       const post = {
         Title: titlePost.value,
         comments: textPost.value,
+        date: new Date(),
       };
       await addPost(post);
     }

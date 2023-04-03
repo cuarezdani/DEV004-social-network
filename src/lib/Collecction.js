@@ -4,6 +4,9 @@ import {
   onSnapshot,
   addDoc,
   deleteDoc,
+  updateDoc,
+  query,
+  orderBy,
 } from 'firebase/firestore';
 // import { getStorage, ref } from 'firebase/storage';
 
@@ -15,15 +18,17 @@ import {
     return data;
   } */
 
-export const onPostsChange = (callback) => onSnapshot(collection(getFirestore(), 'Posts'), callback); // onSnapshot es la función para estar escuchando los cambios de la colección, y el callback es la función que se va a ejecutar cuando hay un cambio en la colección
+export const onPostsChange = (callback) => onSnapshot(query(collection(getFirestore(), 'Posts'), orderBy('date', 'desc')), callback); // onSnapshot es la función para estar escuchando los cambios de la colección, y el callback es la función que se va a ejecutar cuando hay un cambio en la colección
 
-export const addCommentToPost = (postRef, comment) => addDoc(collection(postRef, 'Comments'), { comment });
+export const addCommentToPost = (postRef, comment) => addDoc(collection(postRef, 'Comments'), { comment, date: new Date() });
 
 export const addPost = (post) => addDoc(collection(getFirestore(), 'Posts'), post);
 
 export const deletePost = (docRef) => deleteDoc(docRef);
 
-export const getComments = (docRef, callback) => onSnapshot(collection(docRef, 'Comments'), callback);
+export const getComments = (docRef, callback) => onSnapshot(query(collection(docRef, 'Comments'), orderBy('date', 'desc')), callback);
+
+export const updatePost = (docRef) => updateDoc(collection(getFirestore(), docRef, 'Posts', 'Comments'));
 
 // Create a root reference
 /* const storage = getStorage();
