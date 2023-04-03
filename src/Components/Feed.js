@@ -1,6 +1,12 @@
 // import { onNavigate } from '../router';
 
-import { onPostsChange, addCommentToPost, addPost } from '../lib/Collecction';
+import {
+  onPostsChange,
+  addCommentToPost,
+  addPost,
+  deletePost,
+  getComments,
+} from '../lib/Collecction';
 
 export const Feed = () => {
   const containerFeed = document.createElement('div');
@@ -50,9 +56,9 @@ export const Feed = () => {
       section.className = 'sectionWonderland';
       const title = document.createElement('div');
       title.className = 'title';
-      const imgWonderland = document.createElement('img');
+      const imgWonderland = document.createElement('img'); // dejaremos la foto del logo como default
       imgWonderland.className = 'imgWonderland';
-      imgWonderland.src = '../imagenes/wonderland.png';
+      imgWonderland.src = '../imagenes/logo1.png';
       const strong = document.createElement('p');
       strong.textContent = doc.data().Title;
       strong.className = 'textWonderland';
@@ -91,7 +97,7 @@ export const Feed = () => {
       save.className = 'save';
       save.src = '../imagenes/guardar.png';
 
-      // description post
+      // description post lo que se sube en el modal
       const descPost = document.createElement('div');
       descPost.className = 'describePost';
       const commentPost = document.createElement('p');
@@ -104,20 +110,23 @@ export const Feed = () => {
       iconEdit.className = 'iconEdit';
       iconEdit.src = '../imagenes/editar.png';
 
+      iconDelete.addEventListener('click', async () => {
+        await deletePost(doc.ref);
+      });
+
       // comentario y boton
       const inputComments = document.createElement('div');
       inputComments.className = 'inputComments';
       inputComments.style.display = 'none';
-      const comment = document.createElement('input');
-      comment.type = 'text';
-      comment.placeholder = 'write a comment';
-      comment.id = 'comment';
+      const descriptionComment = document.createElement('input');
+      descriptionComment.type = 'text';
+      descriptionComment.placeholder = 'write a comment';
+      descriptionComment.id = 'comment';
+      descriptionComment.textContent = doc.data().comment;
 
       iconComment.addEventListener('click', () => {
         if (inputComments.style.display === 'none') {
           inputComments.style.display = 'block';
-        } else {
-          inputComments.style.display = 'none';
         }
       });
 
@@ -126,13 +135,34 @@ export const Feed = () => {
       buttonComment.textContent = 'send';
 
       buttonComment.addEventListener('click', async () => {
-        if (comment.value) {
-          console.log(doc.ref);
-          console.log(comment.value);
-          await addCommentToPost(doc.ref, comment.value);
+        if (descriptionComment.value) {
+          await addCommentToPost(doc.ref, descriptionComment.value);
         }
       });
 
+      const parrafoComentario = document.createElement('div');
+      parrafoComentario.className = 'parrafoComentario';
+
+      getComments(doc.ref, (queryComments) => {
+        const arrayQueryComments = [];
+        queryComments.forEach((commentDoc) => {
+          const parrafo = document.createElement('p');
+          parrafo.className = 'parrafo';
+          parrafo.textContent = commentDoc.data().comment;
+          parrafoComentario.append(parrafo);
+          console.log(commentDoc.data().comment);
+          arrayQueryComments.push(parrafo);
+        });
+        parrafoComentario.replaceChildren(...arrayQueryComments);
+      });
+
+      buttonComment.addEventListener('click', () => {
+        inputComments.style.display = 'none';
+      });
+
+      /* else {
+        buttonComment.style.display = 'none';
+      } */
       // Like
       const likeContador = document.createElement('span');
       likeContador.className = 'likes';
@@ -148,11 +178,18 @@ export const Feed = () => {
       like.addEventListener('click', handleLikeClick);
 
       // postsSection.append(section);
-      section.append(title, fotoMuro, sectionIconos, inputComments, descPost);
+      section.append(
+        title,
+        fotoMuro,
+        sectionIconos,
+        descPost,
+        parrafoComentario,
+        inputComments,
+      );
       title.append(imgWonderland, strong);
       sectionIconos.append(like, favorite, iconComment, save);
       descPost.append(commentPost, iconEdit, iconDelete);
-      inputComments.append(comment, buttonComment);
+      inputComments.append(descriptionComment, buttonComment);
       // containerFeed.appendChild(sectionComments);
       // sectionComments.append(inputComments);
       arraySection.push(section);

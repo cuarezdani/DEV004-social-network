@@ -3,6 +3,7 @@ import {
   getFirestore,
   onSnapshot,
   addDoc,
+  deleteDoc,
 } from 'firebase/firestore';
 // import { getStorage, ref } from 'firebase/storage';
 
@@ -19,6 +20,10 @@ export const onPostsChange = (callback) => onSnapshot(collection(getFirestore(),
 export const addCommentToPost = (postRef, comment) => addDoc(collection(postRef, 'Comments'), { comment });
 
 export const addPost = (post) => addDoc(collection(getFirestore(), 'Posts'), post);
+
+export const deletePost = (docRef) => deleteDoc(docRef);
+
+export const getComments = (docRef, callback) => onSnapshot(collection(docRef, 'Comments'), callback);
 
 // Create a root reference
 /* const storage = getStorage();
