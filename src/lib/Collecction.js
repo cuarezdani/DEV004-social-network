@@ -28,7 +28,7 @@ export const deletePost = (docRef) => deleteDoc(docRef);
 
 export const getComments = (docRef, callback) => onSnapshot(query(collection(docRef, 'Comments'), orderBy('date', 'desc')), callback);
 
-export const updatePost = (docRef) => updateDoc(collection(getFirestore(), docRef, 'Posts', 'Comments'));
+export const updatePost = (docRef, comments) => updateDoc(docRef, comments);
 
 // Create a root reference
 /* const storage = getStorage();

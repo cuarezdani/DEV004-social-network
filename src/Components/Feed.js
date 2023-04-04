@@ -1,5 +1,4 @@
 // import { onNavigate } from '../router';
-
 import {
   onPostsChange,
   addCommentToPost,
@@ -115,11 +114,46 @@ export const Feed = () => {
         await deletePost(doc.ref);
       });
 
-      iconEdit.addEventListener('click', async () => {
-        await updatePost(doc.ref, {
-          comments: true,
-          title: true,
-        });
+      // Modal para editar post
+      const modalEditPost = document.createElement('section');
+      modalEditPost.id = 'modalEditPost';
+      modalEditPost.className = 'modalEditPost';
+      modalEditPost.style.display = 'none';
+      const createEditPost = document.createElement('div');
+      createEditPost.class = 'modal-content';
+      const titleEditPost = document.createElement('input');
+      titleEditPost.className = 'titlePost';
+      titleEditPost.type = 'text';
+      titleEditPost.placeholder = 'Edit Name Coffee Shop';
+      titleEditPost.id = 'titlePost';
+      const textEditPost = document.createElement('input');
+      textEditPost.className = 'textPost';
+      textEditPost.type = 'text';
+      textEditPost.placeholder = 'Edit a comment';
+      const saveEditPost = document.createElement('button');
+      saveEditPost.className = 'savePost';
+      saveEditPost.textContent = 'Save';
+
+      containerFeed.appendChild(modalEditPost);
+      modalEditPost.appendChild(createEditPost);
+      createEditPost.append(titleEditPost, textEditPost, saveEditPost);
+
+      // eslint-disable-next-line no-unused-vars
+      const modal = document.getElementById('modalPost');
+      iconEdit.addEventListener('click', () => {
+        modalEditPost.style.display = 'block';
+      });
+
+      saveEditPost.addEventListener('click', () => {
+        modalEditPost.style.display = 'none';
+      });
+
+      saveEditPost.addEventListener('click', async () => {
+        try {
+          await updatePost(doc.ref, { comments: textEditPost.value, Title: titleEditPost.value });
+        } catch (err) {
+          console.log(err);
+        }
       });
 
       // comentario y boton
@@ -152,6 +186,7 @@ export const Feed = () => {
       const parrafoComentario = document.createElement('div');
       parrafoComentario.className = 'parrafoComentario';
 
+      // recorre el array de comentarios y los muestra
       getComments(doc.ref, (queryComments) => {
         const arrayQueryComments = [];
         queryComments.forEach((commentDoc) => {
@@ -222,7 +257,7 @@ export const Feed = () => {
   containerFeed.appendChild(menuIcono);
   menuIcono.append(profileIcono, addIcono, signOut);
 
-  // Modal
+  // Modal para crear post
   const modalPost = document.createElement('section');
   modalPost.id = 'modalPost';
   modalPost.className = 'modalPost';
@@ -248,13 +283,6 @@ export const Feed = () => {
   modalPost.appendChild(createPost);
   createPost.append(titlePost, textPost, buttonPicture, savePost);
 
-  /* </div>addIcono.addEventListener('click', () => {
-    if (createPost.style.display === 'none') {
-      createPost.style.display = 'block';
-    } else {
-      createPost.style.display = 'none';
-    }
-  }); */
   // eslint-disable-next-line no-unused-vars
   const modal = document.getElementById('modalPost');
   // eslint-disable-next-line no-unused-vars
@@ -267,12 +295,6 @@ export const Feed = () => {
     modalPost.style.display = 'none';
   });
 
-  /* window.addEventListener('click', (event) => {
-    if (event.target === modalPost) {
-      modalPost.style.display = 'none';
-    }
-  }); */
-
   savePost.addEventListener('click', async () => {
     if (textPost.value) {
       console.log(textPost.value);
@@ -280,6 +302,7 @@ export const Feed = () => {
         Title: titlePost.value,
         comments: textPost.value,
         date: new Date(),
+        // id: auth.currentUser.uid,
       };
       await addPost(post);
     }

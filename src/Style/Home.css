@@ -561,6 +561,43 @@ margin-left: 2%;
 .savePost:hover {
   opacity: 0.6;
 }
+
+.modalEditPost {
+  display: none; /* oculta la ventana modal por defecto */
+  position: absolute; /* posiciona la ventana modal en la pantalla */
+  z-index: 0; /* coloca la ventana modal en la parte superior de todo */
+  left: 0;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  padding: 10%;
+  background-color: rgba(0, 0, 0, 0.836); /* agrega un fondo oscuro para resaltar la ventana modal */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+}
+
+/* Agrega estilos para los botones en la ventana modal */
+.saveEditPost {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
+.saveEditPost:hover {
+  opacity: 0.6;
+}
+
+
+
 /*pagina PROFILE*/
 .containerProfile {
   position: relative;
