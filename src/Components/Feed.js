@@ -8,7 +8,8 @@ import {
   getComments,
   updatePost,
 } from '../lib/Collecction';
-console.log(auth);
+
+// console.log(auth);
 
 export const Feed = () => {
   const containerFeed = document.createElement('div');
@@ -51,7 +52,7 @@ export const Feed = () => {
 
   onPostsChange((querySnapshot) => {
     // querySnapshot contiene todos los documentos de nuestra colección
-    console.log(querySnapshot);
+    // console.log(querySnapshot);
     const arraySection = [];
     querySnapshot.forEach((doc) => {
       // forEach recorre el array de los documentos
@@ -167,7 +168,10 @@ export const Feed = () => {
 
       saveEditPost.addEventListener('click', async () => {
         try {
-          await updatePost(doc.ref, { comments: textEditPost.value, Title: titleEditPost.value });
+          await updatePost(doc.ref, {
+            comments: textEditPost.value,
+            Title: titleEditPost.value,
+          });
         } catch (err) {
           console.log(err);
         }
@@ -240,6 +244,24 @@ export const Feed = () => {
     });
     postsSection.replaceChildren(...arraySection);
   });
+
+  // para mostar el nombre del usuario en los post
+  const user = auth.currentUser;
+  console.log('estoy aqui', user);
+  if (user !== null) {
+    console.log('aqui', user.providerData);
+    user.providerData.forEach(async (profile) => {
+      const name = profile.displayName;
+      //   userName.textContent = name;
+      //   const docRef = doc(db, "users", user.uid);
+      //   const docSnap = await getDoc(docRef);
+      //   if (docSnap.exists()) {
+      //     const nameF = docSnap.data().displayName;
+      //     userName.textContent = nameF;
+      //   }
+      // });
+    });
+  }
 
   // MENÚ ICONOS PIE DE PAGINA
   const menuIcono = document.createElement('section');
