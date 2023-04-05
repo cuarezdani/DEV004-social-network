@@ -53,7 +53,7 @@ export const Profile = () => {
   signOutProfile.className = 'signOutProfile';
   signOutProfile.src = '../imagenes/cerrar-sesion.png';
 
-  containerProfile.appendChild(menuIconoProfile)
+  containerProfile.appendChild(menuIconoProfile);
   menuIconoProfile.append(homeIconoProfile, signOutProfile);
 
   return containerProfile;

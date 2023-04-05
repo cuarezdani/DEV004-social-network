@@ -36,7 +36,7 @@ describe('Register', () => {
     document.getElementById('buttonSign').click();
 
     return Promise.resolve().then(() => {
-      expect(window.location.href).toBe('/login');
+      expect(window.location.href).toBe('/feed');
     });
   });
 });
@@ -48,7 +48,7 @@ describe('Login', () => {
     document.getElementById('buttonContinue').click();
 
     return Promise.resolve().then(() => {
-      expect(window.location.href).toBe('/');
+      expect(window.location.href).toBe('/feed');
     });
   });
 });

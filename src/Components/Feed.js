@@ -44,6 +44,7 @@ export const Feed = () => {
   containerFeed.append(lineaDorada);
 
   const postsSection = document.createElement('section');
+  postsSection.className = 'postsSection';
   containerFeed.append(postsSection);
 
   onPostsChange((querySnapshot) => {
@@ -66,7 +67,7 @@ export const Feed = () => {
       const fotoMuro = document.createElement('img');
       fotoMuro.className = 'fotoMuro';
       fotoMuro.textContent = doc.data().image;
-      fotoMuro.src = '../imagenes/muro1.png';
+      fotoMuro.src = '../imagenes/emilliecoffee.jpg';
 
       /* const sectionComments = document.createElement('section');
       sectionComments.className = 'sectionComments';
@@ -85,7 +86,7 @@ export const Feed = () => {
       like.className = 'like';
       like.src = '../imagenes/like.png';
       const favorite = document.createElement('img');
-      favorite.className = 'favorite';
+      favorite.className = 'favoriteFeed';
       favorite.src = '../imagenes/favorite.png';
 
       const iconComment = document.createElement('img');
@@ -120,7 +121,7 @@ export const Feed = () => {
       modalEditPost.className = 'modalEditPost';
       modalEditPost.style.display = 'none';
       const createEditPost = document.createElement('div');
-      createEditPost.class = 'modal-content';
+      createEditPost.class = 'modal-contentEdit';
       const titleEditPost = document.createElement('input');
       titleEditPost.className = 'titlePost';
       titleEditPost.type = 'text';
@@ -230,9 +231,9 @@ export const Feed = () => {
         parrafoComentario,
         inputComments,
       );
-      title.append(imgWonderland, strong);
+      title.append(imgWonderland, strong, iconEdit, iconDelete);
       sectionIconos.append(like, favorite, iconComment, save);
-      descPost.append(commentPost, iconEdit, iconDelete);
+      descPost.append(commentPost);
       inputComments.append(descriptionComment, buttonComment);
       // containerFeed.appendChild(sectionComments);
       // sectionComments.append(inputComments);
@@ -305,6 +306,8 @@ export const Feed = () => {
         // id: auth.currentUser.uid,
       };
       await addPost(post);
+      titlePost.value = '';
+      textPost.value = '';
     }
   });
   return containerFeed;

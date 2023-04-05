@@ -2,7 +2,7 @@ import { Home } from './Components/Home.js';
 import { Register } from './Components/Register.js';
 import { Login } from './Components/Login.js';
 import { Feed } from './Components/Feed.js';
-import { Profile} from './Components/Profile.js';
+import { Profile } from './Components/Profile.js';
 import { initFirebase } from './lib/fireBase';
 // import { routes } from './router/router';
 import { onNavigate, addRoutes } from './router/index'; // modificar la ruta

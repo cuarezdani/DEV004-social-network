@@ -1,6 +1,6 @@
 * {
   font-family: "Comfortaa", "Times New Roman", Times, serif;
-  border: 1px solid black;
+ /*  border: 1px solid black; */
   box-sizing: border-box;
 }
 
@@ -381,27 +381,27 @@ body {
 
 /* Pagina feed muro */
 .containerFeed {
-  position: relative;
+  flex-direction: column;  
   width: 100%;
-  margin: 0 auto;
+  margin: 0%;
+  height: 800px;
+  overflow: auto;
 }
 .logoFeed {
   display: block;
   color: rgb(112, 97, 11);
   text-align: center;
-  /* 
-    width: 100%;
-    height: 7em;
-    text-align: center;
-    object-fit: contain;
-    margin-top: 0%; */
 }
 .lineaDorada {
   width: 100%;
-  height: 50%;
+  height: 0%;
   background-color: gold;
   margin-top: 0%;
   /*  border-top: 5px; */
+}
+.postsSection{
+  overflow-y: visible;
+  height: 200px;
 }
 .sectionWonderland {
   display: block;
@@ -429,6 +429,19 @@ body {
   margin-left: 1em;
 }
 
+.iconEdit {
+  display: inline;  
+  height: 1.6em;
+  margin-top: 0%; 
+  margin-left: 5%;
+}
+.iconDelete{
+  display: inline;  
+  height: 1.2em;
+  margin-top: 0%; 
+  margin-left: 0%;
+}
+
 .fotoMuro {
   display: block;
   width: 100%;
@@ -449,7 +462,7 @@ body {
   margin-top: 2%;
 }
 
-.favorite {
+.favoriteFeed {
   display: inline;
   height: 1.5em;
   margin-left: 3%;
@@ -464,66 +477,47 @@ body {
 }
 
 .inputComments {
-margin-top: -2%;
-margin-left: 2%;
+margin-top: 2%;
+margin-left: 1.5%;
 }
-
 .save {
   display: inline;
   height: 1.5em;
   margin-left: 63%;
   margin-top: 1.8%;
 }
-
 .commentsPost {
   padding-left: 2%;
   margin-top: 0%;
   width: 100%;
   display: inline;
+  font-weight: bolder;
 }
-
-.iconEdit,
-.iconDelete {
-  display: inline;
-  height: 1em;
-  margin-top: 0%;
-  
-}
-
-.iconEdit {
-  margin-left: 85%;
-} 
-
-/* .iconDelete {
-  margin-left: 60%;
-} */
-
-
 /* MENU PIE DE PAGINA*/
 .menuIcono {
-  position: fixed;
+  position: fixed; 
   width: 100%;
-  height: 3em;
+  height: 2em;
   bottom: 0%;
   background-color: rgb(233, 230, 230);
 }
 .profileIcono {
   display: inline;
-  height: 2.3em;
+  height: 2em;
   margin-left: 1.5%;
-  margin-top: 1.5%;
+  margin-top: 0%;
 }
 .addIcono {
   display: inline;
-  height: 2.3em;
+  height: 2em;
   margin-left: 36%;
-  margin-top: 1.5%;
+  margin-top: 0%;
 }
 .signOut {
   display: inline;
-  height: 2.3em;
-  margin-left: 31%;
-  margin-top: 1.5%;
+  height: 1.8em;
+  margin-left: 36%;
+  margin-top: 0%;
 }
 .modalPost {
   display: none; /* oculta la ventana modal por defecto */
@@ -574,7 +568,7 @@ margin-left: 2%;
   background-color: rgba(0, 0, 0, 0.836); /* agrega un fondo oscuro para resaltar la ventana modal */
 }
 
-.modal-content {
+.modal-contentEdit {
   background-color: #fefefe;
   margin: 10% auto;
   padding: 20px;
@@ -596,8 +590,11 @@ margin-left: 2%;
   opacity: 0.6;
 }
 
-
-
+.parrafoComentario{
+ margin-left: 2%;
+ font-size: small;
+ margin-block-start: 5%;
+}
 /*pagina PROFILE*/
 .containerProfile {
   position: relative;
@@ -719,7 +716,7 @@ cel-tablet*/
 
 /*codigos nos servirán para que sean responsives en diferentes equipos :)
 tablet*/
-@media only screen and (min-device-width: 768px) {
+@media only screen and (min-device-width: 761px) {
   .containerLogin {
     padding: 0% 20% 0% 20%;
   }
@@ -731,9 +728,17 @@ tablet*/
   #correoRegister {
     margin-block-start: 0%;
   }
-
   .logoCaffee {
     margin-top: 0%;
+  }
+  .containerFeed{
+    padding: 0% 20% 0% 20%;
+  }
+  .save{
+  margin-right: -20%;
+  }
+  .menuIcono{
+    padding: 0% 20% 0% 20%;
   }
 }
 
@@ -764,7 +769,11 @@ computador*/
   .buttonSignUp {
     margin-block-start: 1%;
   }
-}
+
+  .containerFeed{
+    padding: 0% 30% 0% 30%;
+  }
+  }
 
 /* .containerRegister {
     height: auto;
