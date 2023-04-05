@@ -1,6 +1,6 @@
 * {
   font-family: "Comfortaa", "Times New Roman", Times, serif;
- /*  border: 1px solid black; */
+  /*  border: 1px solid black; */
   box-sizing: border-box;
 }
 
@@ -12,8 +12,7 @@ body {
 
 .container {
   position: relative;
-  background: url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?crop=entropy&cs=tinysrgb&fm=jpg&ixid=Mnw3MjAxN3wwfDF8c2VhcmNofDF8fGNhZmV8ZW58MHx8fHwxNjc4MTk2ODI4&ixlib=rb-4.0.3&q=80&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450")
-    no-repeat center center fixed;
+  background: url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?crop=entropy&cs=tinysrgb&fm=jpg&ixid=Mnw3MjAxN3wwfDF8c2VhcmNofDF8fGNhZmV8ZW58MHx8fHwxNjc4MTk2ODI4&ixlib=rb-4.0.3&q=80&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -381,17 +380,17 @@ body {
 
 /* Pagina feed muro */
 .containerFeed {
-  flex-direction: column;  
+  display: block;
   width: 100%;
-  margin: 0%;
-  height: 800px;
-  overflow: auto;
+  margin-bottom: 3em;
 }
+
 .logoFeed {
   display: block;
   color: rgb(112, 97, 11);
   text-align: center;
 }
+
 .lineaDorada {
   width: 100%;
   height: 0%;
@@ -399,16 +398,18 @@ body {
   margin-top: 0%;
   /*  border-top: 5px; */
 }
-.postsSection{
+
+.postsSection {
   overflow-y: visible;
-  height: 200px;
 }
+
 .sectionWonderland {
   display: block;
   position: relative;
   width: 100%;
   margin-bottom: 2%;
 }
+
 .title {
   display: flex;
   align-items: center;
@@ -430,15 +431,16 @@ body {
 }
 
 .iconEdit {
-  display: inline;  
+  display: inline;
   height: 1.6em;
-  margin-top: 0%; 
+  margin-top: 0%;
   margin-left: 5%;
 }
-.iconDelete{
-  display: inline;  
+
+.iconDelete {
+  display: inline;
   height: 1.2em;
-  margin-top: 0%; 
+  margin-top: 0%;
   margin-left: 0%;
 }
 
@@ -477,15 +479,17 @@ body {
 }
 
 .inputComments {
-margin-top: 2%;
-margin-left: 1.5%;
+  margin-top: 2%;
+  margin-left: 1.5%;
 }
+
 .save {
   display: inline;
   height: 1.5em;
   margin-left: 63%;
   margin-top: 1.8%;
 }
+
 .commentsPost {
   padding-left: 2%;
   margin-top: 0%;
@@ -493,42 +497,52 @@ margin-left: 1.5%;
   display: inline;
   font-weight: bolder;
 }
+
 /* MENU PIE DE PAGINA*/
 .menuIcono {
-  position: fixed; 
+  position: fixed;
   width: 100%;
   height: 2em;
   bottom: 0%;
   background-color: rgb(233, 230, 230);
+  z-index: 200;
 }
+
 .profileIcono {
   display: inline;
   height: 2em;
   margin-left: 1.5%;
   margin-top: 0%;
 }
+
 .addIcono {
   display: inline;
   height: 2em;
   margin-left: 36%;
   margin-top: 0%;
 }
+
 .signOut {
   display: inline;
   height: 1.8em;
   margin-left: 36%;
   margin-top: 0%;
 }
+
 .modalPost {
-  display: none; /* oculta la ventana modal por defecto */
-  position: absolute; /* posiciona la ventana modal en la pantalla */
-  z-index: 0; /* coloca la ventana modal en la parte superior de todo */
+  display: none;
+  /* oculta la ventana modal por defecto */
+  position: absolute;
+  /* posiciona la ventana modal en la pantalla */
+  z-index: 0;
+  /* coloca la ventana modal en la parte superior de todo */
   left: 0;
   top: 0%;
   width: 100%;
   height: 100%;
   padding: 10%;
-  background-color: rgba(0, 0, 0, 0.836); /* agrega un fondo oscuro para resaltar la ventana modal */
+  background-color: rgba(0, 0, 0, 0.836);
+  /* agrega un fondo oscuro para resaltar la ventana modal */
 }
 
 .modal-content {
@@ -557,15 +571,19 @@ margin-left: 1.5%;
 }
 
 .modalEditPost {
-  display: none; /* oculta la ventana modal por defecto */
-  position: absolute; /* posiciona la ventana modal en la pantalla */
-  z-index: 0; /* coloca la ventana modal en la parte superior de todo */
+  display: none;
+  /* oculta la ventana modal por defecto */
+  position: absolute;
+  /* posiciona la ventana modal en la pantalla */
+  z-index: 0;
+  /* coloca la ventana modal en la parte superior de todo */
   left: 0;
   top: 0%;
   width: 100%;
   height: 100%;
   padding: 10%;
-  background-color: rgba(0, 0, 0, 0.836); /* agrega un fondo oscuro para resaltar la ventana modal */
+  background-color: rgba(0, 0, 0, 0.836);
+  /* agrega un fondo oscuro para resaltar la ventana modal */
 }
 
 .modal-contentEdit {
@@ -586,15 +604,17 @@ margin-left: 1.5%;
   cursor: pointer;
   margin-right: 10px;
 }
+
 .saveEditPost:hover {
   opacity: 0.6;
 }
 
-.parrafoComentario{
- margin-left: 2%;
- font-size: small;
- margin-block-start: 5%;
+.parrafoComentario {
+  margin-left: 2%;
+  font-size: small;
+  margin-block-start: 5%;
 }
+
 /*pagina PROFILE*/
 .containerProfile {
   position: relative;
@@ -613,6 +633,7 @@ margin-left: 1.5%;
   margin-top: 10%;
   margin-left: -35%;
 }
+
 .buttonFavorite {
   background-color: rgb(207, 130, 66);
   position: absolute;
@@ -622,18 +643,21 @@ margin-left: 1.5%;
   border-radius: 7px;
   margin-block-start: 47%;
 }
+
 .imgFavorite {
   position: absolute;
   left: 4%;
   top: 10%;
   height: 85%;
 }
+
 .favorite {
   font-weight: lighter;
   font-size: 17px;
   color: black;
   cursor: pointer;
 }
+
 .buttonSave {
   background-color: rgb(207, 130, 66);
   position: absolute;
@@ -650,6 +674,7 @@ margin-left: 1.5%;
   top: 10%;
   height: 85%;
 }
+
 .savedProfile {
   font-weight: bold;
   font-size: 17px;
@@ -657,6 +682,7 @@ margin-left: 1.5%;
   cursor: pointer;
   margin-left: 0%;
 }
+
 .buttonMap {
   background-color: rgb(207, 130, 66);
   position: absolute;
@@ -666,12 +692,14 @@ margin-left: 1.5%;
   border-radius: 7px;
   margin-block-start: 93%;
 }
+
 .imgMap {
   position: absolute;
   left: 4%;
   top: 10%;
   height: 85%;
 }
+
 .map {
   font-weight: lighter;
   font-size: 17px;
@@ -687,12 +715,14 @@ margin-left: 1.5%;
   bottom: 0%;
   background-color: rgb(233, 230, 230);
 }
+
 .homeIconoProfile {
   display: inline;
   height: 2.3em;
   margin-left: 6%;
   margin-top: 1.5%;
 }
+
 .signOutProfile {
   display: inline;
   height: 2.3em;
@@ -716,7 +746,7 @@ cel-tablet*/
 
 /*codigos nos servirán para que sean responsives en diferentes equipos :)
 tablet*/
-@media only screen and (min-device-width: 761px) {
+@media only screen and (min-device-width: 740px) {
   .containerLogin {
     padding: 0% 20% 0% 20%;
   }
@@ -728,23 +758,42 @@ tablet*/
   #correoRegister {
     margin-block-start: 0%;
   }
+
   .logoCaffee {
     margin-top: 0%;
   }
-  .containerFeed{
+
+  .containerFeed {
     padding: 0% 20% 0% 20%;
+
   }
-  .save{
-  margin-right: -20%;
+
+  .save {
+    margin-right: -20%;
   }
-  .menuIcono{
-    padding: 0% 20% 0% 20%;
+
+  .menuIcono {
+    position: fixed;
+    width: 60%;
   }
+
+  .profileIcono {
+    margin-left: 2%;
+  }
+
+  .addIcono {
+    margin-left: 40%;
+  }
+
+  .signOut {
+    margin-left: 35%;
+  }
+
 }
 
 /*codigos nos servirán para que sean responsives en diferentes equipos :)
 computador*/
-@media only screen and (min-device-width: 852px) {
+@media only screen and (min-device-width: 860px) {
   .containerLogin {
     padding: 0% 30% 0% 30%;
   }
@@ -770,10 +819,28 @@ computador*/
     margin-block-start: 1%;
   }
 
-  .containerFeed{
+  .containerFeed {
     padding: 0% 30% 0% 30%;
   }
+
+  .menuIcono {
+    position: fixed;
+    width: 40%;
   }
+
+  .profileIcono {
+    margin-left: 2%;
+  }
+
+  .addIcono {
+    margin-left: 40%;
+  }
+
+  .signOut {
+    margin-left: 40%;
+  }
+
+}
 
 /* .containerRegister {
     height: auto;
