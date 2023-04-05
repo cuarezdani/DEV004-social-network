@@ -17,22 +17,19 @@ const firebaseConfig = {
   appId: '1:1039410541481:web:90c0f8f334504bcd5e0ab8',
   measurementId: 'G-FGEFCNDPJQ',
 };
-
-export const initFirebase = () => {
 // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  // Initialize Cloud Firestore and get a reference to the service
-  const db = getFirestore(app);
+export const app = initializeApp(firebaseConfig);
+// Initialize Cloud Firestore and get a reference to the service
+export const db = getFirestore(app);
 
-  // Initialize Firebase Authentication and get a reference to the service
-  const auth = getAuth(app);
-  const provider = new GoogleAuthProvider();
+// Initialize Firebase Authentication and get a reference to the service
+export const auth = getAuth(app);
+export const provider = new GoogleAuthProvider();
 
-  return {
-    app,
-    auth,
-    db,
-    provider,
-  };
-};
+export const initFirebase = () => ({
+  app,
+  auth,
+  db,
+  provider,
+});
 // const analytics = getAnalytics(app);

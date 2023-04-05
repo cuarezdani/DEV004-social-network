@@ -1,4 +1,5 @@
 // import { onNavigate } from '../router';
+import { auth } from '../lib/fireBase';
 import {
   onPostsChange,
   addCommentToPost,
@@ -7,6 +8,7 @@ import {
   getComments,
   updatePost,
 } from '../lib/Collecction';
+console.log(auth);
 
 export const Feed = () => {
   const containerFeed = document.createElement('div');
@@ -88,6 +90,20 @@ export const Feed = () => {
       const favorite = document.createElement('img');
       favorite.className = 'favoriteFeed';
       favorite.src = '../imagenes/favorite.png';
+
+      // Like
+      const likeContador = document.createElement('span');
+      likeContador.className = 'likes';
+      let likes = 0; // comienza el contador con el 0
+      likeContador.textContent = likes; // nos deberia dar lo escrito del like
+      // se usa handle para los eventos del boton dando funcionalidades en el metodo click
+      function handleLikeClick() {
+        // eslint-disable-next-line no-plusplus
+        likes++;
+        likeContador.textContent = likes;
+      }
+      // se llama al like para qeu sea escuchado en el dom
+      like.addEventListener('click', handleLikeClick);
 
       const iconComment = document.createElement('img');
       iconComment.className = 'iconComment';
@@ -205,23 +221,6 @@ export const Feed = () => {
         inputComments.style.display = 'none';
       });
 
-      /* else {
-        buttonComment.style.display = 'none';
-      } */
-      // Like
-      const likeContador = document.createElement('span');
-      likeContador.className = 'likes';
-      let likes = 0; // comienza el contador con el 0
-      likeContador.textContent = likes; // nos deberia dar lo escrito del like
-      // se usa handle para los eventos del boton dando funcionalidades en el metodo click
-      function handleLikeClick() {
-        // eslint-disable-next-line no-plusplus
-        likes++;
-        likeContador.textContent = likes;
-      }
-      // se llama al like para qeu sea escuchado en el dom
-      like.addEventListener('click', handleLikeClick);
-
       // postsSection.append(section);
       section.append(
         title,
@@ -232,7 +231,7 @@ export const Feed = () => {
         inputComments,
       );
       title.append(imgWonderland, strong, iconEdit, iconDelete);
-      sectionIconos.append(like, favorite, iconComment, save);
+      sectionIconos.append(like, likeContador, favorite, iconComment, save);
       descPost.append(commentPost);
       inputComments.append(descriptionComment, buttonComment);
       // containerFeed.appendChild(sectionComments);
