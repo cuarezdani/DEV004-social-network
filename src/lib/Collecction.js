@@ -7,6 +7,7 @@ import {
   updateDoc,
   query,
   orderBy,
+  setDoc,
 } from 'firebase/firestore';
 // import { getStorage, ref } from 'firebase/storage';
 
@@ -29,6 +30,8 @@ export const deletePost = (docRef) => deleteDoc(docRef);
 export const getComments = (docRef, callback) => onSnapshot(query(collection(docRef, 'Comments'), orderBy('date', 'desc')), callback);
 
 export const updatePost = (docRef, comments) => updateDoc(docRef, comments);
+
+export const saveUser = (user) => addDoc(collection(getFirestore(), 'Users'), user);
 
 // Create a root reference
 /* const storage = getStorage();

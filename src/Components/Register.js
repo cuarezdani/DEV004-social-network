@@ -1,6 +1,9 @@
 /* eslint-disable no-unused-vars */
+
+import { getFirestore } from 'firebase/firestore';
 import { onNavigate } from '../router';
 import { signInWithGoogle, registerWithEmail } from '../lib/Autenticacion';
+import { saveUser } from '../lib/Collecction.js';
 
 export const Register = () => {
   const containerRegister = document.createElement('div');
@@ -9,6 +12,7 @@ export const Register = () => {
   // const backgroundRegister = document.createElement('div');
   // backgroundRegister.className = 'backgroundRegister';
 
+  const doc = getFirestore();
   const logoCaffee = document.createElement('img');
   logoCaffee.src = '../imagenes/logo1.png';
   logoCaffee.className = 'logoCaffee';
@@ -116,9 +120,8 @@ export const Register = () => {
       userInfo.password,
       userInfo.name, // se guardara la inf en el campo display name
     )
-      .then((userCredential) => {
+      .then((user) => {
         // Signed in
-        const user = userCredential.user;
         // alert('Register Accepted');
         window.location.href = '/feed';
       })

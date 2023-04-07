@@ -6,16 +6,23 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   signInWithEmailAndPassword,
+  updateProfile,
 } from 'firebase/auth';
+import { saveUser } from './Collecction';
 
 // Para crear una cuenta nueva, pasa la dirección de correo
 // electrónico y la contraseña del usuario nuevo REGISTER
 export const registerWithEmail = (email, password, displayName) => {
   const auth = getAuth();
   return createUserWithEmailAndPassword(auth, email, password)
+  // updateProfile es una función para actualizar el displayname y sea visible
+    .then((usercredentials) => updateProfile(usercredentials.user, { displayName })
+    // then esta dentro del updateProfile, para que retorne UC ya que UP no devuelve nada
+      .then(() => usercredentials))
     .then((usercredentials) => {
-      const user = usercredentials.user;
-      return user;
+      console.log(usercredentials);
+      const uid = usercredentials.user.uid;
+      return saveUser({ userId: uid, email, name: displayName });
     });
 };
 

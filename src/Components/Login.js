@@ -129,7 +129,14 @@ export const Login = () => {
             errorMessageL.textContent = '';
             errorMessageL.style.display = 'block';
             errorMessageL.textContent = 'Invalid password.';
+          } else if (
+            errorCode === 'auth/user-not-found'
+          ) {
+            errorMessageL.textContent = '';
+            errorMessageL.style.display = 'block';
+            errorMessageL.textContent = 'User not found.';
           }
+
           return error;
 
           // const errorMessage = error.message;

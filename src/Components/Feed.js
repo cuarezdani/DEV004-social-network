@@ -9,7 +9,7 @@ import {
   updatePost,
 } from '../lib/Collecction';
 
-// console.log(auth);
+console.log(auth);
 
 export const Feed = () => {
   const containerFeed = document.createElement('div');
@@ -118,6 +118,9 @@ export const Feed = () => {
       // description post lo que se sube en el modal
       const descPost = document.createElement('div');
       descPost.className = 'describePost';
+      const commentName = document.createElement('strong');
+      commentName.textContent = doc.data().userName;
+      commentName.className = 'commentName';
       const commentPost = document.createElement('p');
       commentPost.textContent = doc.data().comments;
       commentPost.className = 'commentsPost';
@@ -149,7 +152,7 @@ export const Feed = () => {
       textEditPost.type = 'text';
       textEditPost.placeholder = 'Edit a comment';
       const saveEditPost = document.createElement('button');
-      saveEditPost.className = 'savePost';
+      saveEditPost.className = 'saveEditPost';
       saveEditPost.textContent = 'Save';
 
       containerFeed.appendChild(modalEditPost);
@@ -236,7 +239,7 @@ export const Feed = () => {
       );
       title.append(imgWonderland, strong, iconEdit, iconDelete);
       sectionIconos.append(like, likeContador, favorite, iconComment, save);
-      descPost.append(commentPost);
+      descPost.append(commentName, commentPost);
       inputComments.append(descriptionComment, buttonComment);
       // containerFeed.appendChild(sectionComments);
       // sectionComments.append(inputComments);
@@ -244,24 +247,6 @@ export const Feed = () => {
     });
     postsSection.replaceChildren(...arraySection);
   });
-
-  // para mostar el nombre del usuario en los post
-  const user = auth.currentUser;
-  console.log('estoy aqui', user);
-  if (user !== null) {
-    console.log('aqui', user.providerData);
-    user.providerData.forEach(async (profile) => {
-      const name = profile.displayName;
-      //   userName.textContent = name;
-      //   const docRef = doc(db, "users", user.uid);
-      //   const docSnap = await getDoc(docRef);
-      //   if (docSnap.exists()) {
-      //     const nameF = docSnap.data().displayName;
-      //     userName.textContent = nameF;
-      //   }
-      // });
-    });
-  }
 
   // MENÚ ICONOS PIE DE PAGINA
   const menuIcono = document.createElement('section');
@@ -318,12 +303,15 @@ export const Feed = () => {
   });
 
   savePost.addEventListener('click', async () => {
+    console.log('asd', auth);
     if (textPost.value) {
       console.log(textPost.value);
       const post = {
         Title: titlePost.value,
         comments: textPost.value,
         date: new Date(),
+        // se obtiene el nombre de usuario de la autenticación
+        userName: auth.currentUser.displayName,
         // id: auth.currentUser.uid,
       };
       await addPost(post);

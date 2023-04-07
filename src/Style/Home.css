@@ -9,7 +9,6 @@ body {
 }
 
 /*Pagina Home*/
-
 .container {
   position: relative;
   background: url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?crop=entropy&cs=tinysrgb&fm=jpg&ixid=Mnw3MjAxN3wwfDF8c2VhcmNofDF8fGNhZmV8ZW58MHx8fHwxNjc4MTk2ODI4&ixlib=rb-4.0.3&q=80&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450") no-repeat center center fixed;
@@ -346,6 +345,7 @@ body {
   height: 4em;
   bottom: 0%;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .imgGoogle {
@@ -476,6 +476,7 @@ body {
   height: 1.6em;
   margin-left: 3%;
   margin-top: 1.5%;
+  cursor: pointer;
 }
 
 .inputComments {
@@ -488,23 +489,30 @@ body {
   height: 1.5em;
   margin-left: 63%;
   margin-top: 1.8%;
+  cursor: pointer;
 }
+.commentName {
+  display: inline;
+  font-weight: bolder;
+  font-size: small;
+  padding: 2%;
 
+}
 .commentsPost {
-  padding-left: 2%;
   margin-top: 0%;
   width: 100%;
   display: inline;
-  font-weight: bolder;
+  font-weight: lighter;
+  font-size: small;
 }
 
 /* MENU PIE DE PAGINA*/
 .menuIcono {
   position: fixed;
   width: 100%;
-  height: 2em;
+  height: 2.5em;
   bottom: 0%;
-  background-color: rgb(233, 230, 230);
+  background-color: rgb(239, 236, 236);
   z-index: 200;
 }
 
@@ -512,21 +520,24 @@ body {
   display: inline;
   height: 2em;
   margin-left: 1.5%;
-  margin-top: 0%;
+  margin-top: 1%;
+  cursor: pointer;
 }
 
 .addIcono {
   display: inline;
   height: 2em;
   margin-left: 36%;
-  margin-top: 0%;
+  margin-top: 1%;
+  cursor: pointer;
 }
 
 .signOut {
   display: inline;
   height: 1.8em;
   margin-left: 36%;
-  margin-top: 0%;
+  margin-top: 1%;
+  cursor: pointer;
 }
 
 .modalPost {
@@ -540,9 +551,10 @@ body {
   top: 0%;
   width: 100%;
   height: 100%;
-  padding: 10%;
-  background-color: rgba(0, 0, 0, 0.836);
+  padding: 4rem;
+  background-color: rgba(0, 0, 0, 0.836); 
   /* agrega un fondo oscuro para resaltar la ventana modal */
+
 }
 
 .modal-content {
@@ -551,9 +563,25 @@ body {
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
-  max-width: 600px;
+  max-width: 600px; 
 }
 
+.titlePost {
+  width: 100%;
+  height: 100%;
+  margin-block-end: 6%;
+  align-items: center;
+}
+
+.textPost {
+  width: 100%;
+  height: 100%;
+  margin-block-end: 6%;
+}
+
+.savePost {
+  margin-left: 33.6%;
+}
 /* Agrega estilos para los botones en la ventana modal */
 .buttonPicture,
 .savePost {
@@ -563,6 +591,7 @@ body {
   border: none;
   cursor: pointer;
   margin-right: 10px;
+  height: 3em;
 }
 
 .buttonPicture:hover,
@@ -595,6 +624,7 @@ body {
   max-width: 600px;
 }
 
+
 /* Agrega estilos para los botones en la ventana modal */
 .saveEditPost {
   background-color: #4caf50;
@@ -602,7 +632,9 @@ body {
   padding: 10px;
   border: none;
   cursor: pointer;
-  margin-right: 10px;
+  width: 50%;
+  margin-left: 25%;
+
 }
 
 .saveEditPost:hover {
@@ -766,7 +798,7 @@ tablet*/
   .containerFeed {
     padding: 0% 20% 0% 20%;
 
-  }
+  }p
 
   .save {
     margin-right: -20%;
@@ -787,6 +819,9 @@ tablet*/
 
   .signOut {
     margin-left: 35%;
+  }
+  .modalPost, .modalEditPost {
+    padding: 20%;
   }
 
 }
@@ -839,7 +874,13 @@ computador*/
   .signOut {
     margin-left: 40%;
   }
+  .modalPost{
+    padding: 30%;
+  }
 
+  .modalEditPost{
+  padding: 30%;
+  }
 }
 
 /* .containerRegister {
