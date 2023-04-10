@@ -62,6 +62,8 @@ export const Feed = () => {
       favorite.className = 'favoriteFeed';
       favorite.src = '../imagenes/favorite.png';
 
+      const likeInterfaz = document.createElement('span');
+      likeInterfaz.id = 'likeInterfaz';
       const like = document.createElement('img');
       like.className = 'like';
       like.setAttribute('like', doc.data().id);
@@ -71,11 +73,14 @@ export const Feed = () => {
         console.log(doc.data);
         // eslint-disable-next-line no-unused-vars
         const currentUserLike = auth.currentUser.uid;
-        // eslint-disable-next-line no-unused-vars
         const postLike = doc.data().likes;
         updatePost(doc.ref, {
           likes: [...doc.data().likes, auth.currentUser.uid],
         }); // spread operation
+        const likeInterfaz= document.getElementById('likeInterfaz');
+        // se usa innerText para que sea vea reflejado en el span
+        // y se cuenta en 1 el arreglo del like
+        likeInterfaz.innerText = postLike.length + 1;
       });
 
       const iconComment = document.createElement('img');
@@ -167,7 +172,7 @@ export const Feed = () => {
           async () => {
             // si los usuarios son iguales se eliminan
             await deletePost(doc.id);
-          }/* else {
+          } /* else {
             console.log('You can not delete this post.');
           }
         } else {
@@ -233,16 +238,9 @@ export const Feed = () => {
         inputComments
       );
       title.append(imgWonderland, strong, iconEdit, iconDelete);
-      sectionIconos.append(
-        like,
-        favorite,
-        iconComment,
-        save
-      );
+      sectionIconos.append(like, likeInterfaz, favorite, iconComment, save);
       descPost.append(commentName, commentPost);
       inputComments.append(descriptionComment, buttonComment);
-      // containerFeed.appendChild(sectionComments);
-      // sectionComments.append(inputComments);
       arraySection.push(section);
     });
     postsSection.replaceChildren(...arraySection);
