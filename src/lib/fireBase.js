@@ -32,4 +32,3 @@ export const initFirebase = () => ({
   db,
   provider,
 });
-// const analytics = getAnalytics(app);

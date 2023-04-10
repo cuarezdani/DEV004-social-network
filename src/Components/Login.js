@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-shadow */
-/* eslint-disable import/no-cycle */
 import { onNavigate } from '../router';
 import { signInWithGoogle, signInWithPassword } from '../lib/Autenticacion';
 

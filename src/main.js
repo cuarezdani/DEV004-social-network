@@ -27,13 +27,5 @@ window.onpopstate = () => {
   onNavigate(window.location.pathname);
 };
 
-// authStateChangedEvent((user) => {
-//   if (user) {
-//     onNavigate('/feed');
-//   } else {
-//     onNavigate('/');
-//   }
-// });
-
 // Initialize Firebase
 initFirebase();

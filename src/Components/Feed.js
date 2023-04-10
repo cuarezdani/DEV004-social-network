@@ -6,7 +6,6 @@ import {
   deletePost,
   getComments,
   updatePost,
-  likes,
 } from '../lib/Collecction';
 import { signOutUser } from '../lib/Autenticacion';
 import { onNavigate } from '../router';
@@ -62,38 +61,22 @@ export const Feed = () => {
       const favorite = document.createElement('img');
       favorite.className = 'favoriteFeed';
       favorite.src = '../imagenes/favorite.png';
-  
-      // Likes
+
       const like = document.createElement('img');
       like.className = 'like';
-      like.setAttribute = ('like', doc.data().id);
+      like.setAttribute('like', doc.data().id);
       like.src = '../imagenes/like.png';
       like.textContent = doc.data().likes;
-      const likesContador = document.createElement('p');
-      likesContador.className = 'likeContador';
-      const postLike = doc.data().likes;
-      const likeContador = postLike;
-      console.log(postLike);
-      likesContador.textContent = `${likeContador} likes`;
-      const buttonLike =  postsSection.querySelectorAll('like');
-      buttonLike.forEach((like) => {
-        like.addEventListener('click', async () => { 
-        const currentUser = like.getAttribute('like');
-        if (currentUser === doc.data().id){
-          await 
-          await deletePost(doc.id);
-      })
-      /*
-      let likes = 0; // comienza el contador con el 0
-      likeContador.textContent = doc.data().likes; // nos deberia dar lo escrito del like
-      // se usa handle para los eventos del boton dando funcionalidades en el metodo click
-      function handleLikeClick() {
-        // eslint-disable-next-line no-plusplus
-        likes++;
-        likeContador.textContent = doc.data().likes;
-      } */
-      // se llama al like para qeu sea escuchado en el dom
-      // like.addEventListener('click',  handleLikeClick );
+      like.addEventListener('click', async () => {
+        console.log(doc.data);
+        // eslint-disable-next-line no-unused-vars
+        const currentUserLike = auth.currentUser.uid;
+        // eslint-disable-next-line no-unused-vars
+        const postLike = doc.data().likes;
+        updatePost(doc.ref, {
+          likes: [...doc.data().likes, auth.currentUser.uid],
+        }); // spread operation
+      });
 
       const iconComment = document.createElement('img');
       iconComment.className = 'iconComment';
@@ -121,10 +104,6 @@ export const Feed = () => {
       iconEdit.src = '../imagenes/editar.png';
       console.log(doc);
 
-      /* iconDelete.addEventListener('click', async () => {
-        await deletePost(doc.ref);
-      }); */
-      // iconDelete.addEventListener('click', async () => {
       // debemos obtener al usuario
       const currentUser = auth.currentUser.uid;
       const postUser = doc.data().id;
@@ -132,12 +111,7 @@ export const Feed = () => {
         iconDelete.addEventListener('click', async () => {
           // si los usuarios son iguales se eliminan
           await deletePost(doc.id);
-        }, /* else {
-            console.log('You can not delete this post.');
-          }
-        } else {
-          console.log('You need to login to delete a post.'); */
-        );
+        });
       }
       // Modal para editar post
       const modalEditPost = document.createElement('section');
@@ -188,10 +162,12 @@ export const Feed = () => {
           });
         });
 
-        iconDelete.addEventListener('click', async () => {
-          // si los usuarios son iguales se eliminan
-          await deletePost(doc.id);
-        }, /* else {
+        iconDelete.addEventListener(
+          'click',
+          async () => {
+            // si los usuarios son iguales se eliminan
+            await deletePost(doc.id);
+          }/* else {
             console.log('You can not delete this post.');
           }
         } else {
@@ -254,10 +230,15 @@ export const Feed = () => {
         sectionIconos,
         descPost,
         parrafoComentario,
-        inputComments,
+        inputComments
       );
       title.append(imgWonderland, strong, iconEdit, iconDelete);
-      sectionIconos.append(like, likeContador, favorite, iconComment, save);
+      sectionIconos.append(
+        like,
+        favorite,
+        iconComment,
+        save
+      );
       descPost.append(commentName, commentPost);
       inputComments.append(descriptionComment, buttonComment);
       // containerFeed.appendChild(sectionComments);

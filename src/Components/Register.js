@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-
 import { getFirestore } from 'firebase/firestore';
 import { onNavigate } from '../router';
 import { signInWithGoogle, registerWithEmail } from '../lib/Autenticacion';
@@ -8,9 +7,6 @@ import { saveUser } from '../lib/Collecction.js';
 export const Register = () => {
   const containerRegister = document.createElement('div');
   containerRegister.className = 'containerRegister';
-
-  // const backgroundRegister = document.createElement('div');
-  // backgroundRegister.className = 'backgroundRegister';
 
   const doc = getFirestore();
   const logoCaffee = document.createElement('img');
