@@ -33,6 +33,8 @@ export const updatePost = (docRef, comments) => updateDoc(docRef, comments);
 
 export const saveUser = (user) => addDoc(collection(getFirestore(), 'Users'), user);
 
+export const likes = [];
+
 // export const storage = firebase.storage();
 
 // Create a root reference

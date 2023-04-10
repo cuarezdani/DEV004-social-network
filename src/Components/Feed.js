@@ -6,6 +6,7 @@ import {
   deletePost,
   getComments,
   updatePost,
+  likes,
 } from '../lib/Collecction';
 import { signOutUser } from '../lib/Autenticacion';
 import { onNavigate } from '../router';
@@ -58,26 +59,41 @@ export const Feed = () => {
       // Iconos
       const sectionIconos = document.createElement('div');
       sectionIconos.className = 'sectionIconos';
-      const like = document.createElement('img');
-      like.className = 'like';
-      like.src = '../imagenes/like.png';
       const favorite = document.createElement('img');
       favorite.className = 'favoriteFeed';
       favorite.src = '../imagenes/favorite.png';
-
-      // Like
-      const likeContador = document.createElement('span');
-      likeContador.className = 'likes';
+  
+      // Likes
+      const like = document.createElement('img');
+      like.className = 'like';
+      like.setAttribute = ('like', doc.data().id);
+      like.src = '../imagenes/like.png';
+      like.textContent = doc.data().likes;
+      const likesContador = document.createElement('p');
+      likesContador.className = 'likeContador';
+      const postLike = doc.data().likes;
+      const likeContador = postLike;
+      console.log(postLike);
+      likesContador.textContent = `${likeContador} likes`;
+      const buttonLike =  postsSection.querySelectorAll('like');
+      buttonLike.forEach((like) => {
+        like.addEventListener('click', async () => { 
+        const currentUser = like.getAttribute('like');
+        if (currentUser === doc.data().id){
+          await 
+          await deletePost(doc.id);
+      })
+      /*
       let likes = 0; // comienza el contador con el 0
-      likeContador.textContent = likes; // nos deberia dar lo escrito del like
+      likeContador.textContent = doc.data().likes; // nos deberia dar lo escrito del like
       // se usa handle para los eventos del boton dando funcionalidades en el metodo click
       function handleLikeClick() {
         // eslint-disable-next-line no-plusplus
         likes++;
-        likeContador.textContent = likes;
-      }
+        likeContador.textContent = doc.data().likes;
+      } */
       // se llama al like para qeu sea escuchado en el dom
-      like.addEventListener('click', handleLikeClick);
+      // like.addEventListener('click',  handleLikeClick );
 
       const iconComment = document.createElement('img');
       iconComment.className = 'iconComment';
@@ -162,7 +178,7 @@ export const Feed = () => {
 
           saveEditPost.addEventListener('click', async () => {
             try {
-              await updatePost(doc.id, {
+              await updatePost(doc.ref, {
                 comments: textEditPost.value,
                 Title: titleEditPost.value,
               });
@@ -171,6 +187,7 @@ export const Feed = () => {
             }
           });
         });
+
         iconDelete.addEventListener('click', async () => {
           // si los usuarios son iguales se eliminan
           await deletePost(doc.id);
@@ -330,6 +347,7 @@ export const Feed = () => {
         // se obtiene el nombre de usuario de la autenticación
         userName: auth.currentUser.displayName,
         id: auth.currentUser.uid,
+        likes: [],
       };
       await addPost(post);
       titlePost.value = '';

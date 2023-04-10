@@ -65,6 +65,7 @@ export const Profile = () => {
   signOutProfile.addEventListener('click', () => {
     signOutUser()
       .then(() => {
+        // eslint-disable-next-line no-undef
         console.log(signOutUser(auth));
         onNavigate('/');
       })
@@ -72,11 +73,6 @@ export const Profile = () => {
         const errorCode = error.code;
         return errorCode;
       });
-  }); 
+  });
   return containerProfile;
 };
-
-/* const homeIcono = document.createElement('img');
-      homeIcono.className = 'homeIcono';
-      homeIcono.src = '../imagenes/casa-silueta-negra-sin-puerta.png';
-      */
