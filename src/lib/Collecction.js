@@ -1,3 +1,4 @@
+// import { getStorage, ref } from 'firebase/storage';
 import {
   collection,
   getFirestore,
@@ -7,9 +8,8 @@ import {
   updateDoc,
   query,
   orderBy,
-  setDoc,
+  doc,
 } from 'firebase/firestore';
-// import { getStorage, ref } from 'firebase/storage';
 
 /* export const getPosts = async () => {
   const querySnapshot = await getDocs(collection(getFirestore(), 'Posts'));
@@ -25,13 +25,15 @@ export const addCommentToPost = (postRef, comment) => addDoc(collection(postRef,
 
 export const addPost = (post) => addDoc(collection(getFirestore(), 'Posts'), post);
 
-export const deletePost = (docRef) => deleteDoc(docRef);
+export const deletePost = (docRef) => deleteDoc(doc(getFirestore(), 'Posts', docRef));
 
 export const getComments = (docRef, callback) => onSnapshot(query(collection(docRef, 'Comments'), orderBy('date', 'desc')), callback);
 
 export const updatePost = (docRef, comments) => updateDoc(docRef, comments);
 
 export const saveUser = (user) => addDoc(collection(getFirestore(), 'Users'), user);
+
+// export const storage = firebase.storage();
 
 // Create a root reference
 /* const storage = getStorage();

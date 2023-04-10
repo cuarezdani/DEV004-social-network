@@ -1,4 +1,3 @@
-// import { onNavigate } from '../router';
 import { auth } from '../lib/fireBase';
 import {
   onPostsChange,
@@ -8,6 +7,8 @@ import {
   getComments,
   updatePost,
 } from '../lib/Collecction';
+import { signOutUser } from '../lib/Autenticacion';
+import { onNavigate } from '../router';
 
 console.log(auth);
 
@@ -24,24 +25,6 @@ export const Feed = () => {
   lineaDorada.className = 'lineaDorada';
   const linea = document.createElement('hr'); // linea y or
   linea.className = 'linea';
-
-  // cree section para que se contengan los comentarios y queden  con el otro section
-  /* const commentImg = document.createElement('section');
-  commentImg.className = 'commentImg';
-  const usuario = document.createElement('h3');
-  usuario.className = 'usuario';
-  usuario.textContent = 'cony_2';
-  const comentario = document.createElement('h3');
-  comentario.className = 'comentario;
-  comentario.textContent = ' */
-
-  // se crea una variable para que se guarden los numeros de los likes
-  // se crea un span el cual es un elemtno en linea que solo toma el espacio que se le da
-
-  // like.getElementsById('clickbtn');
-  //  function printClick() {
-  //  console.log('hiciste click'); }
-  // like.addEventListener('click', printClick);
 
   containerFeed.append(logoFeed);
   containerFeed.append(lineaDorada);
@@ -71,16 +54,6 @@ export const Feed = () => {
       fotoMuro.className = 'fotoMuro';
       fotoMuro.textContent = doc.data().image;
       fotoMuro.src = '../imagenes/emilliecoffee.jpg';
-
-      /* const sectionComments = document.createElement('section');
-      sectionComments.className = 'sectionComments';
-      const inputComments = document.createElement('input'); // input para que escriban
-      inputComments.type = 'text';
-      inputComments.placeholder = 'Leave a comment'; */
-      // pero se neceista llamar o dejar el comentario hacer boton?
-
-      // section general, span corazon+button, span favorito estrella+button,
-      // span comentarios+button, span guardar+
 
       // Iconos
       const sectionIconos = document.createElement('div');
@@ -130,11 +103,26 @@ export const Feed = () => {
       const iconEdit = document.createElement('img');
       iconEdit.className = 'iconEdit';
       iconEdit.src = '../imagenes/editar.png';
+      console.log(doc);
 
-      iconDelete.addEventListener('click', async () => {
+      /* iconDelete.addEventListener('click', async () => {
         await deletePost(doc.ref);
-      });
-
+      }); */
+      // iconDelete.addEventListener('click', async () => {
+      // debemos obtener al usuario
+      const currentUser = auth.currentUser.uid;
+      const postUser = doc.data().id;
+      if (currentUser === postUser) {
+        iconDelete.addEventListener('click', async () => {
+          // si los usuarios son iguales se eliminan
+          await deletePost(doc.id);
+        }, /* else {
+            console.log('You can not delete this post.');
+          }
+        } else {
+          console.log('You need to login to delete a post.'); */
+        );
+      }
       // Modal para editar post
       const modalEditPost = document.createElement('section');
       modalEditPost.id = 'modalEditPost';
@@ -160,25 +148,39 @@ export const Feed = () => {
       createEditPost.append(titleEditPost, textEditPost, saveEditPost);
 
       // eslint-disable-next-line no-unused-vars
-      const modal = document.getElementById('modalPost');
-      iconEdit.addEventListener('click', () => {
-        modalEditPost.style.display = 'block';
-      });
+      const currentUserEdit = auth.currentUser.uid;
+      const postUserEdit = doc.data().id;
+      if (currentUserEdit === postUserEdit) {
+        // eslint-disable-next-line no-unused-vars
+        const modal = document.getElementById('modalPost');
+        iconEdit.addEventListener('click', () => {
+          modalEditPost.style.display = 'block';
 
-      saveEditPost.addEventListener('click', () => {
-        modalEditPost.style.display = 'none';
-      });
-
-      saveEditPost.addEventListener('click', async () => {
-        try {
-          await updatePost(doc.ref, {
-            comments: textEditPost.value,
-            Title: titleEditPost.value,
+          saveEditPost.addEventListener('click', () => {
+            modalEditPost.style.display = 'none';
           });
-        } catch (err) {
-          console.log(err);
-        }
-      });
+
+          saveEditPost.addEventListener('click', async () => {
+            try {
+              await updatePost(doc.id, {
+                comments: textEditPost.value,
+                Title: titleEditPost.value,
+              });
+            } catch (err) {
+              console.log(err);
+            }
+          });
+        });
+        iconDelete.addEventListener('click', async () => {
+          // si los usuarios son iguales se eliminan
+          await deletePost(doc.id);
+        }, /* else {
+            console.log('You can not delete this post.');
+          }
+        } else {
+          console.log('You need to login to delete a post.'); */
+        );
+      }
 
       // comentario y boton
       const inputComments = document.createElement('div');
@@ -264,6 +266,21 @@ export const Feed = () => {
   containerFeed.appendChild(menuIcono);
   menuIcono.append(profileIcono, addIcono, signOut);
 
+  profileIcono.addEventListener('click', () => {
+    onNavigate('/profile');
+  });
+  // Botón de cerrar sesión
+  signOut.addEventListener('click', () => {
+    signOutUser()
+      .then(() => {
+        console.log(signOutUser(auth));
+        onNavigate('/');
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        return errorCode;
+      });
+  });
   // Modal para crear post
   const modalPost = document.createElement('section');
   modalPost.id = 'modalPost';
@@ -312,7 +329,7 @@ export const Feed = () => {
         date: new Date(),
         // se obtiene el nombre de usuario de la autenticación
         userName: auth.currentUser.displayName,
-        // id: auth.currentUser.uid,
+        id: auth.currentUser.uid,
       };
       await addPost(post);
       titlePost.value = '';

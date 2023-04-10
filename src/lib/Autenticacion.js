@@ -7,6 +7,7 @@ import {
   GoogleAuthProvider,
   signInWithEmailAndPassword,
   updateProfile,
+  signOut,
 } from 'firebase/auth';
 import { saveUser } from './Collecction';
 
@@ -62,4 +63,9 @@ export const signInWithGoogle = () => {
       window.location.href = '/'; // si nos marca error nos manda al home
       // ...
     });
+};
+
+export const signOutUser = () => {
+  const auth = getAuth();
+  return signOut(auth);
 };

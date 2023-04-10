@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { onNavigate } from '../router';
+import { signOutUser } from '../lib/Autenticacion';
 
 export const Profile = () => {
   const containerProfile = document.createElement('div');
@@ -56,6 +57,22 @@ export const Profile = () => {
   containerProfile.appendChild(menuIconoProfile);
   menuIconoProfile.append(homeIconoProfile, signOutProfile);
 
+  homeIconoProfile.addEventListener('click', () => {
+    onNavigate('/feed');
+  });
+
+  // Botón de cerrar sesión
+  signOutProfile.addEventListener('click', () => {
+    signOutUser()
+      .then(() => {
+        console.log(signOutUser(auth));
+        onNavigate('/');
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        return errorCode;
+      });
+  }); 
   return containerProfile;
 };
 
