@@ -8,7 +8,6 @@ import {
   updatePost,
   sumLike,
   removeLike,
-  getPost,
 } from '../lib/Collecction';
 import { signOutUser } from '../lib/Autenticacion';
 import { onNavigate } from '../router';
@@ -65,6 +64,7 @@ export const Feed = () => {
       favorite.className = 'favoriteFeed';
       favorite.src = '../imagenes/favorite.png';
 
+      // eslint-disable-next-line no-unused-vars
       const currentUserLike = auth.currentUser.uid;
       const postLike = doc.data().likes;
 
@@ -73,41 +73,53 @@ export const Feed = () => {
       likeInterfaz.className = 'likeInterfaz';
       const likeNum = postLike.length + 1;
       likeInterfaz.textContent = `${likeNum} likes`;
+      const containerLike = document.createElement('div');
+      containerLike.className = 'containerLike';
       const like = document.createElement('img');
       like.className = 'like';
       like.id = 'like';
       like.setAttribute('like', doc.data().id);
-      like.src = '../imagenes/like.png';
+      like.src = '../imagenes/like1.png'; // corazon rosa
       like.textContent = doc.data().likes.length;
       // console.log(prueba === undefined?0:prueba.length); Operador Ternario
+      // like.style.display = 'none';
+      const dislike = document.createElement('img');
+      dislike.className = 'dislike';
+      dislike.src = '../imagenes/like.png'; // corazon fondo blanco
+      dislike.style.display = 'none';
 
-      // let userStatus = false;
-      like.addEventListener('click', async () => {
+      if (postLike.includes(auth.currentUser.uid)) {
+        like.style.display = 'flex';
+        dislike.style.display = 'none';
+      } else {
+        like.style.display = 'none';
+        dislike.style.display = 'flex';
+      }
+
+      // eslint-disable-next-line no-unused-vars
+      let userLiked = false; // variable para mantener el me gusta del usuario
+      containerLike.addEventListener('click', async () => { // llamamos al icono like
         console.log(doc.data);
-        // eslint-disable-next-line no-unused-vars
         updatePost(doc.ref, {
           likes: [...doc.data().likes, auth.currentUser.uid],
         }); // spread operation
-        const postUserLike = doc.data().id;
-        // const getIdPost = like.getAttribute('like');
-        if (postUserLike === auth.currentUser.uid) {
-          const document = await getPost(postUserLike);
-          const post = doc.data();
-          if (post.likes.includes(auth.currentUser.uid)) {
-            sumLike(postUserLike, auth.currentUser.uid);
-          } else {
-            removeLike(postUserLike, auth.currentUser.uid);
-
-            /* sumLike(postUserLike, auth.currentUser.uid);
-            userStatus = true;
-          } else if (userStatus) {
-            removeLike(postUserLike, auth.currentUser.uid);
-            userStatus = false; */
-          }
-          console.log(document);
+        // obtenemos el id de la publicacion
+        const postId = doc.id;
+        // obtenemos los datos del objet
+        const post = doc.data();
+        // verifica si el id del usuario esta incluido en los me gusta del post
+        // se usa includes() para saber si en un array hay un cierto valor
+        if (post.likes.includes(auth.currentUser.uid)) {
+          // removeLike lo usamos para restar si ya dío el megusta
+          removeLike(postId, auth.currentUser.uid);
+          userLiked = false;
+        } else {
+          // si el usuario no ha dado sumLike nos suma los me gusta
+          sumLike(postId, auth.currentUser.uid);
+          userLiked = true;
         }
+        console.log(document);
       });
-
 
       const iconComment = document.createElement('img');
       iconComment.className = 'iconComment';
@@ -265,7 +277,8 @@ export const Feed = () => {
         inputComments,
       );
       title.append(imgWonderland, strong, iconEdit, iconDelete);
-      sectionIconos.append(like, favorite, iconComment, save);
+      sectionIconos.append(favorite, iconComment, save, containerLike);
+      containerLike.append(like, dislike);
       descPost.append(commentName, commentPost);
       inputComments.append(descriptionComment, buttonComment);
       arraySection.push(section);
