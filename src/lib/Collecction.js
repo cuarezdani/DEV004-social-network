@@ -9,6 +9,9 @@ import {
   query,
   orderBy,
   doc,
+  arrayUnion,
+  arrayRemove,
+  getDoc,
 } from 'firebase/firestore';
 
 export const onPostsChange = (callback) => onSnapshot(query(collection(getFirestore(), 'Posts'), orderBy('date', 'desc')), callback); // onSnapshot es la función para estar escuchando los cambios de la colección, y el callback es la función que se va a ejecutar cuando hay un cambio en la colección
@@ -24,6 +27,17 @@ export const getComments = (docRef, callback) => onSnapshot(query(collection(doc
 export const updatePost = (docRef, data) => updateDoc(docRef, data);
 
 export const saveUser = (user) => addDoc(collection(getFirestore(), 'Users'), user);
+
+// Obtiene la información de los post
+export const getPost = (id) => getDoc(doc(getFirestore(), 'Posts', id));
+
+export const sumLike = (id, user) => updateDoc(doc(getFirestore(), 'Posts', id), {
+  likes: arrayUnion(user),
+});
+
+export const removeLike = (id, user) => updateDoc(doc(getFirestore(), 'Posts', id), {
+  likes: arrayRemove(user),
+});
 
 // export const storage = firebase.storage();
 

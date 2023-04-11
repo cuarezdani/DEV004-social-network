@@ -454,7 +454,7 @@ body {
 .sectionIconos {
   display: flex;
   width: 100%;
-  height: 3em;
+  height: 2em;
 }
 
 .like {
@@ -463,7 +463,15 @@ body {
   margin-left: 1.5%;
   margin-top: 2%;
 }
+.likeInterfaz {
+  display: block;
+  width: 100%;
+  height: 1em;
+  font-size: small;
+  margin-top: 2%;
+  margin-left: 1.5%;
 
+}
 .favoriteFeed {
   display: inline;
   height: 1.5em;
@@ -495,8 +503,8 @@ body {
   display: inline;
   font-weight: bolder;
   font-size: small;
-  padding: 2%;
-
+  margin-left: 1.5%;
+  padding: 0% 2% 0% 0%;
 }
 .commentsPost {
   margin-top: 0%;

@@ -6,6 +6,9 @@ import {
   deletePost,
   getComments,
   updatePost,
+  sumLike,
+  removeLike,
+  getPost,
 } from '../lib/Collecction';
 import { signOutUser } from '../lib/Autenticacion';
 import { onNavigate } from '../router';
@@ -62,26 +65,49 @@ export const Feed = () => {
       favorite.className = 'favoriteFeed';
       favorite.src = '../imagenes/favorite.png';
 
-      const likeInterfaz = document.createElement('span');
+      const currentUserLike = auth.currentUser.uid;
+      const postLike = doc.data().likes;
+
+      const likeInterfaz = document.createElement('p');
       likeInterfaz.id = 'likeInterfaz';
+      likeInterfaz.className = 'likeInterfaz';
+      const likeNum = postLike.length + 1;
+      likeInterfaz.textContent = `${likeNum} likes`;
       const like = document.createElement('img');
       like.className = 'like';
+      like.id = 'like';
       like.setAttribute('like', doc.data().id);
       like.src = '../imagenes/like.png';
-      like.textContent = doc.data().likes;
+      like.textContent = doc.data().likes.length;
+      // console.log(prueba === undefined?0:prueba.length); Operador Ternario
+
+      // let userStatus = false;
       like.addEventListener('click', async () => {
         console.log(doc.data);
         // eslint-disable-next-line no-unused-vars
-        const currentUserLike = auth.currentUser.uid;
-        const postLike = doc.data().likes;
         updatePost(doc.ref, {
           likes: [...doc.data().likes, auth.currentUser.uid],
         }); // spread operation
-        const likeInterfaz= document.getElementById('likeInterfaz');
-        // se usa innerText para que sea vea reflejado en el span
-        // y se cuenta en 1 el arreglo del like
-        likeInterfaz.innerText = postLike.length + 1;
+        const postUserLike = doc.data().id;
+        // const getIdPost = like.getAttribute('like');
+        if (postUserLike === auth.currentUser.uid) {
+          const document = await getPost(postUserLike);
+          const post = doc.data();
+          if (post.likes.includes(auth.currentUser.uid)) {
+            sumLike(postUserLike, auth.currentUser.uid);
+          } else {
+            removeLike(postUserLike, auth.currentUser.uid);
+
+            /* sumLike(postUserLike, auth.currentUser.uid);
+            userStatus = true;
+          } else if (userStatus) {
+            removeLike(postUserLike, auth.currentUser.uid);
+            userStatus = false; */
+          }
+          console.log(document);
+        }
       });
+
 
       const iconComment = document.createElement('img');
       iconComment.className = 'iconComment';
@@ -172,7 +198,7 @@ export const Feed = () => {
           async () => {
             // si los usuarios son iguales se eliminan
             await deletePost(doc.id);
-          } /* else {
+          }, /* else {
             console.log('You can not delete this post.');
           }
         } else {
@@ -233,12 +259,13 @@ export const Feed = () => {
         title,
         fotoMuro,
         sectionIconos,
+        likeInterfaz,
         descPost,
         parrafoComentario,
-        inputComments
+        inputComments,
       );
       title.append(imgWonderland, strong, iconEdit, iconDelete);
-      sectionIconos.append(like, likeInterfaz, favorite, iconComment, save);
+      sectionIconos.append(like, favorite, iconComment, save);
       descPost.append(commentName, commentPost);
       inputComments.append(descriptionComment, buttonComment);
       arraySection.push(section);
