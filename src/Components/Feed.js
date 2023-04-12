@@ -81,12 +81,13 @@ export const Feed = () => {
       like.setAttribute('like', doc.data().id);
       like.src = '../imagenes/like1.png'; // corazon rosa
       like.textContent = doc.data().likes.length;
+      like.style.display = 'none';
       // console.log(prueba === undefined?0:prueba.length); Operador Ternario
       // like.style.display = 'none';
       const dislike = document.createElement('img');
       dislike.className = 'dislike';
       dislike.src = '../imagenes/like.png'; // corazon fondo blanco
-      dislike.style.display = 'none';
+      // dislike.style.display = 'none';
 
       if (postLike.includes(auth.currentUser.uid)) {
         like.style.display = 'flex';
@@ -96,6 +97,7 @@ export const Feed = () => {
         dislike.style.display = 'flex';
       }
 
+      // Botón like y función para dar like y dislike
       // eslint-disable-next-line no-unused-vars
       let userLiked = false; // variable para mantener el me gusta del usuario
       containerLike.addEventListener('click', async () => { // llamamos al icono like
@@ -142,10 +144,14 @@ export const Feed = () => {
       const iconDelete = document.createElement('img');
       iconDelete.className = 'iconDelete';
       iconDelete.src = '../imagenes/borrar.png';
+      iconDelete.style.display = 'none';
       const iconEdit = document.createElement('img');
       iconEdit.className = 'iconEdit';
       iconEdit.src = '../imagenes/editar.png';
+      iconEdit.style.display = 'none';
       console.log(doc);
+
+      // solo el post del usuario aparezca los iconos
 
       // debemos obtener al usuario
       const currentUser = auth.currentUser.uid;
@@ -155,6 +161,11 @@ export const Feed = () => {
           // si los usuarios son iguales se eliminan
           await deletePost(doc.id);
         });
+        // solo el post del usuario aparezca los iconos
+        if (postUser === currentUser) {
+          iconDelete.style.display = 'flex';
+          iconEdit.style.display = 'flex';
+        }
       }
       // Modal para editar post
       const modalEditPost = document.createElement('section');
@@ -175,14 +186,18 @@ export const Feed = () => {
       const saveEditPost = document.createElement('button');
       saveEditPost.className = 'saveEditPost';
       saveEditPost.textContent = 'Save';
+      const cancelEditPost = document.createElement('button');
+      cancelEditPost.className = 'cancelEditPost';
+      cancelEditPost.textContent = 'Cancel';
 
       containerFeed.appendChild(modalEditPost);
       modalEditPost.appendChild(createEditPost);
-      createEditPost.append(titleEditPost, textEditPost, saveEditPost);
+      createEditPost.append(titleEditPost, textEditPost, saveEditPost, cancelEditPost);
 
       // eslint-disable-next-line no-unused-vars
       const currentUserEdit = auth.currentUser.uid;
       const postUserEdit = doc.data().id;
+
       if (currentUserEdit === postUserEdit) {
         // eslint-disable-next-line no-unused-vars
         const modal = document.getElementById('modalPost');
@@ -190,6 +205,10 @@ export const Feed = () => {
           modalEditPost.style.display = 'block';
 
           saveEditPost.addEventListener('click', () => {
+            modalEditPost.style.display = 'none';
+          });
+
+          cancelEditPost.addEventListener('click', () => {
             modalEditPost.style.display = 'none';
           });
 
@@ -277,7 +296,7 @@ export const Feed = () => {
         inputComments,
       );
       title.append(imgWonderland, strong, iconEdit, iconDelete);
-      sectionIconos.append(favorite, iconComment, save, containerLike);
+      sectionIconos.append(containerLike, favorite, iconComment, save);
       containerLike.append(like, dislike);
       descPost.append(commentName, commentPost);
       inputComments.append(descriptionComment, buttonComment);
