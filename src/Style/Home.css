@@ -416,6 +416,7 @@ body {
   height: 3em;
   margin-bottom: 1%;
   padding: 1%;
+  margin-top: 5%;
 }
 
 .imgWonderland {
@@ -672,6 +673,7 @@ body {
   cursor: pointer;
   width: 50%;
   margin-left: 25%;
+  margin-top: 5%;
 }
 
 .saveEditPost:hover {
@@ -681,7 +683,9 @@ body {
 .parrafoComentario {
   margin-left: 2%;
   font-size: small;
-  margin-block-start: 5%;
+  margin-block-start: 2%;
+  margin-top: 0%;
+
 }
 
 /*pagina PROFILE*/
@@ -817,11 +821,11 @@ cel-tablet*/
 tablet*/
 @media only screen and (min-device-width: 740px) {
   .containerLogin {
-    padding: 0% 20% 0% 20%;
+    padding: 20% 20% 0% 20%;
   }
 
   .containerRegister {
-    padding: 0% 20% 0% 20%;
+    padding: 20% 20% 0% 20%;
   }
 
   #correoRegister {
@@ -867,7 +871,7 @@ tablet*/
 computador*/
 @media only screen and (min-device-width: 860px) {
   .containerLogin {
-    padding: 0% 30% 0% 30%;
+    padding: 5% 30% 0% 30%;
   }
 
   .homeDivLogin {

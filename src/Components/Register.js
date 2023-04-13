@@ -2,13 +2,12 @@
 import { getFirestore } from 'firebase/firestore';
 import { onNavigate } from '../router';
 import { signInWithGoogle, registerWithEmail } from '../lib/Autenticacion';
-import { saveUser } from '../lib/Collecction.js';
 
 export const Register = () => {
   const containerRegister = document.createElement('div');
   containerRegister.className = 'containerRegister';
 
-  const doc = getFirestore();
+  // const doc = getFirestore();
   const logoCaffee = document.createElement('img');
   logoCaffee.src = '../imagenes/logo1.png';
   logoCaffee.className = 'logoCaffee';

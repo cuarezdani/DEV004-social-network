@@ -1,6 +1,8 @@
+/* eslint-disable no-import-assign */
 import { Register } from '../src/Components/Register.js';
 import { Login } from '../src/Components/Login.js';
-
+// import { addRoutes, onNavigate } from '../src/router/index.js';
+import * as Autenticacion from '../src/lib/Autenticacion';
 // eslint-disable-next-line no-unused-vars
 import { onNavigate } from '../src/router/index.js';
 
@@ -43,7 +45,7 @@ describe('Register', () => {
 
 // si el usuario se Logueo correctamente o no
 describe('Login', () => {
-  it('si el usuario ingreso correctamente debe mandar redirigirse al Home', () => {
+  it('si el usuario ingreso correctamente debe mandar redirigirse al feed', () => {
     document.body.appendChild(Login());
     document.getElementById('buttonContinue').click();
 
@@ -51,7 +53,88 @@ describe('Login', () => {
       expect(window.location.href).toBe('/feed');
     });
   });
+  it('Email no registrado', () => {
+    // preparamos el mock
+    Autenticacion.createUser = jest.fn().mockRejectedValueOnce({ code: 'auth/invalid-email' });
+    document.body.innerHTML = "<div id='root'></div>";
+    onNavigate({
+      '/feed': () => { },
+    });
+
+    // Paso 1: Visualizar el formulario de login.
+    const formLogin = Login();
+
+    // Paso 2: Completamos el formulario con un correo electrónico incorrecto.
+    formLogin.querySelector('#correo').value = 'glo.com';
+    formLogin.querySelector('#clave').value = '123456';
+
+    // Paso 3: Enviamos el formulario dando clic en el botón `Login`.
+    formLogin.querySelector('#buttonContinue').dispatchEvent(new Event('click'));
+
+    Promise.reject().catch(() => {
+      if (formLogin.querySelector('#errorMessage').style.display === 'block') {
+        expect(formLogin.querySelector('#errorMessage').textContent).toEqual('Invalid email.');
+      }
+    });
+  });
+
+  it('Password incorrecto', () => {
+    // preparamos el mock
+    Autenticacion.createUser = jest.fn().mockRejectedValueOnce({ code: 'auth/invalid-password' });
+    document.body.innerHTML = "<div id='root'></div>";
+    onNavigate({
+      '/feed': () => { },
+    });
+
+    // Paso 1: Visualizar el formulario de login.
+    const formLogin = Login();
+
+    // Paso 2: Completamos el formulario con un correo electrónico incorrecto.
+    formLogin.querySelector('#correo').value = 'Gloria2@gmail.com';
+    formLogin.querySelector('#clave').value = '12345';
+
+    // Paso 3: Enviamos el formulario dando clic en el botón `Login`.
+    formLogin.querySelector('#buttonContinue').dispatchEvent(new Event('click'));
+
+    Promise.reject().catch(() => {
+      if (formLogin.querySelector('#errorMessage').style.display === 'block') {
+        expect(formLogin.querySelector('#errorMessage').textContent).toEqual('Invalid password.');
+      }
+    });
+  });
 });
+
+/* describe('Pruebas de login', () => {
+  beforeEach(() => {
+    // eslint-disable-next-line no-import-assign
+    Autenticacion.signInWithGoogle = jest.fn();
+    Autenticacion.signInWithPassword = jest.fn();
+    router.onNavigate = jest.fn(() => console.log('mock de navigateTo usado'));
+  });
+
+  it( 'Autenticación con correo electrónico y
+   contraseña correcta, debería redireccionar a /home', () => {
+    // preparamos el mock
+    Autenticacion.signInWithPassword.mockResolvedValueOnce(
+      { user: { email: 'Gloria2@gmail.com' } });
+
+    // Paso 1: Visualizar el formulario de login.
+    const formLogin = Login();
+    console.log(formLogin);
+    // Paso 2: Completamos el formulario con un correo electrónico y contraseña correctos.
+    // formLogin.querySelector('#email').value = 'Gloria2@gmail.com';
+
+    // formLogin.querySelector('#password').value = '123456';
+
+    // Paso 3: Enviamos el formulario dando clic en el botón `Login`.
+    // formLogin.querySelector('#formLogin').dispatchEvent(new Event('submit'));
+    const buttonContinue = document.getElementById('buttonContinue');
+    buttonContinue.click();
+    // Paso 4: Verificamos visualmente que la aplicación redija a `/home`.
+
+    expect(window.location.href).toEqual('/feed');
+  });
+}); */
 
 /* it('si el usuario NO se registra correctamente debe redirigir al home', () => {
   document.body.appendChild(Register()); // en el test me dice que document no está definido

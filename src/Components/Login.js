@@ -94,7 +94,7 @@ export const Login = () => {
   buttonContinue.addEventListener('click', () => {
     const emailValue = emailInput.value;
     const passwordValue = emailPassword.value;
-
+    console.log(emailValue);
     // si el value es extrictamentee vacio nos da verdadero el mensaje
     if (emailValue === '' || passwordValue === '') {
       errorMessageL.textContent = 'Fields cannot be empty';
@@ -135,13 +135,12 @@ export const Login = () => {
             errorMessageL.style.display = 'block';
             errorMessageL.textContent = 'User not found.';
           }
-
+          window.location.href = '/login';
           return error;
 
           // const errorMessage = error.message;
           // Mostrar un mensaje de error al usuario
           // alert('Invalid email or password.');
-          // window.location.href = '/login'; //
         });
     }
   });

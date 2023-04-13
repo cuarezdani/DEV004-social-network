@@ -15,6 +15,11 @@ import { onNavigate } from '../router';
 console.log(auth);
 
 export const Feed = () => {
+  // en caso de no estar logueado se redirige al login, no puede entrar al feed
+  /* if (!auth.currentUser) {
+    window.location.href = '/login';
+    return '';
+  } */
   const containerFeed = document.createElement('div');
   containerFeed.className = 'containerFeed';
 
