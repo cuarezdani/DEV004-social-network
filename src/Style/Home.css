@@ -597,6 +597,7 @@ body {
   height: 100%;
   margin-block-end: 6%;
   align-items: center;
+  margin-top: 36%;
 }
 
 .textPost {
@@ -609,6 +610,12 @@ body {
   margin-left: 33.6%;
 }
 /* Agrega estilos para los botones en la ventana modal */
+.buttonPicture{
+margin-left: -8%;
+}
+.savePost{
+  margin-top: 8%;
+}
 .buttonPicture,
 .savePost {
   background-color: #4caf50;
@@ -616,7 +623,7 @@ body {
   padding: 10px;
   border: none;
   cursor: pointer;
-  margin-right: 10px;
+  margin-right: 20px;
   height: 3em;
 }
 
@@ -693,25 +700,30 @@ body {
   margin: 0 auto;
   padding: 0em;
 }
-
+.logoProfile {
+  display: block;
+  color: rgb(112, 97, 11);
+  text-align: center;
+  border-top: 20%;
+}
 .profilePicture {
   display: block;
   position: absolute;
   width: 100%;
   height: 6em;
   object-fit: contain;
-  margin-top: 10%;
-  margin-left: -35%;
+  margin-top: 4%;
+  margin-left: -34%;
 }
 
 .buttonFavorite {
-  background-color: rgb(207, 130, 66);
+  background-color: rgb(235, 169, 115);
   position: absolute;
   width: 90%;
   margin-left: 5%;
   height: 4em;
   border-radius: 7px;
-  margin-block-start: 47%;
+  margin-block-start: 53%;
 }
 
 .imgFavorite {
@@ -722,27 +734,27 @@ body {
 }
 
 .favorite {
-  font-weight: lighter;
+  font-weight: bold;
   font-size: 17px;
   color: black;
   cursor: pointer;
 }
 
 .buttonSave {
-  background-color: rgb(207, 130, 66);
+  background-color: rgb(235, 169, 115);
   position: absolute;
   width: 90%;
   margin-left: 5%;
   height: 4em;
   border-radius: 7px;
-  margin-block-start: 70%;
+  margin-block-start: 76%;
 }
 
 .imgSave {
   position: absolute;
   left: 4%;
   top: 10%;
-  height: 85%;
+  height: 80%;
 }
 
 .savedProfile {
@@ -754,13 +766,13 @@ body {
 }
 
 .buttonMap {
-  background-color: rgb(207, 130, 66);
+  background-color: rgb(235, 169, 115);
   position: absolute;
   width: 90%;
   margin-left: 5%;
   height: 4em;
   border-radius: 7px;
-  margin-block-start: 93%;
+  margin-block-start: 100%;
 }
 
 .imgMap {
@@ -771,7 +783,7 @@ body {
 }
 
 .map {
-  font-weight: lighter;
+  font-weight: bold;
   font-size: 17px;
   color: black;
   cursor: pointer;
@@ -836,7 +848,7 @@ tablet*/
   .containerFeed {
     padding: 0% 20% 0% 20%;
 
-  }p
+  }
 
   .save {
     margin-right: -20%;
@@ -861,7 +873,13 @@ tablet*/
   .modalPost, .modalEditPost {
     padding: 20%;
   }
-
+  .buttonPicture{
+    margin-left: 15%;
+    }
+    .savePost{
+      margin-left: 42%;
+      }
+  
 }
 
 /*codigos nos servirán para que sean responsives en diferentes equipos :)
@@ -918,6 +936,9 @@ computador*/
 
   .modalEditPost{
   padding: 30%;
+  }
+  .buttonPicture{
+    margin-left: 100%;
   }
 }
 

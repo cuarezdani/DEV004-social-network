@@ -6,8 +6,17 @@ export const Profile = () => {
   const containerProfile = document.createElement('div');
   containerProfile.className = 'containerProfile';
 
+  const logoProfile = document.createElement('h2');
+  logoProfile.className = 'logoProfile';
+  logoProfile.textContent = 'COFFE HOUR';
+
+  const lineaDorada = document.createElement('hr');
+  lineaDorada.className = 'lineaDorada';
+  const linea = document.createElement('hr'); // linea y or
+  linea.className = 'linea';
+
   const profilePicture = document.createElement('img');
-  profilePicture.src = '../imagenes/iconoperfil.png';
+  profilePicture.src = '../imagenes/usuario.png';
   profilePicture.className = 'profilePicture';
 
   const imgFavorite = document.createElement('img');
@@ -37,6 +46,8 @@ export const Profile = () => {
   strongMap.textContent = 'Map';
   strongMap.className = 'map';
 
+  containerProfile.appendChild(logoProfile);
+  containerProfile.appendChild(lineaDorada);
   containerProfile.appendChild(profilePicture);
   containerProfile.appendChild(buttonFavorite);
   buttonFavorite.append(imgFavorite, strongFavorite);

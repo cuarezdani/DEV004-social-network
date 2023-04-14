@@ -17,13 +17,18 @@ const firebaseConfig = {
   appId: '1:1039410541481:web:90c0f8f334504bcd5e0ab8',
   measurementId: 'G-FGEFCNDPJQ',
 };
-// Initialize Firebase
+
+// inicializamos firebase
 export const app = initializeApp(firebaseConfig);
-// Initialize Cloud Firestore and get a reference to the service
+
+// inicializamos Cloud Firestore para tener referencias al servicio para que la
+// app interactúe con el tenido y los recursos del proyecto
 export const db = getFirestore(app);
 
-// Initialize Firebase Authentication and get a reference to the service
+// se inicializa Firebase Authentication y obtenemos una referencia al servicio
+// se usa para autentificar varios metodos de acceso con correo, email y contraseña
 export const auth = getAuth(app);
+// usamos ademas Google para enlazarlos a nuestra base de datos
 export const provider = new GoogleAuthProvider();
 
 export const initFirebase = () => ({

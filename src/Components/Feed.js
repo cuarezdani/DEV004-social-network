@@ -19,16 +19,10 @@ console.log(auth);
 const storage = getStorage();
 
 export const Feed = () => {
-  // en caso de no estar logueado se redirige al login, no puede entrar al feed
-  /* if (!auth.currentUser) {
-    window.location.href = '/login';
-    return '';
-  } */
   const containerFeed = document.createElement('div');
   containerFeed.className = 'containerFeed';
 
   const logoFeed = document.createElement('h2');
-  // logoFeed.src = '../imagenes/logo1.png';
   logoFeed.className = 'logoFeed';
   logoFeed.textContent = 'COFFE HOUR';
 
@@ -423,7 +417,6 @@ export const Feed = () => {
         postCreated.id,
         (image) => updatePost(postCreated, { image }), // funcion para actualizar la imagen del post
       );
-
       titlePost.value = '';
       textPost.value = '';
     }

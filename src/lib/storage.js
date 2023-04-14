@@ -12,19 +12,23 @@ function mensajeFinalizado(url) {
   elMensaje.innerHTML = textoMensaje;
 } */
 
-// Create a reference to image
+// se crea referencia a la imagen
 export function addPicture(archivo, idPost, updatePostImage) {
   const refStorage = ref(storage, `images/${idPost}`);
   /** @type {any} */
-  const metadata = { //agregar metadatos de archivos
+  // agregar metadatos de archivos, metadata contiene propiedades
+  // como contentType, name, size.
+  const metadata = {
     contentType: 'image/jpeg',
   };
 
+  // se sube la metadata del objeto 'image'
   const uploadTask = uploadBytesResumable(refStorage, archivo, metadata);
   console.log(uploadTask);
   uploadTask.on( // supervisa el estado de la carga
     'state_changed',
     (snapshot) => {
+      // se obtiene el progreso del proceso
       const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
       console.log(`Upload is ${progress}% done`);
       // eslint-disable-next-line default-case
@@ -41,15 +45,15 @@ export function addPicture(archivo, idPost, updatePostImage) {
       // eslint-disable-next-line default-case
       switch (error.code) {
         case 'storage/unauthorized':
-          // User doesn't have permission to access the object
+          // el ususario no tiene permiso para acceder a este objeto
           break;
         case 'storage/canceled':
-          // User canceled the upload
+          // usuario ha cancelado la carga
           break;
 
         // ...
         case 'storage/unknown':
-          // Unknown error occurred, inspect error.serverResponse
+          // error desconocido, inspeccionar con error.serverResponse
           break;
       }
     },

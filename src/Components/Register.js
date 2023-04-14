@@ -90,8 +90,6 @@ export const Register = () => {
   containerRegister.appendChild(buttonGoogle);
   buttonGoogle.append(imgGoogle, strong);
 
-  // buttonSign.addEventListener('click', () => onNavigate('/'));
-  // buttonSign.addEventListener("click", () => registerWithEmail); // entrar al perfil
   buttonSign.addEventListener('click', () => {
     const emailValue = emailRegister.value;
     const nameValue = nameRegister.value;

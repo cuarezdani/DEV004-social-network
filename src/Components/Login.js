@@ -24,11 +24,6 @@ export const Login = () => {
   errorMessageL.id = 'errorMessage';
   errorMessageL.style.display = 'none';
 
-  // const homeLogin = document.createElement('div');
-  // homeLogin.textContent = 'Login to Coffee Hour';
-  // homeDiv.innerHTML = 'Login to Coffee Hour <input id = "correo">';
-  /*  const myInput = homeDiv.querySelector('#correo');
-  console.log(myInput); */
   const formLogin = document.createElement('form');
   formLogin.className = 'formLogin';
   formLogin.id = 'formLogin';
@@ -90,7 +85,6 @@ export const Login = () => {
   containerLogin.appendChild(buttonGoogle);
   buttonGoogle.append(imgGoogle, strong);
 
-  // buttonContinue.addEventListener('click', () => signInWithPassword);
   buttonContinue.addEventListener('click', () => {
     const emailValue = emailInput.value;
     const passwordValue = emailPassword.value;
@@ -108,8 +102,7 @@ export const Login = () => {
         .then((userCredential) => {
           const user = userCredential.user;
           // alert('Register Accepted');
-          window.location.href = '/feed'; // pendiente redirigir al perfil
-          // Redirigir al usuario a la página de perfil o a la página de inicio de sesión
+          window.location.href = '/feed';
         })
         .catch((error) => {
           const errorCode = error.code;
