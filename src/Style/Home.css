@@ -568,7 +568,7 @@ body {
 .modalPost {
   display: none;
   /* oculta la ventana modal por defecto */
-  position: absolute;
+  position: fixed;
   /* posiciona la ventana modal en la pantalla */
   z-index: 0;
   /* coloca la ventana modal en la parte superior de todo */
@@ -628,7 +628,7 @@ body {
 .modalEditPost {
   display: none;
   /* oculta la ventana modal por defecto */
-  position: absolute;
+  position: fixed;
   /* posiciona la ventana modal en la pantalla */
   z-index: 0;
   /* coloca la ventana modal en la parte superior de todo */

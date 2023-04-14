@@ -1,5 +1,5 @@
 import {
-    getStorage, ref, uploadBytesResumable, getDownloadURL,
+  getStorage, ref, uploadBytesResumable,
 } from 'firebase/storage';
 
 // Crear una referencia raíz
@@ -13,15 +13,14 @@ function mensajeFinalizado(url) {
 } */
 
 // Create a reference to image
-export function addPicture(archivo) {
-    const refStoreage = ref(storage, `images/${archivo.name}`);
-    /** @type {any} */
-    const metadata = { //agregar metadatos de archivos
-        contentType: 'image/jpeg',
-    };
-}
+export function addPicture(archivo, idPost, updatePostImage) {
+  const refStorage = ref(storage, `images/${idPost}`);
+  /** @type {any} */
+  const metadata = { //agregar metadatos de archivos
+    contentType: 'image/jpeg',
+  };
 
-const uploadTask = uploadBytesResumable(refStorage, archivo, metadata);
+  const uploadTask = uploadBytesResumable(refStorage, archivo, metadata);
   console.log(uploadTask);
   uploadTask.on( // supervisa el estado de la carga
     'state_changed',
@@ -42,25 +41,19 @@ const uploadTask = uploadBytesResumable(refStorage, archivo, metadata);
       // eslint-disable-next-line default-case
       switch (error.code) {
         case 'storage/unauthorized':
-        // User doesn't have permission to access the object
+          // User doesn't have permission to access the object
           break;
         case 'storage/canceled':
-        // User canceled the upload
+          // User canceled the upload
           break;
 
-          // ...
-
+        // ...
         case 'storage/unknown':
-        // Unknown error occurred, inspect error.serverResponse
+          // Unknown error occurred, inspect error.serverResponse
           break;
       }
     },
-    () => {
-      getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-        console.log('File available at', url);
-        localStorage.setItem('url', url);
-       // mensajeFinalizado(url);
-      });
-    },
+    // actualiza la imagen en la coleccion post y refresca la lista (post)
+    () => updatePostImage(uploadTask.snapshot.ref.fullPath),
   );
-};
+}

@@ -1,3 +1,5 @@
+import { getStorage, ref, getDownloadURL } from 'firebase/storage';
+
 import { auth } from '../lib/fireBase';
 import {
   onPostsChange,
@@ -11,8 +13,10 @@ import {
 } from '../lib/Collecction';
 import { signOutUser } from '../lib/Autenticacion';
 import { onNavigate } from '../router';
+import { addPicture } from '../lib/storage';
 
 console.log(auth);
+const storage = getStorage();
 
 export const Feed = () => {
   // en caso de no estar logueado se redirige al login, no puede entrar al feed
@@ -61,7 +65,19 @@ export const Feed = () => {
       const fotoMuro = document.createElement('img');
       fotoMuro.className = 'fotoMuro';
       fotoMuro.textContent = doc.data().image;
-      fotoMuro.src = '../imagenes/emilliecoffee.jpg';
+      fotoMuro.src = '../imagenes/defaultImagen.png';
+
+      // foto de storage
+      if (doc.data().image) {
+        getDownloadURL(ref(storage, doc.data().image))
+          .then((url) => {
+            fotoMuro.setAttribute('src', url);
+          })
+          // eslint-disable-next-line no-unused-vars
+          .catch((error) => {
+            // Handle any errors
+          });
+      }
 
       // Iconos
       const sectionIconos = document.createElement('div');
@@ -388,7 +404,7 @@ export const Feed = () => {
     if (textPost.value) {
       console.log(textPost.value);
       console.log('holaaaa');
-      console.log(buttonPicture.files);
+      console.log(buttonPicture.files[0]);
       const post = {
         Title: titlePost.value,
         comments: textPost.value,
@@ -398,9 +414,18 @@ export const Feed = () => {
         id: auth.currentUser.uid,
         likes: [],
       };
-      /* await addPost(post);
+
+      const postCreated = await addPost(post);
+      console.log(postCreated);
+      // guardar la imagen con el id del post
+      addPicture(
+        buttonPicture.files[0],
+        postCreated.id,
+        (image) => updatePost(postCreated, { image }), // funcion para actualizar la imagen del post
+      );
+
       titlePost.value = '';
-      textPost.value = ''; */
+      textPost.value = '';
     }
   });
   return containerFeed;
