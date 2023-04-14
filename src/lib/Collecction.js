@@ -11,25 +11,23 @@ import {
   doc,
   arrayUnion,
   arrayRemove,
-  getDoc,
 } from 'firebase/firestore';
 
 export const onPostsChange = (callback) => onSnapshot(query(collection(getFirestore(), 'Posts'), orderBy('date', 'desc')), callback); // onSnapshot es la función para estar escuchando los cambios de la colección, y el callback es la función que se va a ejecutar cuando hay un cambio en la colección
 
-export const addCommentToPost = (postRef, comment) => addDoc(collection(postRef, 'Comments'), { comment, date: new Date() });
+export const addCommentToPost = (postRef, comment) => addDoc(collection(postRef, 'Comments'), { comment, date: new Date() }); // crea el comentario para post y le da fecha
+export const addPost = (post) => addDoc(collection(getFirestore(), 'Posts'), post); // crea el post
 
-export const addPost = (post) => addDoc(collection(getFirestore(), 'Posts'), post);
+export const deletePost = (docRef) => deleteDoc(doc(getFirestore(), 'Posts', docRef)); // borrar post
 
-export const deletePost = (docRef) => deleteDoc(doc(getFirestore(), 'Posts', docRef));
+export const getComments = (docRef, callback) => onSnapshot(query(collection(docRef, 'Comments'), orderBy('date', 'desc')), callback); // recorre array de comentarios y se muestra en interfaz, y lo ordena por fecha
 
-export const getComments = (docRef, callback) => onSnapshot(query(collection(docRef, 'Comments'), orderBy('date', 'desc')), callback);
+export const updatePost = (docRef, data) => updateDoc(docRef, data); // crea documento de Likes
 
-export const updatePost = (docRef, data) => updateDoc(docRef, data);
-
-export const saveUser = (user) => addDoc(collection(getFirestore(), 'Users'), user);
+export const saveUser = (user) => addDoc(collection(getFirestore(), 'Users'), user); // crea los usuarios en el firebase con la autenticación
 
 // Obtiene la información de los post
-export const getPost = (id) => getDoc(doc(getFirestore(), 'Posts', id));
+// export const getPost = (id) => getDoc(doc(getFirestore(), 'Posts', id)); no ocupado
 
 export const sumLike = (id, user) => updateDoc(doc(getFirestore(), 'Posts', id), {
   likes: arrayUnion(user),
