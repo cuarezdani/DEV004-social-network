@@ -57,6 +57,7 @@ export const Feed = () => {
       strong.textContent = doc.data().Title;
       strong.className = 'textWonderland';
 
+      // foto post
       const fotoMuro = document.createElement('img');
       fotoMuro.className = 'fotoMuro';
       fotoMuro.textContent = doc.data().image;
@@ -356,7 +357,10 @@ export const Feed = () => {
   textPost.className = 'textPost';
   textPost.type = 'text';
   textPost.placeholder = 'Write a comment';
-  const buttonPicture = document.createElement('button');
+  const buttonPicture = document.createElement('input');
+  buttonPicture.type = 'file';
+  buttonPicture.id = 'buttonPicture';
+  buttonPicture.accept = 'image/png, image/jpeg';
   buttonPicture.className = 'buttonPicture';
   buttonPicture.textContent = 'add picture';
   const savePost = document.createElement('button');
@@ -383,6 +387,8 @@ export const Feed = () => {
     console.log('asd', auth);
     if (textPost.value) {
       console.log(textPost.value);
+      console.log('holaaaa');
+      console.log(buttonPicture.files);
       const post = {
         Title: titlePost.value,
         comments: textPost.value,
@@ -392,9 +398,9 @@ export const Feed = () => {
         id: auth.currentUser.uid,
         likes: [],
       };
-      await addPost(post);
+      /* await addPost(post);
       titlePost.value = '';
-      textPost.value = '';
+      textPost.value = ''; */
     }
   });
   return containerFeed;
