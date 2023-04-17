@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-import { getFirestore } from 'firebase/firestore';
 import { onNavigate } from '../router';
 import { signInWithGoogle, registerWithEmail } from '../lib/Autenticacion';
 
