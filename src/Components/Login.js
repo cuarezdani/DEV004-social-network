@@ -89,7 +89,9 @@ export const Login = () => {
     // console.log(emailValue);
     // si el value es extrictamente vacio nos da verdadero el mensaje
     if (emailValue === '' || passwordValue === '') {
+      errorMessageL.style.display = 'block';
       errorMessageL.textContent = 'Fields cannot be empty';
+      console.log(errorMessageL);
     } else {
       const user = {
         email: emailValue,
