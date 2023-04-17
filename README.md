@@ -7,8 +7,7 @@
 * [3. Definición del Producto](#3-definición-del-producto)
 * [4. A quién va dirigido](#4-a-quién-va-dirigido)
 * [4.1. Historias de usuarios](#4.1-historias-de-usuario)
-* [5. Prototipos de Baja](#5-prototipo-de-baja)
-* [6. Prototipo de Alta](#6-prototipo-de-alta)
+* [5. Prototipo de Alta](#5-prototipo-de-alta)
 
 ## 1. Preámbulo
 
@@ -41,9 +40,9 @@ Además nuestro producto web debe cumplir con los siguientes objetivos:
 
 ## 4. A quién va dirigido
 
-Nuestra red social fue creada de acuerdo a Historias de Usuario recolectadas, las cuales fueron utilziadas para guiar nuestras semanas de trabajo y los procesos diversos; tales como que es lo que usuarios desean ver, hacer y realizar en nuestra aplicación web. 
+Nuestra red social fue creada de acuerdo a Historias de Usuario recolectadas, las cuales fueron utilizadas para guiar nuestras semanas de trabajo y los procesos diversos; tales como que es lo que usuarios desean ver, hacer y realizar en nuestra aplicación web. 
 
-Los principales usuarios de nuestro producto son amantes del café, que desean tomar y comer productos de gran variedad y calidad. Asistir a eventos, obtener descuentos e incluso poder calificar a cada cafeterí a la que asistan. Es por ello que como equipo decidimos crear una aplicación móvil y web para que los usuarios interesados pudieran ser parte de una comunidad. 
+Los principales usuarios de nuestro producto son amantes del café, que desean tomar y comer productos de gran variedad y calidad. Asistir a eventos, obtener descuentos e incluso poder calificar a cada cafetería a la que asistan. Es por ello que como equipo decidimos crear una aplicación móvil y web para que los usuarios interesados pudieran ser parte de una comunidad. 
 
 Nuestro primer paso para establecer nuestrs organización fue realizar una encuesta por Google Forms formulando preguntas que nos ayudarían a construir nuestra red social teniendo en cuenta las opiniones de posibles usuarios. Lás siguientes imágenes representan las respuestas obtenidas: 
 
@@ -123,12 +122,7 @@ Luego de recopilar la información necesaria, organizamos toda la información r
 * CRITERIOS DE ACEPTACIÓN: poder ver mi foto, poder ver botones de favoritos, guardado y mapa para poder acceder, poder ver botones de home, editar perfil y signout, test unitarios. 
 * DEFINICIÓN DE TERMINADO: responsive, crear espacio para agregar foto de perfil, crear botones de favoritos, guardados y mapas, cerrar barra con iconos home, editar perfil y signout, test unitarios. 
 
-## 5 Prototipo de Baja
-
-Este corresponde al boceto e idea inicial de como debía verse nuestra interfaz. Fue realizado a papel y lápiz.
-
-
-## 6 Prototipo de Alta
+## 5 Prototipo de Alta
 
 Este corresponde a un prototipo realizado en Figma. Como diseño inicial era así como  deseabamos implementar nuestra página versión móvil. 
 
