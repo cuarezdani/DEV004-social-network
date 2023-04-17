@@ -1,0 +1,949 @@
+* {
+  font-family: "Comfortaa", "Times New Roman", Times, serif;
+  /*  border: 1px solid black; */
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/*Pagina Home*/
+.container {
+  position: relative;
+  background: url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?crop=entropy&cs=tinysrgb&fm=jpg&ixid=Mnw3MjAxN3wwfDF8c2VhcmNofDF8fGNhZmV8ZW58MHx8fHwxNjc4MTk2ODI4&ixlib=rb-4.0.3&q=80&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  opacity: 90%;
+}
+
+.homeDiv {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.7em;
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.buttonLogin {
+  position: absolute;
+  bottom: 40px;
+  left: 20px;
+  width: 40%;
+  padding: 1em;
+  font-weight: bold;
+  border-radius: 10px;
+  text-transform: uppercase;
+  background: #ffffff;
+  border: 20% solid #000000;
+  /* 
+  font-size: 58%;
+  font-weight: bold; */
+}
+
+.buttonRegister {
+  position: absolute;
+  bottom: 40px;
+  right: 20px;
+  width: 40%;
+  padding: 1em;
+  color: white;
+  background-color: black;
+  font-weight: bold;
+  border-radius: 10px;
+  text-transform: uppercase;
+}
+
+/* Página Login*/
+
+.containerLogin {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+.containerLogin::before {
+  z-index: -1;
+  content: "";
+  background-image: url("https://images.unsplash.com/photo-1582298538104-fe2e74c27f59?crop=entropy&cs=tinysrgb&fm=jpg&ixid=Mnw3MjAxN3wwfDF8c2VhcmNofDF8fGZyaWVuZHMlMjBkcmlua2luZyUyMGNvZmZlZXxlbnwwfHx8fDE2NzgzMDY3MzA&ixlib=rb-4.0.3&q=80&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450");
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.75;
+}
+
+.logoCaffee {
+  display: block;
+  width: 100%;
+  height: 7em;
+  text-align: center;
+  object-fit: contain;
+  margin-top: 10%;
+}
+
+.homeDivLogin {
+  /*WELCOME pagina login */
+  margin-top: 10%;
+  display: block;
+  width: 100%;
+  height: 1em;
+  font-size: 1.7em;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.homeDivH2 {
+  /*subtitulo */
+  display: block;
+  width: 100%;
+  height: 1em;
+  font-size: 1.3em;
+  color: black;
+  text-align: center;
+}
+
+#correo {
+  width: 100%;
+  height: 4em;
+  border-radius: 5px;
+  background: #ffffff;
+  border: 2px solid #000000;
+  margin-block-end: 6%;
+  margin-block-start: 3%;
+}
+
+#correo::placeholder {
+  width: 100%;
+  padding: 1em;
+  font-size: 13px;
+  line-height: 18px;
+  align-items: center;
+  text-align: justify;
+}
+
+#clave {
+  width: 100%;
+  height: 4em;
+  border-radius: 5px;
+  background: #ffffff;
+  border: 2px solid #000000;
+}
+
+#clave::placeholder {
+  width: 100%;
+  padding: 1em;
+  font-size: 13px;
+  line-height: 18px;
+  align-items: center;
+  text-align: justify;
+}
+
+.forgotP {
+  width: 100%;
+  height: 1em;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 15px;
+  margin-block-start: 2.1%;
+  color: white;
+  cursor: pointer;
+}
+
+.buttonContinue {
+  width: 100%;
+  height: 52px;
+  font-size: 17px;
+  font-weight: bold;
+  color: white;
+  background: black;
+  border: solid #000000;
+  border-radius: 5px;
+  margin-block-start: 4%;
+  cursor: pointer;
+}
+
+.buttonSign {
+  /* dont have an account, sing up */
+  width: 100%;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 13px;
+  color: white;
+  margin-block-start: 3%;
+  cursor: pointer;
+}
+
+/* Pagina REGISTER */
+.containerRegister {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+.containerRegister::before {
+  z-index: -1;
+  content: "";
+  background-image: url("https://images.unsplash.com/photo-1582298538104-fe2e74c27f59?crop=entropy&cs=tinysrgb&fm=jpg&ixid=Mnw3MjAxN3wwfDF8c2VhcmNofDF8fGZyaWVuZHMlMjBkcmlua2luZyUyMGNvZmZlZXxlbnwwfHx8fDE2NzgzMDY3MzA&ixlib=rb-4.0.3&q=80&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450");
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.75;
+}
+
+.homeDivRegister {
+  /*subtitulo */
+  display: block;
+  font-weight: bold;
+  width: 100%;
+  height: 1em;
+  font-size: 1.5em;
+  color: black;
+  text-align: center;
+}
+
+#correoRegister {
+  width: 100%;
+  height: 4em;
+  border-radius: 5px;
+  background: #ffffff;
+  border: 2px solid #000000;
+  margin-block-start: 3%;
+}
+
+#correoRegister::placeholder {
+  width: 100%;
+  padding: 1em;
+  font-size: 13px;
+  line-height: 18px;
+  align-items: center;
+  text-align: justify;
+}
+
+#nombre {
+  width: 100%;
+  height: 4em;
+  border-radius: 5px;
+  background: #ffffff;
+  border: 2px solid #000000;
+  margin-block-end: 2%;
+  margin-block-start: 3%;
+}
+
+#nombre::placeholder {
+  width: 100%;
+  padding: 1em;
+  font-size: 13px;
+  line-height: 18px;
+  align-items: center;
+  text-align: justify;
+}
+
+#claveRegister {
+  width: 100%;
+  height: 4em;
+  border-radius: 5px;
+  background: #ffffff;
+  border: 2px solid #000000;
+  margin-block-end: 2%;
+  margin-block-start: 1%;
+}
+
+#claveRegister::placeholder {
+  width: 100%;
+  padding: 1em;
+  font-size: 13px;
+  line-height: 18px;
+  align-items: center;
+  text-align: justify;
+}
+
+#confirmPassword {
+  width: 100%;
+  height: 4em;
+  border-radius: 5px;
+  background: #ffffff;
+  border: 2px solid #000000;
+  margin-block-end: 3%;
+  margin-block-start: 1%;
+}
+
+#confirmPassword::placeholder {
+  width: 100%;
+  padding: 1em;
+  font-size: 13px;
+  line-height: 18px;
+  align-items: center;
+  text-align: justify;
+}
+
+.lineaOr {
+  position: relative;
+  width: 100%;
+  height: 3em;
+  color: #000000;
+}
+
+.linea {
+  position: absolute;
+  width: 40%;
+  margin-left: 0%;
+}
+
+.or {
+  position: absolute;
+  width: 10%;
+  margin-top: 0%;
+  font-weight: bold;
+  font-size: 20px;
+  color: black;
+  left: 45%;
+}
+
+.linea1 {
+  position: absolute;
+  width: 40%;
+  margin-left: 60%;
+  margin-top: 2, 3%;
+}
+
+.buttonSignUp {
+  width: 100%;
+  height: 52px;
+  font-size: 17px;
+  font-weight: bold;
+  color: white;
+  background: black;
+  border: solid #000000;
+  border-radius: 5px;
+  margin-block-start: 4%;
+  cursor: pointer;
+}
+
+.buttonGoogle {
+  background-color: #ffffff;
+  position: relative;
+  width: 100%;
+  height: 4em;
+  bottom: 0%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.imgGoogle {
+  position: absolute;
+  left: 4%;
+  top: 1%;
+  height: 100%;
+}
+
+.textGoogle {
+  font-family: "Roboto-Medium", "Times New Roman", Times, serif;
+  font-weight: lighter;
+  font-size: 17px;
+  color: rgb(57, 57, 58);
+  cursor: pointer;
+}
+
+.frase {
+  width: 100%;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 13px;
+  color: white;
+  margin-block-start: 3%;
+  cursor: pointer;
+}
+
+.errorMessage {
+  color: red;
+  text-align: center;
+}
+
+/* Pagina feed muro */
+.containerFeed {
+  display: block;
+  width: 100%;
+  margin-bottom: 3em;
+  overflow: hidden;
+}
+
+.logoFeed {
+  display: block;
+  color: rgb(112, 97, 11);
+  text-align: center;
+}
+
+.lineaDorada {
+  width: 100%;
+  height: 0%;
+  background-color: gold;
+  margin-top: 0%;
+  /*  border-top: 5px; */
+}
+
+.postsSection {
+  overflow-y: visible;
+}
+
+.sectionWonderland {
+  display: block;
+  position: relative;
+  width: 100%;
+  margin-bottom: 2%;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  height: 3em;
+  margin-bottom: 1%;
+  padding: 1%;
+  margin-top: 5%;
+}
+
+.imgWonderland {
+  /*logo */
+  height: 3em;
+}
+
+.textWonderland {
+  display: inline;
+  font-weight: bold;
+  font-size: 17px;
+  color: black;
+  margin-left: 1em;
+  width: 100%;
+}
+
+.iconEdit {
+  height: 1.6em;
+  margin-top: 0%;
+}
+
+.iconDelete {
+  height: 1.2em;
+  margin-top: 0%;
+  margin-left: 0%;
+  
+}
+
+.fotoMuro {
+  display: block;
+  width: 100%;
+  height: 20em;
+  border-radius: 10px;
+}
+
+.sectionIconos {
+  display: flex;
+  width: 100%;
+  height: 2em;
+  flex-direction: row;
+}
+.containerLike {
+  display: inline;
+  height: 1.5em;
+  margin-left: 1.5%;
+  margin-top: 1.5%;
+}
+
+.like {
+  height: 2.5em;
+  margin-left: -15%;
+  margin-top: -15%;
+  padding: 0%;
+}
+
+.dislike { /* corazon sin fondo */
+  display: inline;
+  height: 1.5em;
+  margin-left: 1.5%;
+  margin-top: 5%;
+}
+
+.likeInterfaz { /* valor y palabra*/ 
+  display: block;
+  width: 100%;
+  height: 1em;
+  font-size: small;
+  margin-top: 2%;
+  margin-left: 1.5%;
+}
+
+.favoriteFeed {
+  display: inline;
+  height: 1.5em;
+  margin-left: 2%;
+  margin-top: 1.5%;
+}
+
+.iconComment {
+  display: inline;
+  height: 1.6em;
+  margin-left: 3%;
+  margin-top: 1.5%;
+  cursor: pointer;
+}
+
+.inputComments {
+  margin-top: 2%;
+  margin-left: 1.5%;
+}
+
+.save {
+  display: inline;
+  height: 1.5em;
+  margin-left: 65%;
+  margin-top: 1.8%;
+  cursor: pointer;
+}
+
+.commentName {
+  display: inline;
+  font-weight: bolder;
+  font-size: small;
+  margin-left: 1.5%;
+  padding: 0% 2% 0% 0%;
+}
+.commentsPost {
+  margin-top: 0%;
+  width: 100%;
+  display: inline;
+  font-weight: lighter;
+  font-size: small;
+}
+
+/* MENU PIE DE PAGINA*/
+.menuIcono {
+  position: fixed;
+  width: 100%;
+  height: 2.5em;
+  bottom: 0%;
+  background-color: rgb(239, 236, 236);
+  z-index: 200;
+}
+
+.profileIcono {
+  display: inline;
+  height: 2em;
+  margin-left: 1.5%;
+  margin-top: 1%;
+  cursor: pointer;
+}
+
+.addIcono {
+  display: inline;
+  height: 2em;
+  margin-left: 36%;
+  margin-top: 1%;
+  cursor: pointer;
+}
+
+.signOut {
+  display: inline;
+  height: 1.8em;
+  margin-left: 36%;
+  margin-top: 1%;
+  cursor: pointer;
+}
+
+.modalPost {
+  display: none;
+  /* oculta la ventana modal por defecto */
+  position: fixed;
+  /* posiciona la ventana modal en la pantalla */
+  z-index: 0;
+  /* coloca la ventana modal en la parte superior de todo */
+  left: 0;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  padding: 4rem;
+  background-color: rgba(0, 0, 0, 0.836); 
+  /* agrega un fondo oscuro para resaltar la ventana modal */
+
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px; 
+  height: 100%;
+}
+
+.titlePost {
+  width: 100%;
+  height: 100%;
+  margin-block-end: 6%;
+  align-items: center;
+  margin-top: 36%;
+}
+
+.textPost {
+  width: 100%;
+  height: 100%;
+  margin-block-end: 6%;
+}
+
+.savePost {
+  margin-left: 33.6%;
+  margin-top: 8%;
+}
+/* Agrega estilos para los botones en la ventana modal */
+.buttonPicture{
+margin-left: -8%;
+}
+.buttonPicture,
+.savePost {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  margin-right: 20px;
+  height: 3em;
+}
+
+.buttonPicture:hover,
+.savePost:hover {
+  opacity: 0.6;
+}
+
+.modalEditPost {
+  display: none;
+  /* oculta la ventana modal por defecto */
+  position: fixed;
+  /* posiciona la ventana modal en la pantalla */
+  z-index: 0;
+  /* coloca la ventana modal en la parte superior de todo */
+  left: 0;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  padding: 10%;
+  background-color: rgba(0, 0, 0, 0.836);
+  /* agrega un fondo oscuro para resaltar la ventana modal */
+}
+
+.modal-contentEdit {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+}
+
+
+/* Agrega estilos para los botones en la ventana modal */
+.saveEditPost {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  margin-left: 25%;
+}
+
+.cancelEditPost {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 5%;
+}
+
+.saveEditPost:hover {
+  opacity: 0.6;
+}
+
+.parrafoComentario {
+  margin-left: 2%;
+  font-size: small;
+  margin-block-start: 2%;
+  margin-top: 0%;
+
+}
+
+/*pagina PROFILE*/
+.containerProfile {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0em;
+}
+.logoProfile {
+  display: block;
+  color: rgb(112, 97, 11);
+  text-align: center;
+  border-top: 20%;
+}
+.profilePicture {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 6em;
+  object-fit: contain;
+  margin-top: 4%;
+  margin-left: -34%;
+}
+
+.buttonFavorite {
+  background-color: rgb(235, 169, 115);
+  position: absolute;
+  width: 90%;
+  margin-left: 5%;
+  height: 4em;
+  border-radius: 7px;
+  margin-block-start: 53%;
+}
+
+.imgFavorite {
+  position: absolute;
+  left: 4%;
+  top: 10%;
+  height: 85%;
+}
+
+.favorite {
+  font-weight: bold;
+  font-size: 17px;
+  color: black;
+  cursor: pointer;
+}
+
+.buttonSave {
+  background-color: rgb(235, 169, 115);
+  position: absolute;
+  width: 90%;
+  margin-left: 5%;
+  height: 4em;
+  border-radius: 7px;
+  margin-block-start: 76%;
+}
+
+.imgSave {
+  position: absolute;
+  left: 4%;
+  top: 10%;
+  height: 80%;
+}
+
+.savedProfile {
+  font-weight: bold;
+  font-size: 17px;
+  color: black;
+  cursor: pointer;
+  margin-left: 0%;
+}
+
+.buttonMap {
+  background-color: rgb(235, 169, 115);
+  position: absolute;
+  width: 90%;
+  margin-left: 5%;
+  height: 4em;
+  border-radius: 7px;
+  margin-block-start: 100%;
+}
+
+.imgMap {
+  position: absolute;
+  left: 4%;
+  top: 10%;
+  height: 85%;
+}
+
+.map {
+  font-weight: bold;
+  font-size: 17px;
+  color: black;
+  cursor: pointer;
+}
+
+/* PIE DE PAGINA */
+.menuIconoProfile {
+  position: fixed;
+  width: 100%;
+  height: 2.5em;
+  bottom: 0%;
+  background-color: rgb(233, 230, 230);
+  
+}
+
+.homeIconoProfile {
+  display: inline;
+  height: 2em;
+  margin-left: 6%;
+  margin-top: 1.5%;
+}
+
+.signOutProfile {
+  display: inline;
+  height: 2em;
+  margin-left: 67%;
+  margin-top: 1.5%;
+}
+
+/*codigos nos servirán para que sean responsives en diferentes equipos
+cel-tablet*/
+@media only screen and (min-device-width: 360px) and (max-device-width: 740px) {
+  .logoCaffee {
+    margin-top: 10%;
+  }
+
+  @media only screen and (min-device-width: 390px) {
+    .logoCaffee {
+      margin-top: 15%;
+    }
+  }
+}
+
+/*codigos nos servirán para que sean responsives en diferentes equipos :)
+tablet*/
+@media only screen and (min-device-width: 740px) {
+  .containerLogin {
+    padding: 20% 20% 0% 20%;
+  }
+
+  .containerRegister {
+    padding: 20% 20% 0% 20%;
+  }
+
+  #correoRegister {
+    margin-block-start: 0%;
+  }
+
+  .logoCaffee {
+    margin-top: 0%;
+  }
+
+  .containerFeed {
+    padding: 0% 20% 0% 20%;
+
+  }
+
+  .save {
+    margin-left: 68%;
+  }
+
+  .menuIcono {
+    position: fixed;
+    width: 60%;
+  }
+
+  .profileIcono {
+    margin-left: 2%;
+  }
+
+  .addIcono {
+    margin-left: 40%;
+  }
+
+  .signOut {
+    margin-left: 35%;
+  }
+  .modalPost, .modalEditPost {
+    padding: 20%;
+  }
+  .buttonPicture{
+    margin-left: 15%;
+    }
+    .savePost{
+      margin-left: 42%;
+      }
+  
+}
+
+/*codigos nos servirán para que sean responsives en diferentes equipos :)
+computador*/
+@media only screen and (min-device-width: 860px) {
+  .containerLogin {
+    padding: 5% 30% 0% 30%;
+  }
+
+  .homeDivLogin {
+    margin-top: 5%;
+  }
+
+  .containerRegister {
+    padding: 0% 30% 0% 30%;
+  }
+
+  .logoCaffee {
+    margin-top: 0%;
+  }
+
+  .homeDivRegister {
+    /*subtitulo */
+    margin-top: 0%;
+  }
+
+  .buttonSignUp {
+    margin-block-start: 1%;
+  }
+
+  .containerFeed {
+    padding: 0% 30% 0% 30%;
+  }
+  .save {
+    margin-left: 73%;
+  }
+  .menuIcono {
+    position: fixed;
+    width: 40%;
+  }
+
+  .profileIcono {
+    margin-left: 2%;
+  }
+
+  .addIcono {
+    margin-left: 40%;
+  }
+
+  .signOut {
+    margin-left: 40%;
+  }
+  .modalPost{
+    padding: 30%;
+  }
+
+  .modalEditPost{
+  padding: 30%;
+  }
+  .buttonPicture{
+    margin-left: 100%;
+  }
+}
+
+/* .containerRegister {
+    height: auto;
+  } */
