@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-shadow */
 import { onNavigate } from '../router';
 import { signInWithGoogle, signInWithPassword } from '../lib/Autenticacion';
 
@@ -19,7 +17,7 @@ export const Login = () => {
   homeDivH2.textContent = 'Login to Coffee Hour';
   homeDivH2.className = 'homeDivH2';
 
-  const errorMessageL = document.createElement('h4');
+  const errorMessageL = document.createElement('h4'); // creado para los errores y luego testeados
   errorMessageL.className = 'errorMessage';
   errorMessageL.id = 'errorMessage';
   errorMessageL.style.display = 'none';
@@ -61,7 +59,7 @@ export const Login = () => {
   const linea1 = document.createElement('hr'); // linea y or
   linea1.className = 'linea1';
 
-  const imgGoogle = document.createElement('img');
+  const imgGoogle = document.createElement('img'); // boton google
   imgGoogle.className = 'imgGoogle';
   imgGoogle.src = '../imagenes/iconogoogle.svg';
   const buttonGoogle = document.createElement('button');
@@ -88,8 +86,8 @@ export const Login = () => {
   buttonContinue.addEventListener('click', async () => {
     const emailValue = emailInput.value;
     const passwordValue = emailPassword.value;
-    console.log(emailValue);
-    // si el value es extrictamentee vacio nos da verdadero el mensaje
+    // console.log(emailValue);
+    // si el value es extrictamente vacio nos da verdadero el mensaje
     if (emailValue === '' || passwordValue === '') {
       errorMessageL.textContent = 'Fields cannot be empty';
     } else {
@@ -97,22 +95,22 @@ export const Login = () => {
         email: emailValue,
         emailPassword: passwordValue,
       };
-
-      const userLogin = await signInWithPassword(user.email, user.emailPassword);
-      window.location.href = '/feed';
+      // nos identifica el correo y clave de google
       signInWithPassword(user.email, user.emailPassword)
         .then((userCredential) => {
+          // eslint-disable-next-line no-shadow, no-unused-vars
           const user = userCredential.user;
-          // alert('Register Accepted');
+          // si el ususario es logeado correctamente nos dirige al muro
+          window.location.href = '/feed';
         })
         .catch((error) => {
           const errorCode = error.code;
-          console.log(errorCode);
+          // console.log(errorCode);
           if (errorCode === 'auth/network-request-failed.') {
             errorMessageL.style.display = 'block';
             errorMessageL.textContent = 'Fields cannot be empty.';
           } else if (errorCode === 'auth/invalid-email') {
-            console.log(errorMessageL);
+            // console.log(errorMessageL);
             errorMessageL.style.display = 'block';
             errorMessageL.textContent = 'Invalid email.';
           } else if (
@@ -131,10 +129,6 @@ export const Login = () => {
           }
           window.location.href = '/login';
           return error;
-
-          // const errorMessage = error.message;
-          // Mostrar un mensaje de error al usuario
-          // alert('Invalid email or password.');
         });
     }
   });

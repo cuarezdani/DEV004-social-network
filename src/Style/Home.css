@@ -609,13 +609,11 @@ body {
 
 .savePost {
   margin-left: 33.6%;
+  margin-top: 8%;
 }
 /* Agrega estilos para los botones en la ventana modal */
 .buttonPicture{
 margin-left: -8%;
-}
-.savePost{
-  margin-top: 8%;
 }
 .buttonPicture,
 .savePost {

@@ -62,66 +62,66 @@ Nuestro primer paso para establecer nuestrs organización fue realizar una encue
 Luego de recopilar la información necesaria, organizamos toda la información recibida en 9 historias de usuarios, lo cual guío nuestro trabajo diario y semanal para ir cumpliendo objetivos específicos.  
 
 **Historia 1**
-*COMO USUARIO: Amante del café
-*QUIERO: ver una página web de cafés donde loguearse o registrarme. 
-*CRITERIOS DE ACEPTACIÓN: visualizar la pantalla de inicio, los botones de login y register. 
-*DEFINICIÓN DE TERMINADO: debe ser responsive, botones distribuidos adecuadamente en la pantalla, imagen de alta resolución. 
+* COMO USUARIO: Amante del café
+* QUIERO: ver una página web de cafés donde loguearse o registrarme. 
+* CRITERIOS DE ACEPTACIÓN: visualizar la pantalla de inicio, los botones de login y register. 
+* DEFINICIÓN DE TERMINADO: debe ser responsive, botones distribuidos adecuadamente en la pantalla, imagen de alta resolución. 
 
 **Historia 2**
-*COMO USUARIO: Amante del café
-*QUIERO: ver la página de registro
-*PARA: poder crear mi cuenta en la aplicación coffee hour. 
-*CRITERIOS DE ACEPTACIÓN: visualizar la página de registro, visualizar los campos de inscripción para crear su cuenta, visualizar botón de registro con cuenta gmail/google, visualizar botón de continue. 
-*DEFINICIÓN DE TERMINADO: debe ser responsive, botones distribuidos adecuadamente en la pantalla, imagen de alta resolución. 
+* COMO USUARIO: Amante del café
+* QUIERO: ver la página de registro
+* PARA: poder crear mi cuenta en la aplicación coffee hour. 
+* CRITERIOS DE ACEPTACIÓN: visualizar la página de registro, visualizar los campos de inscripción para crear su cuenta, visualizar botón de registro con cuenta gmail/google, visualizar botón de continue. 
+* DEFINICIÓN DE TERMINADO: debe ser responsive, botones distribuidos adecuadamente en la pantalla, imagen de alta resolución. 
 
 **Historia 3**
-*COMO USUARIO: Amante del café
-*QUIERO: ver la página de login 
-*PARA: ingresar a mi cuenta en la página de coffee hour
-*CRITERIOS DE ACEPTACIÓN: visualizar la página de login, visualizar los campos de inicio de sesión, visualizar botón de inicio con cuenta gmail/google, visualizar botón de sign up en caso que ya esté registrado.  
-*DEFINICIÓN DE TERMINADO: debe ser responsive, botones distribuidos adecuadamente en la pantalla, imagen de alta resolución, que la visualización de log in sea amigable para el usuario, base de datos. 
+* COMO USUARIO: Amante del café
+* QUIERO: ver la página de login 
+* PARA: ingresar a mi cuenta en la página de coffee hour
+* CRITERIOS DE ACEPTACIÓN: visualizar la página de login, visualizar los campos de inicio de sesión, visualizar botón de inicio con cuenta gmail/google, visualizar botón de sign up en caso que ya esté registrado.  
+* DEFINICIÓN DE TERMINADO: debe ser responsive, botones distribuidos adecuadamente en la pantalla, imagen de alta resolución, que la visualización de log in sea amigable para el usuario, base de datos. 
 
 **Historia 4**
-*COMO USUARIO: Amante del café
-*QUIERO: ingresar los datos de registro 
-*PARA: poder registrarse en la aplicación
-*CRITERIOS DE ACEPTACIÓN: visualizar los campos de registro, visualizar el botón google, poder acceder mediante mi cuenta gmail, y lograr registrarme en la aplicación. 
-*DEFINICIÓN DE TERMINADO: responsive, desplegada por github pages, que reciban inputs de texto para el registro, que el botón sign up nos redirija al perfil del usuario nuevo, con el botón de google realice inscripción automática, la base de datos de firebase, test unitarios, que boton login here nos redirija a página de Login. 
+* COMO USUARIO: Amante del café
+* QUIERO: ingresar los datos de registro 
+* PARA: poder registrarse en la aplicación
+* CRITERIOS DE ACEPTACIÓN: visualizar los campos de registro, visualizar el botón google, poder acceder mediante mi cuenta gmail, y lograr registrarme en la aplicación. 
+* DEFINICIÓN DE TERMINADO: responsive, desplegada por github pages, que reciban inputs de texto para el registro, que el botón sign up nos redirija al perfil del usuario nuevo, con el botón de google realice inscripción automática, la base de datos de firebase, test unitarios, que boton login here nos redirija a página de Login. 
 
 **Historia 5**
-*COMO USUARIO: Amante del café
-*QUIERO: poder ingresar a mi cuenta
-*PARA: ver mi perfil
-*CRITERIOS DE ACEPTACIÓN: poder ingresar un email y contraseña, poder ingresar mediante botón gmail, el botón sign up me redirige a la página de registro, que botón continue permita ingresar al perfil del usuario, que al hacer clic en forgot password sea redirigido…… 
-*DEFINICIÓN DE TERMINADO: responsive, desplegada por github pages, que el botón continue nos redirija al perfil del usuario, con el botón de google permite entrar al perfil del usuario, la base de datos de firebase, test unitarios.
+* COMO USUARIO: Amante del café
+* QUIERO: poder ingresar a mi cuenta
+* PARA: ver mi perfil
+* CRITERIOS DE ACEPTACIÓN: poder ingresar un email y contraseña, poder ingresar mediante botón gmail, el botón sign up me redirige a la página de registro, que botón continue permita ingresar al perfil del usuario, que al hacer clic en forgot password sea redirigido…… 
+* DEFINICIÓN DE TERMINADO: responsive, desplegada por github pages, que el botón continue nos redirija al perfil del usuario, con el botón de google permite entrar al perfil del usuario, la base de datos de firebase, test unitarios.
 
 **Historia 6** 
-*COMO USUARIO: Amante del café
-*QUIERO: poder crear un post
-*PARA: mostrar y comentar la cafetería que me gusta 
-*CRITERIOS DE ACEPTACIÓN: poder ver el botón para crear post, ver una casilla donde pueda escribir mi post, ver botón guardar mi post
-*DEFINICIÓN DE TERMINADO: responsive, crear una base de datos de firestore, crear una colección para que se puedan leer los datos, maquetar la página de muro, crear botón agregar post, crear botón para guardar post, crear funcionalidad de usuarios y crear post, test unitarios.
+* COMO USUARIO: Amante del café
+* QUIERO: poder crear un post
+* PARA: mostrar y comentar la cafetería que me gusta 
+* CRITERIOS DE ACEPTACIÓN: poder ver el botón para crear post, ver una casilla donde pueda escribir mi post, ver botón guardar mi post
+* DEFINICIÓN DE TERMINADO: responsive, crear una base de datos de firestore, crear una colección para que se puedan leer los datos, maquetar la página de muro, crear botón agregar post, crear botón para guardar post, crear funcionalidad de usuarios y crear post, test unitarios.
 
 **Historia 7**
-*COMO USUARIO: Amante del café
-*QUIERO: poder eliminar el post que realicé 
-*PARA: poder subir el correcto 
-*CRITERIOS DE ACEPTACIÓN: poder ver el botón para eliminar el post, ver el mensaje de confirmación para eliminar el post, ver que se haya eliminado mi post.
-*DEFINICIÓN DE TERMINADO: responsive, agregar botón de eliminar con icono en el post, crear funcionalidad de eliminar post, test unitarios, crear mensajes de confirmación. 
+* COMO USUARIO: Amante del café
+* QUIERO: poder eliminar el post que realicé 
+* PARA: poder subir el correcto 
+* CRITERIOS DE ACEPTACIÓN: poder ver el botón para eliminar el post, ver el mensaje de confirmación para eliminar el post, ver que se haya eliminado mi post.
+* DEFINICIÓN DE TERMINADO: responsive, agregar botón de eliminar con icono en el post, crear funcionalidad de eliminar post, test unitarios, crear mensajes de confirmación. 
 
 **Historia 8:**
-*COMO USUARIO: Amante del café
-*QUIERO: poder editar mi post 
-*PARA: tener la oportunidad de corregirlo si me equivoque
-*CRITERIOS DE ACEPTACIÓN: poder ver el botón para editar el post, ver campos de título y descripción de post para poder editarlos, ver actualizado mi post. 
-*DEFINICIÓN DE TERMINADO: responsive, agregar botón de editar con icono de post, crear funcionalidad de eliminar post, test unitarios, crear mensaje de confirmación. 
+* COMO USUARIO: Amante del café
+* QUIERO: poder editar mi post 
+* PARA: tener la oportunidad de corregirlo si me equivoque
+* CRITERIOS DE ACEPTACIÓN: poder ver el botón para editar el post, ver campos de título y descripción de post para poder editarlos, ver actualizado mi post. 
+* DEFINICIÓN DE TERMINADO: responsive, agregar botón de editar con icono de post, crear funcionalidad de eliminar post, test unitarios, crear mensaje de confirmación. 
 
 **Historia 9**
-*COMO USUARIO: Amante del café
-*QUIERO: poder visualizar mi perfil 
-*PARA: subir imagenes
-*CRITERIOS DE ACEPTACIÓN: poder ver mi foto, poder ver botones de favoritos, guardado y mapa para poder acceder, poder ver botones de home, editar perfil y signout, test unitarios. 
-*DEFINICIÓN DE TERMINADO: responsive, crear espacio para agregar foto de perfil, crear botones de favoritos, guardados y mapas, cerrar barra con iconos home, editar perfil y signout, test unitarios. 
+* COMO USUARIO: Amante del café
+* QUIERO: poder visualizar mi perfil 
+* PARA: subir imagenes
+* CRITERIOS DE ACEPTACIÓN: poder ver mi foto, poder ver botones de favoritos, guardado y mapa para poder acceder, poder ver botones de home, editar perfil y signout, test unitarios. 
+* DEFINICIÓN DE TERMINADO: responsive, crear espacio para agregar foto de perfil, crear botones de favoritos, guardados y mapas, cerrar barra con iconos home, editar perfil y signout, test unitarios. 
 
 ## 5 Prototipo de Baja
 
@@ -140,3 +140,6 @@ Este corresponde a un prototipo realizado en Figma. Como diseño inicial era as�
 
 **Pagina Register**
 ![Fuente](./src/imagenes/protoaltaRegister.png)
+
+**Pagina Muro**
+![Fuente](./src/imagenes/feed.png)

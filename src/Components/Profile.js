@@ -57,6 +57,7 @@ export const Profile = () => {
   containerProfile.appendChild(buttonMap);
   buttonMap.append(imgMap, strongMap);
 
+  // MENU PIE DE PAGINA
   const menuIconoProfile = document.createElement('section');
   menuIconoProfile.className = 'menuIconoProfile';
   const homeIconoProfile = document.createElement('img');
@@ -73,7 +74,8 @@ export const Profile = () => {
     onNavigate('/feed');
   });
 
-  if (!auth.currentUser) { // condicion que si no esta logueado rediriga a home
+  // condicion que si no esta logueado rediriga al home no te permite ver el perfil
+  if (!auth.currentUser) {
     window.location.href = '/';
     return '';
   }
@@ -81,8 +83,6 @@ export const Profile = () => {
   signOutProfile.addEventListener('click', () => {
     signOutUser()
       .then(() => {
-        // eslint-disable-next-line no-undef
-        console.log(signOutUser(auth));
         onNavigate('/');
       })
       .catch((error) => {

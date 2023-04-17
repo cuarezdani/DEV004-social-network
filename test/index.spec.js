@@ -41,6 +41,55 @@ describe('Register', () => {
       expect(window.location.href).toBe('/feed');
     });
   });
+  it('Email ya en uso', () => {
+    // preparamos el mock
+    Autenticacion.createUser = jest.fn().mockRejectedValueOnce({ code: 'auth/internal-error' });
+    document.body.innerHTML = "<div id='root'></div>";
+    onNavigate({
+      '/register': () => { },
+    });
+
+    // Paso 1: Visualizar el container Register.
+    const containerRegister = Register();
+
+    // Paso 2: Completamos el formulario con un correo electrónico ya en uso
+    containerRegister.querySelector('#correoRegister').value = 'prueba10@gmail.com';
+    containerRegister.querySelector('#claveRegister').value = '123456';
+
+    // Paso 3: Enviamos el formulario dando clic en el botón `Login`.
+    containerRegister.querySelector('#buttonSign').dispatchEvent(new Event('click'));
+
+    Promise.reject().catch(() => {
+      if (containerRegister.querySelector('#errorRegister').style.display === 'block') {
+        expect(containerRegister.querySelector('#errorRegister').textContent).toEqual('Email already in use.');
+      }
+    });
+  });
+
+  it('el campo del Password no puede estar vacio', () => {
+    // preparamos el mock
+    Autenticacion.createUser = jest.fn().mockRejectedValueOnce({ code: 'auth/internal-error' });
+    document.body.innerHTML = "<div id='root'></div>";
+    onNavigate({
+      '/register': () => { },
+    });
+
+    // Paso 1: Visualizar el formulario de ingreso
+    const containerRegister = Register();
+
+    // Paso 2: Completamos el formulario sin clave
+    containerRegister.querySelector('#correoRegister').value = 'prueba10@gmail.com';
+    containerRegister.querySelector('#claveRegister').value = '';
+
+    // Paso 3: Enviamos el formulario dando clic en el botón Sing
+    containerRegister.querySelector('#buttonSign').dispatchEvent(new Event('click'));
+
+    Promise.reject().catch(() => {
+      if (containerRegister.querySelector('#errorRegister').style.display === 'block') {
+        expect(containerRegister.querySelector('#errorRegister').textContent).toEqual('auth/internal-error');
+      }
+    });
+  });
 });
 
 // si el usuario se Logueo correctamente o no

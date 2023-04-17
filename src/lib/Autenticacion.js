@@ -11,22 +11,23 @@ import {
 import { saveUser } from './Collecction';
 
 // Para crear una cuenta nueva, pasa la dirección de correo
-// electrónico y la contraseña del usuario nuevo REGISTER
+// electrónico y la contraseña del usuario nuevo PAGINA REGISTER
 export const registerWithEmail = (email, password, displayName) => {
   const auth = getAuth();
   return createUserWithEmailAndPassword(auth, email, password)
   // updateProfile es una función para actualizar el displayname y sea visible
     .then((usercredentials) => updateProfile(usercredentials.user, { displayName })
-    // then esta dentro del updateProfile, para que retorne UC ya que UP no devuelve nada
+    // then esta dentro del updateProfile, para que retorne UserCredentials
+    // ya que UptadeProfile no devuelve nada
       .then(() => usercredentials))
     .then((usercredentials) => {
-      console.log(usercredentials);
+      // console.log(usercredentials);
       const uid = usercredentials.user.uid;
       return saveUser({ userId: uid, email, name: displayName });
     });
 };
 
-// para hacer ingreso de la app mediante email y contraseña LOGIN
+// para hacer ingreso de la app mediante email y contraseña PAGINA LOGIN
 export const signInWithPassword = (email, password) => {
   const auth = getAuth();
   return signInWithEmailAndPassword(auth, email, password);
@@ -40,15 +41,9 @@ export const signInWithGoogle = () => {
     .then((result) => {
       // nos da acceso al Google Access Token. lo podemos usar para acceder al google API.
       const credential = GoogleAuthProvider.credentialFromResult(result);
-      // const token = credential.accessToken;
       // agregamos el signed-in en la informacion del usuario
       const user = result.user;
-      // data IdP data disponible usando getAdditionalUserInfo(result)
-      // console.log(token);
-      // console.log(user);
-      // alert('auth ok');
       window.location.href = '/feed';
-      // ...
     })
     .catch((error) => {
       // Handle Errors here.
@@ -58,12 +53,10 @@ export const signInWithGoogle = () => {
       const email = error.customData.email;
       // la credencial Auth que fue usada.
       const credential = GoogleAuthProvider.credentialFromError(error);
-      // alert('auth error');
       window.location.href = '/'; // si nos marca error nos manda al home
-      // ...
     });
 };
-
+// cerrar sesión
 export const signOutUser = () => {
   const auth = getAuth();
   return signOut(auth);

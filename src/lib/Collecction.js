@@ -1,4 +1,3 @@
-// import { getStorage, ref } from 'firebase/storage';
 import {
   collection,
   getFirestore,
@@ -17,7 +16,7 @@ import {
 // que se va a ejecutar cuando hay un cambio en la colección. Además se ordena por fecha desc
 export const onPostsChange = (callback) => onSnapshot(query(collection(getFirestore(), 'Posts'), orderBy('date', 'desc')), callback);
 
-// crea el comentario para post y le da fecha tambien
+// crea el comentario para post y lo organiza de forma descendente
 export const addCommentToPost = (postRef, comment) => addDoc(collection(postRef, 'Comments'), { comment, date: new Date() });
 
 // creamos el post con addPost
@@ -26,19 +25,16 @@ export const addPost = (post) => addDoc(collection(getFirestore(), 'Posts'), pos
 // borrar post
 export const deletePost = (docRef) => deleteDoc(doc(getFirestore(), 'Posts', docRef));
 
-// recorre array de comentarios y se muestra en interfaz, y lo ordena por fecha
+// recorre array de comentarios y se muestra en interfaz, y lo ordena por fecha descendente
 export const getComments = (docRef, callback) => onSnapshot(query(collection(docRef, 'Comments'), orderBy('date', 'desc')), callback);
 
-// crea documento de Likes
+// se actualizan los post creados
 export const updatePost = (docRef, data) => updateDoc(docRef, data);
 
 // crea los usuarios en el firebase con la autenticación
 export const saveUser = (user) => addDoc(collection(getFirestore(), 'Users'), user);
 
-// Obtiene la información de los post
-// export const getPost = (id) => getDoc(doc(getFirestore(), 'Posts', id)); no ocupado
-
-// sumamos y restados los likes dados por el usuario autentificado
+// suma y resta de los likes dados por el usuario autentificado
 export const sumLike = (id, user) => updateDoc(doc(getFirestore(), 'Posts', id), {
   likes: arrayUnion(user),
 });

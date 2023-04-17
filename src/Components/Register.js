@@ -20,6 +20,7 @@ export const Register = () => {
   errorRegister.className = 'errorMessage';
   errorRegister.textContent = 'errorMessage';
   errorRegister.style.display = 'none';
+  errorRegister.id = 'errorRegister';
 
   const formRegister = document.createElement('form');
   formRegister.className = 'formRegister';
@@ -95,7 +96,6 @@ export const Register = () => {
     const nameValue = nameRegister.value;
     const passwordValue = claveRegister.value;
     const confirmPasswordValue = confirmPassword.value;
-    console.log(passwordValue);
 
     const userInfo = {
       // lo creamos para que reciba las propiedas del formular
@@ -105,7 +105,7 @@ export const Register = () => {
       confirmPassword: confirmPasswordValue,
     };
 
-    console.log(userInfo);
+    // console.log(userInfo);
 
     // funcion para hacer el import y que nos rederija a la pagina que necesitamos
     registerWithEmail(
@@ -120,14 +120,13 @@ export const Register = () => {
       })
       .catch((error) => {
         const errorCode = error.code;
-        console.log(errorCode);
         if (errorCode === 'auth/network-request-failed.') {
           errorRegister.style.display = 'block';
           errorRegister.textContent = 'Fields cannot be empty.';
         } else if (errorCode === 'auth/weak-password') {
           errorRegister.style.display = 'block';
           errorRegister.textContent = 'The password must be at least 6 characters.';
-        } else if (errorCode === 'auth/invalid-email') {
+        } else if (errorCode === 'auth/invalid-email') { // testeado
           errorRegister.style.display = 'block';
           errorRegister.textContent = 'Invalid email.';
         } else if (errorCode === 'auth/missing-email') {
@@ -136,16 +135,11 @@ export const Register = () => {
         } else if (errorCode === 'auth/email-already-in-use') {
           errorRegister.style.display = 'block';
           errorRegister.textContent = 'Email already in use.';
-        } else if (errorCode === 'auth/internal-error') {
+        } else if (errorCode === 'auth/internal-error') { // testeado
           errorRegister.style.display = 'block';
           errorRegister.textContent = 'Password field cannot be empty.';
         }
         return error;
-
-        // const errorMessage = error.message;
-
-        // alert('Please Try Again');
-        // window.location.href = '/register'; // pendiente redirigir al Home
       });
   });
 

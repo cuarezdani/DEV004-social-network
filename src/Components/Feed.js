@@ -1,5 +1,4 @@
 import { getStorage, ref, getDownloadURL } from 'firebase/storage';
-
 import { auth } from '../lib/fireBase';
 import {
   onPostsChange,
@@ -15,10 +14,10 @@ import { signOutUser } from '../lib/Autenticacion';
 import { onNavigate } from '../router';
 import { addPicture } from '../lib/storage';
 
-console.log(auth);
 const storage = getStorage();
 
 export const Feed = () => {
+  // se crea container para abarcar toda la informacion
   const containerFeed = document.createElement('div');
   containerFeed.className = 'containerFeed';
 
@@ -34,26 +33,25 @@ export const Feed = () => {
   containerFeed.append(logoFeed);
   containerFeed.append(lineaDorada);
 
-  const postsSection = document.createElement('section');
+  const postsSection = document.createElement('section'); // section de los post
   postsSection.className = 'postsSection';
   containerFeed.append(postsSection);
 
   // eslint-disable-next-line consistent-return
   onPostsChange((querySnapshot) => {
-    if (!auth.currentUser) { // condicion que si no esta logueado rediriga a home
+    if (!auth.currentUser) { // condicion que si no esta logueado rediriga a home RUTAS
       window.location.href = '/';
       return '';
     }
     // querySnapshot contiene todos los documentos de nuestra colección
-    // console.log(querySnapshot);
-    const arraySection = [];
+    const arraySection = []; // se recorre el array de los documentos en un string vacio
     querySnapshot.forEach((doc) => {
       // forEach recorre el array de los documentos
       const section = document.createElement('section');
       section.className = 'sectionWonderland';
       const title = document.createElement('div');
       title.className = 'title';
-      const imgWonderland = document.createElement('img'); // dejaremos la foto del logo como default
+      const imgWonderland = document.createElement('img'); // dejaremos la foto del logo como default en cada publicacion
       imgWonderland.className = 'imgWonderland';
       imgWonderland.src = '../imagenes/logo1.png';
       const strong = document.createElement('p');
@@ -67,7 +65,8 @@ export const Feed = () => {
       fotoMuro.src = '../imagenes/defaultImagen.png';
 
       // foto de storage
-      if (doc.data().image) {
+      if (doc.data().image) { // se crea la carpeta desde la data
+        // cuando se trae la foto del strorage a la interfaz desde el URL (path)
         getDownloadURL(ref(storage, doc.data().image))
           .then((url) => {
             fotoMuro.setAttribute('src', url);
@@ -78,22 +77,24 @@ export const Feed = () => {
           });
       }
 
-      // Iconos
+      // Iconos del post en si
       const sectionIconos = document.createElement('div');
       sectionIconos.className = 'sectionIconos';
       const favorite = document.createElement('img');
       favorite.className = 'favoriteFeed';
       favorite.src = '../imagenes/favorite.png';
 
+      // nuestro usuario autentificado da likes/dislike
       // eslint-disable-next-line no-unused-vars
       const currentUserLike = auth.currentUser.uid;
-      const postLike = doc.data().likes;
+      const postLike = doc.data().likes; // explicar con lineas 114
 
+      // likes
       const likeInterfaz = document.createElement('p');
       likeInterfaz.id = 'likeInterfaz';
       likeInterfaz.className = 'likeInterfaz';
       const likeNum = postLike.length + 1;
-      likeInterfaz.textContent = `${likeNum} likes`;
+      likeInterfaz.textContent = `${likeNum} likes`; // objeto de cantidad dibujada
       const containerLike = document.createElement('div');
       containerLike.className = 'containerLike';
       const like = document.createElement('img');
@@ -103,13 +104,12 @@ export const Feed = () => {
       like.src = '../imagenes/like1.png'; // corazon rosa
       like.textContent = doc.data().likes.length;
       like.style.display = 'none';
-      // console.log(prueba === undefined?0:prueba.length); Operador Ternario
-      // like.style.display = 'none';
       const dislike = document.createElement('img');
       dislike.className = 'dislike';
       dislike.src = '../imagenes/like.png'; // corazon fondo blanco
-      // dislike.style.display = 'none';
 
+      // estilo de los corazones para que cambien de color
+      // si se da like debe reconocer al usuario y no dar más likes
       if (postLike.includes(auth.currentUser.uid)) {
         like.style.display = 'flex';
         dislike.style.display = 'none';
@@ -122,10 +122,10 @@ export const Feed = () => {
       // eslint-disable-next-line no-unused-vars
       let userLiked = false; // variable para mantener el me gusta del usuario
       containerLike.addEventListener('click', async () => { // llamamos al icono like
-        console.log(doc.data);
-        updatePost(doc.ref, {
-          likes: [...doc.data().likes, auth.currentUser.uid],
-        }); // spread operation
+        updatePost(doc.ref, { // desde la referencia se actualiza el post
+          // identificando nuevamente al usuario recorreindo los likes
+          likes: [...doc.data().likes, auth.currentUser.uid], // ...spread operation
+        });
         // obtenemos el id de la publicacion
         const postId = doc.id;
         // obtenemos los datos del objet
@@ -141,9 +141,10 @@ export const Feed = () => {
           sumLike(postId, auth.currentUser.uid);
           userLiked = true;
         }
-        console.log(document);
+        // console.log(document);
       });
 
+      // Icono de comentario AL post
       const iconComment = document.createElement('img');
       iconComment.className = 'iconComment';
       iconComment.src = '../imagenes/comment.png';
@@ -159,7 +160,7 @@ export const Feed = () => {
       const commentName = document.createElement('strong');
       commentName.textContent = doc.data().userName;
       commentName.className = 'commentName';
-      const commentPost = document.createElement('p');
+      const commentPost = document.createElement('p'); // descripcion de la foto o cafeteria
       commentPost.textContent = doc.data().comments;
       commentPost.className = 'commentsPost';
       const iconDelete = document.createElement('img');
@@ -170,19 +171,17 @@ export const Feed = () => {
       iconEdit.className = 'iconEdit';
       iconEdit.src = '../imagenes/editar.png';
       iconEdit.style.display = 'none';
-      console.log(doc);
-
-      // solo el post del usuario aparezca los iconos
 
       // debemos obtener al usuario
       const currentUser = auth.currentUser.uid;
       const postUser = doc.data().id;
+      // solo el usuario logueado puede eliminar sus propios post
       if (currentUser === postUser) {
         iconDelete.addEventListener('click', async () => {
-          // si los usuarios son iguales se eliminan
+          // si el usuario coincide con el postUser se elimina el post
           await deletePost(doc.id);
         });
-        // solo el post del usuario aparezca los iconos
+        // solo el post del usuario aparezca los iconos de borrar y editar
         if (postUser === currentUser) {
           iconDelete.style.display = 'flex';
           iconEdit.style.display = 'flex';
@@ -218,21 +217,20 @@ export const Feed = () => {
       // eslint-disable-next-line no-unused-vars
       const currentUserEdit = auth.currentUser.uid;
       const postUserEdit = doc.data().id;
-
       if (currentUserEdit === postUserEdit) {
         // eslint-disable-next-line no-unused-vars
-        const modal = document.getElementById('modalPost');
+        const modal = document.getElementById('modalPost'); // se abre modal y se cierra
         iconEdit.addEventListener('click', () => {
           modalEditPost.style.display = 'block';
 
           saveEditPost.addEventListener('click', () => {
             modalEditPost.style.display = 'none';
           });
-
+          // si ya no deseas editar se cancela la accion
           cancelEditPost.addEventListener('click', () => {
             modalEditPost.style.display = 'none';
           });
-
+          // al apretar save te entregan los valores editados
           saveEditPost.addEventListener('click', async () => {
             try {
               await updatePost(doc.ref, {
@@ -240,25 +238,13 @@ export const Feed = () => {
                 Title: titleEditPost.value,
               });
             } catch (err) {
-              console.log(err);
+              // console.log(err);
             }
           });
         });
-
-        iconDelete.addEventListener(
-          'click',
-          async () => {
-            // si los usuarios son iguales se eliminan
-            await deletePost(doc.id);
-          }, /* else {
-            console.log('You can not delete this post.');
-          }
-        } else {
-          console.log('You need to login to delete a post.'); */
-        );
       }
 
-      // comentario y boton
+      // Input del comentario AL post y click al boton
       const inputComments = document.createElement('div');
       inputComments.className = 'inputComments';
       inputComments.style.display = 'none';
@@ -268,45 +254,51 @@ export const Feed = () => {
       descriptionComment.id = 'comment';
       descriptionComment.textContent = doc.data().comment;
 
+      // si le doy click al icono me aparecerce la cajita
       iconComment.addEventListener('click', () => {
         if (inputComments.style.display === 'none') {
           inputComments.style.display = 'block';
         }
       });
 
+      // boton del input del comentario
       const buttonComment = document.createElement('button');
       buttonComment.className = 'btnComment';
       buttonComment.textContent = 'send';
 
+      // se entrega el valor del comentario
       buttonComment.addEventListener('click', async () => {
         if (descriptionComment.value) {
           await addCommentToPost(doc.ref, descriptionComment.value);
           descriptionComment.value = '';
         }
       });
-
+      // aquí se crea la caja contenedora del comentario
       const parrafoComentario = document.createElement('div');
       parrafoComentario.className = 'parrafoComentario';
 
       // recorre el array de comentarios y los muestra
       getComments(doc.ref, (queryComments) => {
+        // se crea array vacio de la subcoleccion del documento
         const arrayQueryComments = [];
         queryComments.forEach((commentDoc) => {
           const parrafo = document.createElement('p');
           parrafo.className = 'parrafo';
           parrafo.textContent = commentDoc.data().comment;
-          parrafoComentario.append(parrafo);
-          console.log(commentDoc.data().comment);
+          parrafoComentario.append(parrafo); // muestra el comentario
+          // console.log(commentDoc.data().comment);
+          // push agrega al array
           arrayQueryComments.push(parrafo);
         });
+        // replaceChildren no duplica el comentario
         parrafoComentario.replaceChildren(...arrayQueryComments);
       });
-
+      // se oculta el input
       buttonComment.addEventListener('click', () => {
         inputComments.style.display = 'none';
       });
 
-      // postsSection.append(section);
+      // se pintan en interfaz la informacion usando appendChild y append
       section.append(
         title,
         fotoMuro,
@@ -323,6 +315,7 @@ export const Feed = () => {
       inputComments.append(descriptionComment, buttonComment);
       arraySection.push(section);
     });
+    // se usa replaceChildren para que no se repita el array
     postsSection.replaceChildren(...arraySection);
   });
 
@@ -332,16 +325,17 @@ export const Feed = () => {
   const profileIcono = document.createElement('img'); // menu perfil
   profileIcono.className = 'profileIcono';
   profileIcono.src = '../imagenes/usuario.png';
-  const addIcono = document.createElement('img'); // suma
+  const addIcono = document.createElement('img'); // suma para hacer post
   addIcono.className = 'addIcono';
   addIcono.src = '../imagenes/mas.png';
-  const signOut = document.createElement('img'); // icono puerta
+  const signOut = document.createElement('img'); // icono puerta cerrar sesion
   signOut.className = 'signOut';
   signOut.src = '../imagenes/cerrar-sesion.png';
 
   containerFeed.appendChild(menuIcono);
   menuIcono.append(profileIcono, addIcono, signOut);
 
+  // icono perfil nos redirige al profile del usuario
   profileIcono.addEventListener('click', () => {
     onNavigate('/profile');
   });
@@ -349,8 +343,8 @@ export const Feed = () => {
   signOut.addEventListener('click', () => {
     signOutUser()
       .then(() => {
-        console.log(signOutUser(auth));
-        onNavigate('/');
+        // console.log(signOutUser(auth));
+        onNavigate('/'); // se se cierra sesion nos redirige al home
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -389,38 +383,35 @@ export const Feed = () => {
   // eslint-disable-next-line no-unused-vars
   const modal = document.getElementById('modalPost');
   // eslint-disable-next-line no-unused-vars
-  const suma = document.querySelector('.addIcono');
+  const suma = document.querySelector('.addIcono'); // se le da funcionalidad al icono +
   addIcono.addEventListener('click', () => {
     modalPost.style.display = 'block';
   });
-
+  // al apretar desaparece el modal
   savePost.addEventListener('click', () => {
     modalPost.style.display = 'none';
   });
-
+  // al apretar save además nos entrega los valores guardando la nueva información
   savePost.addEventListener('click', async () => {
-    console.log('asd', auth);
     if (textPost.value) {
-      console.log(textPost.value);
-      console.log('holaaaa');
-      console.log(buttonPicture.files[0]);
       const post = {
         Title: titlePost.value,
         comments: textPost.value,
+        // se organiza por fecha en firebase para que el ultimo post sea mostrado de los primeros
         date: new Date(),
         // se obtiene el nombre de usuario de la autenticación
         userName: auth.currentUser.displayName,
         id: auth.currentUser.uid,
         likes: [],
       };
-
+        // subida de imagen en el post
       const postCreated = await addPost(post);
-      console.log(postCreated);
       // guardar la imagen con el id del post
       addPicture(
         buttonPicture.files[0],
         postCreated.id,
-        (image) => updatePost(postCreated, { image }), // funcion para actualizar la imagen del post
+        // funcion para actualizar la imagen del post
+        (image) => updatePost(postCreated, { image }),
       );
       titlePost.value = '';
       textPost.value = '';

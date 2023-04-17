@@ -1,13 +1,8 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
-// import { getAnalytics } from 'firebase/analytics';
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// nuestra configuracion de web dada por Firebase
 const firebaseConfig = {
   apiKey: 'AIzaSyCwlm3jH5W3WcbvJTX9JoWcxCTPYVKUrEw',
   authDomain: 'coffee-hour-9b779.firebaseapp.com',
@@ -22,15 +17,17 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 
 // inicializamos Cloud Firestore para tener referencias al servicio para que la
-// app interactúe con el tenido y los recursos del proyecto
+// app interactúe con el contenido y los recursos del proyecto
 export const db = getFirestore(app);
 
 // se inicializa Firebase Authentication y obtenemos una referencia al servicio
 // se usa para autentificar varios metodos de acceso con correo, email y contraseña
 export const auth = getAuth(app);
-// usamos ademas Google para enlazarlos a nuestra base de datos
+
+// usamos ademas Google como proveedor de datos para enlazarlos a nuestros ingresos y logueos
 export const provider = new GoogleAuthProvider();
 
+// asocia y configura el proyecto en Firebase creando un archivo .json
 export const initFirebase = () => ({
   app,
   auth,
