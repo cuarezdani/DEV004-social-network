@@ -38,7 +38,12 @@ export const Feed = () => {
   postsSection.className = 'postsSection';
   containerFeed.append(postsSection);
 
+  // eslint-disable-next-line consistent-return
   onPostsChange((querySnapshot) => {
+    if (!auth.currentUser) { // condicion que si no esta logueado rediriga a home
+      window.location.href = '/';
+      return '';
+    }
     // querySnapshot contiene todos los documentos de nuestra colección
     // console.log(querySnapshot);
     const arraySection = [];

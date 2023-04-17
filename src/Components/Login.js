@@ -85,7 +85,7 @@ export const Login = () => {
   containerLogin.appendChild(buttonGoogle);
   buttonGoogle.append(imgGoogle, strong);
 
-  buttonContinue.addEventListener('click', () => {
+  buttonContinue.addEventListener('click', async () => {
     const emailValue = emailInput.value;
     const passwordValue = emailPassword.value;
     console.log(emailValue);
@@ -98,11 +98,12 @@ export const Login = () => {
         emailPassword: passwordValue,
       };
 
+      const userLogin = await signInWithPassword(user.email, user.emailPassword);
+      window.location.href = '/feed';
       signInWithPassword(user.email, user.emailPassword)
         .then((userCredential) => {
           const user = userCredential.user;
           // alert('Register Accepted');
-          window.location.href = '/feed';
         })
         .catch((error) => {
           const errorCode = error.code;

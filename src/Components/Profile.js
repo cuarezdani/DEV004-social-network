@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import { onNavigate } from '../router';
 import { signOutUser } from '../lib/Autenticacion';
+import { auth } from '../lib/fireBase';
 
 export const Profile = () => {
   const containerProfile = document.createElement('div');
@@ -72,6 +73,10 @@ export const Profile = () => {
     onNavigate('/feed');
   });
 
+  if (!auth.currentUser) { // condicion que si no esta logueado rediriga a home
+    window.location.href = '/';
+    return '';
+  }
   // Botón de cerrar sesión
   signOutProfile.addEventListener('click', () => {
     signOutUser()
