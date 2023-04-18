@@ -2,6 +2,7 @@
 import { getFirestore } from 'firebase/firestore';
 import { onNavigate } from '../router';
 import { signInWithGoogle, registerWithEmail } from '../lib/Autenticacion';
+import { logo, google } from '../img/img.js';
 
 export const Register = () => {
   const containerRegister = document.createElement('div');
@@ -9,7 +10,7 @@ export const Register = () => {
 
   // const doc = getFirestore();
   const logoCaffee = document.createElement('img');
-  logoCaffee.src = '../imagenes/logo1.png';
+  logoCaffee.src = logo;
   logoCaffee.className = 'logoCaffee';
 
   const homeDiv = document.createElement('h1');
@@ -69,7 +70,7 @@ export const Register = () => {
 
   const imgGoogle = document.createElement('img');
   imgGoogle.className = 'imgGoogle';
-  imgGoogle.src = '../imagenes/iconogoogle.svg';
+  imgGoogle.src = google;
   const buttonGoogle = document.createElement('button');
   buttonGoogle.className = 'buttonGoogle';
   const strong = document.createElement('strong');

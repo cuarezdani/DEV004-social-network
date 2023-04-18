@@ -1,12 +1,13 @@
 import { onNavigate } from '../router';
 import { signInWithGoogle, signInWithPassword } from '../lib/Autenticacion';
+import { logo, google } from '../img/img.js';
 
 export const Login = () => {
   const containerLogin = document.createElement('div'); // creación de container para sostener nuestra página
   containerLogin.className = 'containerLogin';
 
   const logoCaffee = document.createElement('img');
-  logoCaffee.src = '../imagenes/logo1.png';
+  logoCaffee.src = logo;
   logoCaffee.className = 'logoCaffee';
 
   const homeDiv = document.createElement('h1');
@@ -61,7 +62,7 @@ export const Login = () => {
 
   const imgGoogle = document.createElement('img'); // boton google
   imgGoogle.className = 'imgGoogle';
-  imgGoogle.src = '../imagenes/iconogoogle.svg';
+  imgGoogle.src = google;
   const buttonGoogle = document.createElement('button');
   buttonGoogle.className = 'buttonGoogle';
   const strong = document.createElement('strong');
@@ -91,7 +92,7 @@ export const Login = () => {
     if (emailValue === '' || passwordValue === '') {
       errorMessageL.style.display = 'block';
       errorMessageL.textContent = 'Fields cannot be empty';
-      console.log(errorMessageL);
+      // console.log(errorMessageL);
     } else {
       const user = {
         email: emailValue,

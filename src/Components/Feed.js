@@ -13,6 +13,13 @@ import {
 import { signOutUser } from '../lib/Autenticacion';
 import { onNavigate } from '../router';
 import { addPicture } from '../lib/storage';
+import {
+  wonderland, favoriteFeed, likeFeed,
+  dislikeFeed, iconCommentFeed,
+  saveFeed, iconDeleteFeed,
+  iconEditFeed, profileIconoFeed,
+  addIconoFeed, signOutFeed,
+} from '../img/img.js';
 
 const storage = getStorage();
 
@@ -53,7 +60,7 @@ export const Feed = () => {
       title.className = 'title';
       const imgWonderland = document.createElement('img'); // dejaremos la foto del logo como default en cada publicacion
       imgWonderland.className = 'imgWonderland';
-      imgWonderland.src = '../imagenes/logo1.png';
+      imgWonderland.src = wonderland;
       const strong = document.createElement('p');
       strong.textContent = doc.data().Title;
       strong.className = 'textWonderland';
@@ -82,7 +89,7 @@ export const Feed = () => {
       sectionIconos.className = 'sectionIconos';
       const favorite = document.createElement('img');
       favorite.className = 'favoriteFeed';
-      favorite.src = '../imagenes/favorite.png';
+      favorite.src = favoriteFeed;
 
       // nuestro usuario autentificado da likes/dislike
       // eslint-disable-next-line no-unused-vars
@@ -102,12 +109,12 @@ export const Feed = () => {
       like.className = 'like';
       like.id = 'like';
       like.setAttribute('like', doc.data().id);
-      like.src = '../imagenes/like1.png'; // corazon rosa
+      like.src = likeFeed; // corazon rosa
       like.textContent = doc.data().likes.length;
       like.style.display = 'none';
       const dislike = document.createElement('img');
       dislike.className = 'dislike';
-      dislike.src = '../imagenes/like.png'; // corazon fondo blanco
+      dislike.src = dislikeFeed; // corazon fondo blanco
 
       // estilo de los corazones para que cambien de color
       // si se da like debe reconocer al usuario y no dar más likes
@@ -148,12 +155,12 @@ export const Feed = () => {
       // Icono de comentario AL post
       const iconComment = document.createElement('img');
       iconComment.className = 'iconComment';
-      iconComment.src = '../imagenes/comment.png';
+      iconComment.src = iconCommentFeed;
       iconComment.id = 'iconComment';
 
       const save = document.createElement('img');
       save.className = 'save';
-      save.src = '../imagenes/guardar.png';
+      save.src = saveFeed;
 
       // description post lo que se sube en el modal
       const descPost = document.createElement('div');
@@ -166,11 +173,11 @@ export const Feed = () => {
       commentPost.className = 'commentsPost';
       const iconDelete = document.createElement('img');
       iconDelete.className = 'iconDelete';
-      iconDelete.src = '../imagenes/borrar.png';
+      iconDelete.src = iconDeleteFeed;
       iconDelete.style.display = 'none';
       const iconEdit = document.createElement('img');
       iconEdit.className = 'iconEdit';
-      iconEdit.src = '../imagenes/editar.png';
+      iconEdit.src = iconEditFeed;
       iconEdit.style.display = 'none';
 
       // debemos obtener al usuario
@@ -325,13 +332,13 @@ export const Feed = () => {
   menuIcono.className = 'menuIcono';
   const profileIcono = document.createElement('img'); // menu perfil
   profileIcono.className = 'profileIcono';
-  profileIcono.src = '../imagenes/usuario.png';
+  profileIcono.src = profileIconoFeed;
   const addIcono = document.createElement('img'); // suma para hacer post
   addIcono.className = 'addIcono';
-  addIcono.src = '../imagenes/mas.png';
+  addIcono.src = addIconoFeed;
   const signOut = document.createElement('img'); // icono puerta cerrar sesion
   signOut.className = 'signOut';
-  signOut.src = '../imagenes/cerrar-sesion.png';
+  signOut.src = signOutFeed;
 
   containerFeed.appendChild(menuIcono);
   menuIcono.append(profileIcono, addIcono, signOut);

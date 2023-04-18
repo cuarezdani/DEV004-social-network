@@ -2,6 +2,11 @@
 import { onNavigate } from '../router';
 import { signOutUser } from '../lib/Autenticacion';
 import { auth } from '../lib/fireBase';
+import {
+  imgFavoriteProfile, imgSaveProfile,
+  profilePictureProfile, signOutProfile2,
+  imgMapProfile, homeIconoProfile2,
+} from '../img/img.js';
 
 export const Profile = () => {
   const containerProfile = document.createElement('div');
@@ -17,12 +22,12 @@ export const Profile = () => {
   linea.className = 'linea';
 
   const profilePicture = document.createElement('img');
-  profilePicture.src = '../imagenes/usuario.png';
+  profilePicture.src = profilePictureProfile;
   profilePicture.className = 'profilePicture';
 
   const imgFavorite = document.createElement('img');
   imgFavorite.className = 'imgFavorite';
-  imgFavorite.src = '../imagenes/favorite.png';
+  imgFavorite.src = imgFavoriteProfile;
   const buttonFavorite = document.createElement('button');
   buttonFavorite.className = 'buttonFavorite';
   const strongFavorite = document.createElement('strong');
@@ -31,7 +36,7 @@ export const Profile = () => {
 
   const imgSave = document.createElement('img');
   imgSave.className = 'imgSave';
-  imgSave.src = '../imagenes/guardar.png';
+  imgSave.src = imgSaveProfile;
   const buttonSave = document.createElement('button');
   buttonSave.className = 'buttonSave';
   const strongSave = document.createElement('strong');
@@ -40,7 +45,7 @@ export const Profile = () => {
 
   const imgMap = document.createElement('img');
   imgMap.className = 'imgMap';
-  imgMap.src = '../imagenes/mapa.png';
+  imgMap.src = imgMapProfile;
   const buttonMap = document.createElement('button');
   buttonMap.className = 'buttonMap';
   const strongMap = document.createElement('strong');
@@ -62,10 +67,10 @@ export const Profile = () => {
   menuIconoProfile.className = 'menuIconoProfile';
   const homeIconoProfile = document.createElement('img');
   homeIconoProfile.className = 'homeIconoProfile';
-  homeIconoProfile.src = '../imagenes/casa-silueta-negra-sin-puerta.png';
+  homeIconoProfile.src = homeIconoProfile2;
   const signOutProfile = document.createElement('img'); // icono puerta
   signOutProfile.className = 'signOutProfile';
-  signOutProfile.src = '../imagenes/cerrar-sesion.png';
+  signOutProfile.src = signOutProfile2;
 
   containerProfile.appendChild(menuIconoProfile);
   menuIconoProfile.append(homeIconoProfile, signOutProfile);
