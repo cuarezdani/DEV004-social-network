@@ -93,7 +93,8 @@ export const Feed = () => {
       const likeInterfaz = document.createElement('p');
       likeInterfaz.id = 'likeInterfaz';
       likeInterfaz.className = 'likeInterfaz';
-      const likeNum = postLike.length + 1;
+      // likeInterfaz.style.display = 'none';
+      const likeNum = postLike.length;
       likeInterfaz.textContent = `${likeNum} likes`; // objeto de cantidad dibujada
       const containerLike = document.createElement('div');
       containerLike.className = 'containerLike';

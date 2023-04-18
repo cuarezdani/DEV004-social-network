@@ -589,7 +589,6 @@ body {
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
-  max-width: 600px; 
   height: 100%;
 }
 
@@ -598,7 +597,7 @@ body {
   height: 100%;
   margin-block-end: 6%;
   align-items: center;
-  margin-top: 36%;
+  margin-top: 0%;
 }
 
 .textPost {
@@ -608,12 +607,13 @@ body {
 }
 
 .savePost {
-  margin-left: 33.6%;
+  margin-left: 25%;
   margin-top: 8%;
 }
 /* Agrega estilos para los botones en la ventana modal */
 .buttonPicture{
-margin-left: -8%;
+margin-left: -16%;
+
 }
 .buttonPicture,
 .savePost {
@@ -622,8 +622,11 @@ margin-left: -8%;
   padding: 10px;
   border: none;
   cursor: pointer;
-  margin-right: 20px;
+  margin-right: 10px;
   height: 3em;
+}
+.savePost{
+  width: 50%;
 }
 
 .buttonPicture:hover,
@@ -872,12 +875,13 @@ tablet*/
   }
   .modalPost, .modalEditPost {
     padding: 20%;
+    margin-top: 0%;
   }
   .buttonPicture{
-    margin-left: 15%;
+    margin-left: 12%;
     }
     .savePost{
-      margin-left: 42%;
+      margin-left: 25%;
       }
   
 }
@@ -934,16 +938,16 @@ computador*/
   }
   .modalPost{
     padding: 30%;
+    margin-top: 0%;
+  }
+  .titlePost{
+    margin-top: 0%;
   }
 
   .modalEditPost{
   padding: 30%;
   }
   .buttonPicture{
-    margin-left: 100%;
+    margin-left: 20%;
   }
 }
-
-/* .containerRegister {
-    height: auto;
-  } */
