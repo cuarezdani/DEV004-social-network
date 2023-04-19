@@ -14,11 +14,18 @@ import { signOutUser } from '../lib/Autenticacion';
 import { onNavigate } from '../router';
 import { addPicture } from '../lib/storage';
 import {
-  logo, favoriteFeed, likeFeed,
-  dislikeFeed, iconCommentFeed,
-  saveFeed, iconDeleteFeed,
-  iconEditFeed, profileIconoFeed,
-  addIconoFeed, signOutFeed, fotoDefault,
+  logo,
+  favoriteFeed,
+  likeFeed,
+  dislikeFeed,
+  iconCommentFeed,
+  saveFeed,
+  iconDeleteFeed,
+  iconEditFeed,
+  profileIconoFeed,
+  addIconoFeed,
+  signOutFeed,
+  fotoDefault,
 } from '../img/img.js';
 
 const storage = getStorage();
@@ -46,7 +53,8 @@ export const Feed = () => {
 
   // eslint-disable-next-line consistent-return
   onPostsChange((querySnapshot) => {
-    if (!auth.currentUser) { // condicion que si no esta logueado rediriga a home RUTAS
+    if (!auth.currentUser) {
+      // condicion que si no esta logueado rediriga a home RUTAS
       window.location.href = '/';
       return '';
     }
@@ -72,7 +80,8 @@ export const Feed = () => {
       fotoMuro.src = fotoDefault;
 
       // foto de storage
-      if (doc.data().image) { // se crea la carpeta desde la data
+      if (doc.data().image) {
+        // se crea la carpeta desde la data
         // cuando se trae la foto del strorage a la interfaz desde el URL (path)
         getDownloadURL(ref(storage, doc.data().image))
           .then((url) => {
@@ -129,8 +138,10 @@ export const Feed = () => {
       // Botón like y función para dar like y dislike
       // eslint-disable-next-line no-unused-vars
       let userLiked = false; // variable para mantener el me gusta del usuario
-      containerLike.addEventListener('click', async () => { // llamamos al icono like
-        updatePost(doc.ref, { // desde la referencia se actualiza el post
+      containerLike.addEventListener('click', async () => {
+        // llamamos al icono like
+        updatePost(doc.ref, {
+          // desde la referencia se actualiza el post
           // identificando nuevamente al usuario recorreindo los likes
           likes: [...doc.data().likes, auth.currentUser.uid], // ...spread operation
         });
@@ -183,18 +194,21 @@ export const Feed = () => {
       // debemos obtener al usuario
       const currentUser = auth.currentUser.uid;
       const postUser = doc.data().id;
-      // solo el usuario logueado puede eliminar sus propios post
       if (currentUser === postUser) {
         iconDelete.addEventListener('click', async () => {
-          // si el usuario coincide con el postUser se elimina el post
-          await deletePost(doc.id);
+          // Mostrar la alerta de confirmación
+          const confirmed = window.confirm('Are you sure you want to delete this?');
+          if (confirmed) {
+            // Si el usuario confirma, se elimina el post
+            await deletePost(doc.id);
+          }
         });
-        // solo el post del usuario aparezca los iconos de borrar y editar
         if (postUser === currentUser) {
           iconDelete.style.display = 'flex';
           iconEdit.style.display = 'flex';
         }
       }
+
       // Modal para editar post
       const modalEditPost = document.createElement('section');
       modalEditPost.id = 'modalEditPost';
@@ -220,7 +234,12 @@ export const Feed = () => {
 
       containerFeed.appendChild(modalEditPost);
       modalEditPost.appendChild(createEditPost);
-      createEditPost.append(titleEditPost, textEditPost, saveEditPost, cancelEditPost);
+      createEditPost.append(
+        titleEditPost,
+        textEditPost,
+        saveEditPost,
+        cancelEditPost,
+      );
 
       // eslint-disable-next-line no-unused-vars
       const currentUserEdit = auth.currentUser.uid;
@@ -383,10 +402,13 @@ export const Feed = () => {
   const savePost = document.createElement('button');
   savePost.className = 'savePost';
   savePost.textContent = 'Save';
+  const cancelModal = document.createElement('button');
+  cancelModal.className = 'cancelModal';
+  cancelModal.textContent = 'Cancel';
 
   containerFeed.appendChild(modalPost);
   modalPost.appendChild(createPost);
-  createPost.append(titlePost, textPost, buttonPicture, savePost);
+  createPost.append(titlePost, textPost, buttonPicture, savePost, cancelModal);
 
   // eslint-disable-next-line no-unused-vars
   const modal = document.getElementById('modalPost');
@@ -397,6 +419,9 @@ export const Feed = () => {
   });
   // al apretar desaparece el modal
   savePost.addEventListener('click', () => {
+    modalPost.style.display = 'none';
+  });
+  cancelModal.addEventListener('click', () => {
     modalPost.style.display = 'none';
   });
   // al apretar save además nos entrega los valores guardando la nueva información
@@ -412,7 +437,7 @@ export const Feed = () => {
         id: auth.currentUser.uid,
         likes: [],
       };
-        // subida de imagen en el post
+      // subida de imagen en el post
       const postCreated = await addPost(post);
       // guardar la imagen con el id del post
       addPicture(
