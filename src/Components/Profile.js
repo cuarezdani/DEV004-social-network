@@ -3,9 +3,8 @@ import { onNavigate } from '../router';
 import { signOutUser } from '../lib/Autenticacion';
 import { auth } from '../lib/fireBase';
 import {
-  imgFavoriteProfile, imgSaveProfile,
-  profilePictureProfile, signOutProfile2,
-  imgMapProfile, homeIconoProfile2,
+  favoriteFeed, saveFeed, signOutFeed,
+  imgMapProfile, homeIconoProfile2, profileIconoFeed,
 } from '../img/img.js';
 
 export const Profile = () => {
@@ -22,12 +21,12 @@ export const Profile = () => {
   linea.className = 'linea';
 
   const profilePicture = document.createElement('img');
-  profilePicture.src = profilePictureProfile;
+  profilePicture.src = profileIconoFeed;
   profilePicture.className = 'profilePicture';
 
   const imgFavorite = document.createElement('img');
   imgFavorite.className = 'imgFavorite';
-  imgFavorite.src = imgFavoriteProfile;
+  imgFavorite.src = favoriteFeed;
   const buttonFavorite = document.createElement('button');
   buttonFavorite.className = 'buttonFavorite';
   const strongFavorite = document.createElement('strong');
@@ -36,7 +35,7 @@ export const Profile = () => {
 
   const imgSave = document.createElement('img');
   imgSave.className = 'imgSave';
-  imgSave.src = imgSaveProfile;
+  imgSave.src = saveFeed;
   const buttonSave = document.createElement('button');
   buttonSave.className = 'buttonSave';
   const strongSave = document.createElement('strong');
@@ -70,7 +69,7 @@ export const Profile = () => {
   homeIconoProfile.src = homeIconoProfile2;
   const signOutProfile = document.createElement('img'); // icono puerta
   signOutProfile.className = 'signOutProfile';
-  signOutProfile.src = signOutProfile2;
+  signOutProfile.src = signOutFeed;
 
   containerProfile.appendChild(menuIconoProfile);
   menuIconoProfile.append(homeIconoProfile, signOutProfile);

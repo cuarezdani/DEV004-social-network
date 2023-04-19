@@ -14,11 +14,11 @@ import { signOutUser } from '../lib/Autenticacion';
 import { onNavigate } from '../router';
 import { addPicture } from '../lib/storage';
 import {
-  wonderland, favoriteFeed, likeFeed,
+  logo, favoriteFeed, likeFeed,
   dislikeFeed, iconCommentFeed,
   saveFeed, iconDeleteFeed,
   iconEditFeed, profileIconoFeed,
-  addIconoFeed, signOutFeed,
+  addIconoFeed, signOutFeed, fotoDefault,
 } from '../img/img.js';
 
 const storage = getStorage();
@@ -60,7 +60,7 @@ export const Feed = () => {
       title.className = 'title';
       const imgWonderland = document.createElement('img'); // dejaremos la foto del logo como default en cada publicacion
       imgWonderland.className = 'imgWonderland';
-      imgWonderland.src = wonderland;
+      imgWonderland.src = logo;
       const strong = document.createElement('p');
       strong.textContent = doc.data().Title;
       strong.className = 'textWonderland';
@@ -69,7 +69,7 @@ export const Feed = () => {
       const fotoMuro = document.createElement('img');
       fotoMuro.className = 'fotoMuro';
       fotoMuro.textContent = doc.data().image;
-      fotoMuro.src = '../imagenes/defaultImagen.png';
+      fotoMuro.src = fotoDefault;
 
       // foto de storage
       if (doc.data().image) { // se crea la carpeta desde la data
