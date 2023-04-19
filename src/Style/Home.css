@@ -961,9 +961,8 @@ computador*/
   .titlePost{
     margin-top: -50%;
   }
-
   .modalEditPost{
-  padding: 30%;
+    padding: 10% 30% 0% 30%;
   }
   .buttonPicture{
     margin-left: 20%;
