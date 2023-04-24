@@ -847,10 +847,12 @@ tablet*/
 @media only screen and (min-device-width: 740px) {
   .containerLogin {
     padding: 20% 20% 0% 20%;
+    height: 100vh;
   }
 
   .containerRegister {
     padding: 20% 20% 0% 20%;
+    height: 100vh;
   }
 
   #correoRegister {
@@ -902,20 +904,9 @@ tablet*/
 /*codigos nos servirán para que sean responsives en diferentes equipos :)
 computador*/
 @media only screen and (min-device-width: 860px) {
-  .containerLogin {
-    padding: 5% 30% 0% 30%;
-    height: 100%;
-  }
-
   .homeDivLogin {
     margin-top: 5%;
   }
-
-  .containerRegister {
-    padding: 0% 30% 0% 30%;
-    height: 100%;
-  }
-
   .logoCaffee {
     margin-top: 0%;
   }
