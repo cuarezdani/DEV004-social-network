@@ -612,6 +612,7 @@ body {
   margin-left: 25%;
   margin-top: 8%;
   border-radius: 5px;
+  width: 50%;
 }
 /* Agrega estilos para los botones en la ventana modal */
 .buttonPicture{
@@ -628,10 +629,6 @@ margin-left: -10%;
   height: 3em;
   border-radius: 5px;
 }
-.savePost{
-  width: 50%;
-}
-
 .buttonPicture:hover,
 .savePost:hover {
   opacity: 0.6;

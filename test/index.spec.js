@@ -9,6 +9,8 @@ import { onNavigate } from '../src/router/index.js';
 delete window.location;
 window.location = { href: null };
 
+jest.mock('../src/img/img.js');
+
 jest.mock('../src/router/index.js', () => ({
   onNavigate: jest.fn(() => Promise.resolve()),
 }));
