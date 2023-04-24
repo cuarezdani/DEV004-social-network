@@ -702,7 +702,6 @@ margin-left: -10%;
   font-size: small;
   margin-block-start: 2%;
   margin-top: 0%;
-
 }
 
 /*pagina PROFILE*/
@@ -738,21 +737,18 @@ margin-left: -10%;
   border-radius: 7px;
   margin-block-start: 53%;
 }
-
 .imgFavorite {
   position: absolute;
   left: 4%;
   top: 10%;
   height: 85%;
 }
-
 .favorite {
   font-weight: bold;
   font-size: 17px;
   color: black;
   cursor: pointer;
 }
-
 .buttonSave {
   background-color: rgb(235, 169, 115);
   position: absolute;
@@ -762,14 +758,12 @@ margin-left: -10%;
   border-radius: 7px;
   margin-block-start: 76%;
 }
-
 .imgSave {
   position: absolute;
   left: 4%;
   top: 10%;
   height: 80%;
 }
-
 .savedProfile {
   font-weight: bold;
   font-size: 17px;
@@ -777,7 +771,6 @@ margin-left: -10%;
   cursor: pointer;
   margin-left: 0%;
 }
-
 .buttonMap {
   background-color: rgb(235, 169, 115);
   position: absolute;
@@ -846,13 +839,13 @@ cel-tablet*/
 tablet*/
 @media only screen and (min-device-width: 740px) {
   .containerLogin {
-    padding: 20% 20% 0% 20%;
-    height: 100vh;
+    padding: 0% 20% 0% 20%;
+    height: 100%;
   }
 
   .containerRegister {
-    padding: 20% 20% 0% 20%;
-    height: 100vh;
+    padding: 0% 20% 0% 20%;
+    height: 100%;
   }
 
   #correoRegister {
